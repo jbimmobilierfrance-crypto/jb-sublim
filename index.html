@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JB Sublim — Optimisation Airbnb Montpellier</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET & ROOT ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black:   #0D0D0D;
+  --dark:    #141414;
+  --dark2:   #1A1A1A;
+  --dark3:   #222222;
+  --gold:    #C9A96E;
+  --gold2:   #E8C98A;
+  --gold3:   #A07840;
+  --cream:   #F0EAE0;
+  --warm:    #D4C9B8;
+  --muted:   #6B6258;
+  --white:   #FEFCF8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+.cursor {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(201,169,110,0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold3); }
+
+/* ── LOGO SVG ── */
+.logo-mark {
+  width: 36px; height: 36px;
+  flex-shrink: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 28px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+}
+
+nav.scrolled {
+  padding: 18px 60px;
+  background: rgba(13,13,13,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,169,110,0.1);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.nav-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: var(--cream);
+}
+
+.nav-wordmark span { color: var(--gold); font-style: italic; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--black) !important;
+  background: var(--gold);
+  padding: 10px 24px;
+  border-radius: 0;
+  transition: background 0.3s ease !important;
+}
+
+.nav-cta:hover { background: var(--gold2) !important; color: var(--black) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 60px 80px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,169,110,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,169,110,0.04) 0%, transparent 60%);
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+.hero-line-left {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 0;
+  background: linear-gradient(to bottom, transparent, var(--gold3), transparent);
+  animation: lineGrow 1.5s ease forwards 0.5s;
+}
+
+@keyframes lineGrow {
+  to { height: 200px; }
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold3);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.hero-title-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title-line:nth-child(1) { animation-delay: 0.5s; }
+.hero-title-line:nth-child(2) { animation-delay: 0.7s; font-style: italic; color: var(--gold); }
+.hero-title-line:nth-child(3) { animation-delay: 0.9s; }
+
+.hero-sub {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 480px;
+  margin: 0 auto 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1.2s;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1.4s;
+}
+
+.btn-primary {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 16px 40px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.btn-primary:hover::after { transform: translateX(0); }
+.btn-primary span { position: relative; z-index: 1; }
+
+.btn-secondary {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.btn-secondary:hover { color: var(--cream); }
+
+.btn-secondary::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.btn-secondary:hover::after { transform: translateX(4px); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 2s;
+}
+
+.hero-scroll-text {
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold3), transparent);
+  animation: scrollAnim 2s ease infinite;
+}
+
+@keyframes scrollAnim {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ── STATS ── */
+.stats {
+  padding: 80px 60px;
+  border-top: 1px solid rgba(201,169,110,0.1);
+  border-bottom: 1px solid rgba(201,169,110,0.1);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.stat-item {
+  padding: 40px;
+  text-align: center;
+  border-right: 1px solid rgba(201,169,110,0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.stat-item:last-child { border-right: none; }
+.stat-item.visible { opacity: 1; transform: translateY(0); }
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.stat-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── SECTION COMMON ── */
+section { padding: 120px 60px; }
+
+.section-eyebrow {
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.section-eyebrow.visible { opacity: 1; transform: translateY(0); }
+
+.section-eyebrow::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold3);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease 0.1s;
+}
+
+.section-title.visible { opacity: 1; transform: translateY(0); }
+.section-title em { font-style: italic; color: var(--gold); }
+
+.section-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 500px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease 0.2s;
+}
+
+.section-desc.visible { opacity: 1; transform: translateY(0); }
+
+/* ── SERVICES ── */
+.services { background: var(--dark); }
+
+.services-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(201,169,110,0.1);
+}
+
+.service-card {
+  background: var(--dark2);
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.service-card.visible { opacity: 1; transform: translateY(0); }
+.service-card:nth-child(2) { transition-delay: 0.1s; }
+.service-card:nth-child(3) { transition-delay: 0.2s; background: var(--dark3); }
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-card:nth-child(3)::after {
+  content: 'Recommandé';
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 7px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 5px 12px;
+}
+
+.service-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: rgba(201,169,110,0.08);
+  line-height: 1;
+  margin-bottom: 24px;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-num { color: rgba(201,169,110,0.15); }
+
+.service-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.service-tagline {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.service-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--gold);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.service-price sup {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+.service-divider {
+  width: 30px;
+  height: 1px;
+  background: var(--gold3);
+  margin-bottom: 24px;
+}
+
+.service-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.service-features li {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.5;
+}
+
+.service-features li::before {
+  content: '✦';
+  color: var(--gold3);
+  font-size: 8px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ── PROCESS — 7 PILIERS ── */
+.process { background: var(--black); }
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: rgba(201,169,110,0.08);
+  margin-top: 60px;
+}
+
+.pillar {
+  background: var(--black);
+  padding: 40px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  cursor: default;
+}
+
+.pillar.visible { opacity: 1; transform: translateY(0); }
+.pillar:nth-child(2) { transition-delay: 0.07s; }
+.pillar:nth-child(3) { transition-delay: 0.14s; }
+.pillar:nth-child(4) { transition-delay: 0.21s; }
+.pillar:nth-child(5) { transition-delay: 0.28s; }
+.pillar:nth-child(6) { transition-delay: 0.35s; }
+.pillar:nth-child(7) { transition-delay: 0.42s; }
+
+.pillar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(201,169,110,0.04);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pillar:hover::after { opacity: 1; }
+
+.pillar-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: rgba(201,169,110,0.2);
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.pillar-icon {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.pillar-name {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cream);
+  line-height: 1.5;
+}
+
+.pillar-detail {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pillar:hover .pillar-detail { opacity: 1; }
+
+/* ── BEFORE / AFTER ── */
+.ba-section {
+  background: var(--dark);
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.ba-inner { padding: 0 60px; }
+
+.ba-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+
+.ba-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: rgba(201,169,110,0.15);
+  position: relative;
+}
+
+.ba-side {
+  background: var(--dark2);
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ba-label {
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ba-label.before { color: var(--muted); }
+.ba-label.after { color: var(--gold); }
+
+.ba-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.3;
+}
+
+.ba-items { display: flex; flex-direction: column; gap: 20px; }
+
+.ba-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.ba-icon {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ba-icon.bad { background: rgba(180,60,60,0.15); color: #B43C3C; }
+.ba-icon.good { background: rgba(201,169,110,0.15); color: var(--gold); }
+
+.ba-item-text {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.ba-side.after-side .ba-item-text { color: var(--cream); }
+
+.ba-result {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  text-align: right;
+}
+
+.ba-result-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.ba-result-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: var(--black);
+  text-align: center;
+  padding: 160px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,169,110,0.05) 0%, transparent 70%);
+}
+
+.cta-section .section-eyebrow { justify-content: center; }
+.cta-section .section-eyebrow::before { display: none; }
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 300;
+  color: var(--white);
+  margin: 24px auto 20px;
+  max-width: 700px;
+  line-height: 1.1;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease 0.1s;
+}
+
+.cta-title.visible { opacity: 1; transform: translateY(0); }
+.cta-title em { font-style: italic; color: var(--gold); }
+
+.cta-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 56px;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease 0.2s;
+}
+
+.cta-sub.visible { opacity: 1; transform: translateY(0); }
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease 0.3s;
+}
+
+.cta-actions.visible { opacity: 1; transform: translateY(0); }
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 18px 48px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover { background: var(--gold2); }
+
+.btn-tel {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.btn-tel:hover { color: var(--gold); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  border-top: 1px solid rgba(201,169,110,0.1);
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.footer-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: var(--muted);
+}
+
+.footer-wordmark span { color: var(--gold); font-style: italic; }
+
+.footer-copy {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(107,98,88,0.5);
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-social a {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover { color: var(--gold); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 24px 60px; }
+  .stats { grid-template-columns: repeat(2, 1fr); padding: 40px 24px; }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(201,169,110,0.1); padding: 24px; }
+  section { padding: 80px 24px; }
+  .services-header { grid-template-columns: 1fr; gap: 32px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .ba-header { grid-template-columns: 1fr; gap: 32px; }
+  .ba-comparison { grid-template-columns: 1fr; }
+  .cta-section { padding: 100px 24px; }
+  footer { flex-direction: column; gap: 24px; text-align: center; padding: 32px 24px; }
+  .hero-actions { flex-direction: column; }
+  .pillar-detail { opacity: 1; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="18,2 34,18 18,34 2,18" fill="none" stroke="#C9A96E" stroke-width="1"/>
+      <polygon points="18,8 28,18 18,28 8,18" fill="#C9A96E" opacity="0.15"/>
+      <polygon points="18,12 24,18 18,24 12,18" fill="#C9A96E" opacity="0.5"/>
+      <circle cx="18" cy="18" r="2" fill="#C9A96E"/>
+    </svg>
+    <span class="nav-wordmark">JB <span>Sublim</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#methode">Méthode</a></li>
+    <li><a href="#transformation">Résultats</a></li>
+    <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-line-left"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Optimisation Airbnb · Montpellier</div>
+    <h1 class="hero-title">
+      <span class="hero-title-line">Votre annonce</span>
+      <span class="hero-title-line">mérite mieux</span>
+      <span class="hero-title-line">qu'être ignorée</span>
+    </h1>
+    <p class="hero-sub">
+      Nous transformons des annonces Airbnb ordinaires en machines à réservations.<br>
+      Photos pro · Optimisation annonce · Stratégie de prix.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary"><span>Optimiser mon annonce</span></a>
+      <a href="#services" class="btn-secondary">Voir nos offres</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span class="hero-scroll-text">Défiler</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item">
+    <div class="stat-number">3K+</div>
+    <div class="stat-label">Annonces actives<br>à Montpellier</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">+40%</div>
+    <div class="stat-label">Taux d'occupation<br>en moyenne</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">7</div>
+    <div class="stat-label">Piliers d'une annonce<br>parfaite</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">48h</div>
+    <div class="stat-label">Délai de livraison<br>moyen</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-eyebrow">Nos offres</div>
+      <h2 class="section-title">Choisissez votre<br><em>niveau de transformation</em></h2>
+    </div>
+    <p class="section-desc">
+      Trois formules conçues pour s'adapter à votre situation, que vous débutiez ou que vous souhaitiez une refonte complète de votre visibilité.
+    </p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">Audit Annonce</div>
+      <div class="service-tagline">Diagnostic complet</div>
+      <div class="service-price"><sup>€</sup>250</div>
+      <div class="service-divider"></div>
+      <ul class="service-features">
+        <li>Analyse des 7 piliers de votre annonce</li>
+        <li>Rapport écrit détaillé avec plan d'action</li>
+        <li>Recommandations photos & texte</li>
+        <li>Analyse de votre pricing actuel</li>
+        <li>100% à distance, livré en 48h</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">Mise en Lumière</div>
+      <div class="service-tagline">Refonte complète</div>
+      <div class="service-price"><sup>€</sup>590</div>
+      <div class="service-divider"></div>
+      <ul class="service-features">
+        <li>Nettoyage professionnel du bien</li>
+        <li>Home staging & life staging</li>
+        <li>Shooting photo grand angle (20+ photos)</li>
+        <li>Refonte titre, description & mots-clés</li>
+        <li>Optimisation de l'ordre des photos</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name">Pack Lancement</div>
+      <div class="service-tagline">Pour les nouveaux hôtes</div>
+      <div class="service-price"><sup>€</sup>990</div>
+      <div class="service-divider"></div>
+      <ul class="service-features">
+        <li>Tout le pack Mise en Lumière inclus</li>
+        <li>Étude de marché locale complète</li>
+        <li>Stratégie de pricing dynamique</li>
+        <li>Configuration PriceLabs ou équivalent</li>
+        <li>Accompagnement lancement 3 semaines</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 7 PILIERS -->
+<section class="process" id="methode">
+  <div class="section-eyebrow">Notre méthode</div>
+  <h2 class="section-title">Les 7 piliers<br><em>d'une annonce parfaite</em></h2>
+  <p class="section-desc">
+    Chaque annonce que nous optimisons passe par ces 7 points de contrôle. Aucun compromis.
+  </p>
+
+  <div class="process-grid">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <div class="pillar-icon">📍</div>
+      <div class="pillar-name">Emplacement</div>
+      <div class="pillar-detail">Tramway, centre, commodités — mis en avant dès le titre.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <div class="pillar-icon">🛋</div>
+      <div class="pillar-name">Capacité d'accueil</div>
+      <div class="pillar-detail">Canapé convertible, couchages déclarés — revenus maximisés.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <div class="pillar-icon">⚙️</div>
+      <div class="pillar-name">Équipements</div>
+      <div class="pillar-detail">WiFi, Netflix, sèche-cheveux — chaque option cochée booste l'algo.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">04</div>
+      <div class="pillar-icon">🪴</div>
+      <div class="pillar-name">Décoration</div>
+      <div class="pillar-detail">Minimalisme premium, palette neutre, zéro encombrement visible.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">05</div>
+      <div class="pillar-icon">📷</div>
+      <div class="pillar-name">Photos</div>
+      <div class="pillar-detail">Grand angle, life staging, 20+ photos, ordre stratégique.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">06</div>
+      <div class="pillar-icon">✍️</div>
+      <div class="pillar-name">Annonce</div>
+      <div class="pillar-detail">Titre, description, mots-clés — complétude = classement algo.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">07</div>
+      <div class="pillar-icon">💶</div>
+      <div class="pillar-name">Pricing</div>
+      <div class="pillar-detail">Tarification dynamique, analyse concurrence, ajustement continu.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba-section" id="transformation">
+  <div class="ba-inner">
+    <div class="ba-header">
+      <div>
+        <div class="section-eyebrow">Transformation</div>
+        <h2 class="section-title">Avant.<br><em>Après.</em></h2>
+      </div>
+      <p class="section-desc">
+        La différence entre une annonce qui stagne et une qui génère des réservations chaque semaine tient souvent à des détails que l'on ne voit plus soi-même.
+      </p>
+    </div>
+
+    <div class="ba-comparison">
+      <div class="ba-side">
+        <div class="ba-label before">Avant optimisation</div>
+        <div class="ba-items">
+          <div class="ba-item">
+            <div class="ba-icon bad">✕</div>
+            <div class="ba-item-text">Photos floues au smartphone, lumière artificielle jaune</div>
+          </div>
+          <div class="ba-item">
+            <div class="ba-icon bad">✕</div>
+            <div class="ba-item-text">Titre générique : "Appartement Montpellier centre"</div>
+          </div>
+          <div class="ba-item">
+            <div class="ba-icon bad">✕</div>
+            <div class="ba-item-text">Description de 3 lignes, équipements non renseignés</div>
+          </div>
+          <div class="ba-item">
+            <div class="ba-icon bad">✕</div>
+            <div class="ba-item-text">Prix fixe toute l'année, aucune analyse concurrence</div>
+          </div>
+          <div class="ba-item">
+            <div class="ba-icon bad">✕</div>
+            <div class="ba-item-text">Capacité sous-déclarée, canapé convertible ignoré</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-side after-side">
+        <div class="ba-label after">Après optimisation</div>
+        <div class="ba-items">
+          <div class="ba-item">
+            <div class="ba-icon good">✦</div>
+            <div class="ba-item-text">Shooting grand angle + life staging, 22 photos professionnelles</div>
+          </div>
+          <div class="ba-item">
+            <div class="ba-icon good">✦</div>
+            <div class="ba-item-text">Titre optimisé : quartier + tramway + équipement clé</div>
+          </div>
+          <div class="ba-item">
+            <div class="ba-icon good">✦</div>
+            <div class="ba-item-text">Description complète, tous les équipements renseignés</div>
+          </div>
+          <div class="ba-item">
+            <div class="ba-icon good">✦</div>
+            <div class="ba-item-text">Pricing dynamique — PriceLabs configuré et actif</div>
+          </div>
+          <div class="ba-item">
+            <div class="ba-icon good">✦</div>
+            <div class="ba-item-text">4 voyageurs déclarés au lieu de 2 — revenus augmentés</div>
+          </div>
+        </div>
+        <div class="ba-result">
+          <div class="ba-result-number">+47%</div>
+          <div class="ba-result-label">Taux d'occupation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg"></div>
+  <div class="section-eyebrow">Passez à l'action</div>
+  <h2 class="cta-title">Votre annonce perd des<br><em>réservations</em> chaque jour</h2>
+  <p class="cta-sub">Contactez-nous aujourd'hui. On analyse votre situation et on vous dit exactement ce qui cloche.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/33600000000" class="btn-whatsapp">
+      <span>Nous contacter sur WhatsApp</span>
+    </a>
+    <a href="mailto:contact@jbsublim.fr" class="btn-tel">contact@jbsublim.fr</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">
+    <svg width="24" height="24" viewBox="0 0 36 36" fill="none">
+      <polygon points="18,2 34,18 18,34 2,18" fill="none" stroke="#C9A96E" stroke-width="1"/>
+      <polygon points="18,8 28,18 18,28 8,18" fill="#C9A96E" opacity="0.15"/>
+      <circle cx="18" cy="18" r="2" fill="#C9A96E"/>
+    </svg>
+    <span class="footer-wordmark">JB <span>Sublim</span></span>
+  </a>
+  <span class="footer-copy">© 2025 JB Sublim — Montpellier</span>
+  <div class="footer-social">
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+  </div>
+</footer>
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+});
+
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  ring.style.left = ringX + 'px';
+  ring.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+    ring.style.transform = 'translate(-50%,-50%) scale(1.4)';
+    ring.style.borderColor = 'rgba(201,169,110,0.6)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+    ring.style.transform = 'translate(-50%,-50%) scale(1)';
+    ring.style.borderColor = 'rgba(201,169,110,0.4)';
+  });
+});
+
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// INTERSECTION OBSERVER
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(
+  '.section-eyebrow, .section-title, .section-desc, .stat-item, .service-card, .pillar, .cta-title, .cta-sub, .cta-actions'
+).forEach(el => observer.observe(el));
+
+// STAGGERED STAT ITEMS
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const items = entry.target.querySelectorAll('.stat-item');
+      items.forEach((item, i) => {
+        setTimeout(() => item.classList.add('visible'), i * 120);
+      });
+    }
+  });
+}, { threshold: 0.2 });
+
+const statsEl = document.querySelector('.stats');
+if (statsEl) statObserver.observe(statsEl);
+
+// SMOOTH LINKS
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// NUMBER COUNTER ANIMATION
+function animateCounter(el, target, suffix = '') {
+  let current = 0;
+  const increment = target / 60;
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.floor(current) + suffix;
+  }, 20);
+}
+</script>
+</body>
+</html>
