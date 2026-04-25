@@ -281,7 +281,22 @@ nav.scrolled {
   position: relative;
   overflow: hidden;
   padding: 140px 40px 100px;
-  background: var(--ivory);
+  background-color: var(--ivory);
+  background-image: url('images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center,
+    rgba(250, 247, 240, 0.82) 0%,
+    rgba(250, 247, 240, 0.92) 70%,
+    rgba(250, 247, 240, 0.96) 100%);
+  z-index: 1;
 }
 
 .hero-deco {
@@ -1794,6 +1809,261 @@ footer {
   50% { box-shadow: 0 12px 32px rgba(184, 146, 74, 0.25), 0 0 0 14px rgba(184, 146, 74, 0.04); }
 }
 
+.scroll-top {
+  position: fixed;
+  bottom: 100px;
+  right: 28px;
+  z-index: 89;
+  width: 44px;
+  height: 44px;
+  background: var(--ivory);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(74, 70, 62, 0.1);
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  background: var(--gold);
+  transform: translateY(-3px);
+}
+
+.scroll-top svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gold);
+  transition: color 0.3s ease;
+}
+
+.scroll-top:hover svg {
+  color: var(--ivory);
+}
+
+.manifesto {
+  background: var(--ivory);
+  border-top: 1px solid var(--line);
+}
+
+.manifesto-wrapper {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.manifesto-content {
+  margin-top: 56px;
+  text-align: left;
+}
+
+.manifesto-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--charcoal);
+  margin-bottom: 32px;
+  font-style: italic;
+}
+
+.manifesto-text strong {
+  font-weight: 500;
+  color: var(--gold-deep);
+  font-style: normal;
+}
+
+.manifesto-promise {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--ivory-warm) 100%);
+  border: 1px solid var(--gold-tint-strong);
+  padding: 36px 40px;
+  margin: 48px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  position: relative;
+}
+
+.manifesto-promise::before, .manifesto-promise::after {
+  content: '';
+  position: absolute;
+  width: 24px; height: 24px;
+  border: 1px solid var(--gold);
+}
+
+.manifesto-promise::before {
+  top: -1px; left: -1px;
+  border-right: none; border-bottom: none;
+}
+
+.manifesto-promise::after {
+  bottom: -1px; right: -1px;
+  border-left: none; border-top: none;
+}
+
+.promise-icon {
+  width: 56px; height: 56px;
+  flex-shrink: 0;
+}
+
+.promise-icon svg {
+  width: 100%; height: 100%;
+  stroke: var(--gold);
+}
+
+.promise-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--anthracite);
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.promise-text {
+  font-size: 14px;
+  color: var(--graphite);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.manifesto-signature {
+  text-align: right;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.signature-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--anthracite);
+  font-style: italic;
+}
+
+.signature-role {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.comparison {
+  background: var(--ivory-warm);
+  border-top: 1px solid var(--line);
+}
+
+.comparison-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.comparison-table {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  box-shadow: 0 30px 80px -30px rgba(74, 70, 62, 0.12);
+}
+
+.comp-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.3s ease;
+}
+
+.comp-row:last-child { border-bottom: none; }
+
+.comp-row:hover:not(.comp-header-row) {
+  background: var(--ivory-warm);
+}
+
+.comp-cell {
+  padding: 22px 24px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid var(--line);
+}
+
+.comp-cell:last-child { border-right: none; }
+
+.comp-header-row {
+  background: linear-gradient(135deg, var(--anthracite) 0%, var(--charcoal) 100%);
+}
+
+.comp-header-row .comp-cell {
+  padding: 24px;
+  border-right: 1px solid rgba(250, 247, 240, 0.1);
+}
+
+.comp-header-row .comp-label {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ivory);
+  font-weight: 600;
+}
+
+.comp-header-row .comp-us {
+  background: var(--gold);
+  position: relative;
+}
+
+.comp-header-row .comp-us .comp-label {
+  color: var(--anthracite);
+}
+
+.comp-header-row .comp-us::after {
+  content: '★';
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  color: var(--anthracite);
+  font-size: 12px;
+}
+
+.comp-criterion {
+  font-weight: 500;
+  color: var(--anthracite);
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+.comp-us {
+  background: var(--gold-tint);
+  font-weight: 500;
+}
+
+.comp-good {
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+.comp-bad {
+  color: var(--red-soft);
+  font-weight: 400;
+}
+
+.comp-neutral {
+  color: var(--slate);
+  font-weight: 400;
+}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -1857,6 +2127,12 @@ footer {
   .container { padding: 0 24px; }
   section { padding: 90px 0; }
   .hero { padding: 130px 24px 90px; }
+  .hero::after {
+    background: radial-gradient(ellipse at center,
+      rgba(250, 247, 240, 0.92) 0%,
+      rgba(250, 247, 240, 0.97) 70%,
+      rgba(250, 247, 240, 0.97) 100%);
+  }
   .hero-deco { display: none; }
   .hero-trust { gap: 24px; }
   .trust-item { min-width: 110px; }
@@ -1879,6 +2155,14 @@ footer {
   .result-block.highlight { text-align: left; }
   .float-wa { width: 54px; height: 54px; bottom: 22px; right: 22px; }
   .float-wa svg { width: 24px; height: 24px; }
+  .scroll-top { bottom: 88px; right: 22px; width: 40px; height: 40px; }
+  .manifesto-text { font-size: 18px; }
+  .manifesto-promise { flex-direction: column; gap: 18px; padding: 28px 24px; }
+  .promise-icon { width: 44px; height: 44px; }
+  .manifesto-signature { text-align: left; }
+  .comparison-table { overflow-x: auto; }
+  .comp-row { grid-template-columns: 1.4fr 1fr 1fr 1fr; min-width: 700px; }
+  .comp-cell { padding: 18px 16px; font-size: 12px; }
 }
 </style>
 </head>
@@ -1899,6 +2183,7 @@ footer {
     <li><a href="#leviers">Méthode</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#packs">Tarifs</a></li>
+    <li><a href="#comparison">Comparatif</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
   </ul>
@@ -2273,36 +2558,131 @@ footer {
   </div>
 </section>
 
-<section class="testimonials">
+<section class="manifesto" id="manifesto">
   <div class="container">
-    <div class="testimonials-header fade-in">
-      <div class="eyebrow center">Ils nous font confiance</div>
-      <h2 class="section-title">Des résultats<br><em>qui parlent</em></h2>
+    <div class="manifesto-wrapper fade-in">
+      <div class="eyebrow center">Notre engagement</div>
+      <h2 class="section-title" style="text-align: center;">
+        Pourquoi <em>JB Sublim</em><br>existe
+      </h2>
+
+      <div class="manifesto-content">
+        <p class="manifesto-text">
+          J'ai créé JB Sublim après un constat simple : à Montpellier,
+          des centaines de propriétaires Airbnb perdent <strong>1 200 à
+          1 800 € chaque mois</strong>, sans savoir pourquoi. Ils pensent
+          que leur annonce "marche". En réalité, ils sont enterrés sous
+          la concurrence, avec des photos qui ne convertissent pas et
+          un prix qui dort.
+        </p>
+
+        <p class="manifesto-text">
+          Notre mission est claire : <strong>transformer votre annonce
+          en machine à réservations</strong>, une fois pour toutes. Pas
+          de commission à vie, pas d'engagement long. Une prestation
+          unique, livrée en 5 jours, qui vous fait gagner des milliers
+          d'euros chaque année.
+        </p>
+
+        <div class="manifesto-promise">
+          <div class="promise-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke-width="1.5">
+              <circle cx="32" cy="32" r="28"/>
+              <path d="M20 32l8 8 16-16"/>
+            </svg>
+          </div>
+          <div class="promise-content">
+            <h3 class="promise-title">Notre garantie</h3>
+            <p class="promise-text">
+              Si vous ne récupérez pas le coût de notre prestation en 60 jours
+              grâce à vos revenus supplémentaires, nous vous accompagnons
+              gratuitement jusqu'à ce que ce soit le cas.
+            </p>
+          </div>
+        </div>
+
+        <div class="manifesto-signature">
+          <div class="signature-name">Jamil</div>
+          <div class="signature-role">Fondateur — JB Sublim</div>
+        </div>
+      </div>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial fade-in">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Mon appartement à Antigone tournait à 50% d'occupation depuis 8 mois. Après leur refonte, je suis passé à 85% en moins de 6 semaines. Le ROI a été immédiat."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">MR</div>
-          <div><div class="testimonial-name">Marc R.</div><div class="testimonial-detail">T2 Antigone · Pack Premium</div></div>
+  </div>
+</section>
+
+<section class="comparison" id="comparison">
+  <div class="container">
+    <div class="comparison-header fade-in">
+      <div class="eyebrow center">Pourquoi nous choisir</div>
+      <h2 class="section-title">JB Sublim<br>vs <em>les autres options</em></h2>
+      <p class="section-desc" style="margin: 0 auto;">
+        Comprenez en un coup d'œil pourquoi notre approche one-shot
+        est plus rentable qu'une conciergerie classique ou que tout
+        gérer seul.
+      </p>
+    </div>
+
+    <div class="comparison-table fade-in">
+      <div class="comp-row comp-header-row">
+        <div class="comp-cell"></div>
+        <div class="comp-cell comp-us">
+          <div class="comp-label">JB Sublim</div>
+        </div>
+        <div class="comp-cell">
+          <div class="comp-label">Conciergerie classique</div>
+        </div>
+        <div class="comp-cell">
+          <div class="comp-label">Gérer seul</div>
         </div>
       </div>
-      <div class="testimonial fade-in">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Je me lançais sur Airbnb sans aucune idée. Le pack Lancement m'a tout expliqué et mon premier mois a déjà couvert le coût de leur prestation."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">SC</div>
-          <div><div class="testimonial-name">Sophie C.</div><div class="testimonial-detail">Studio Comédie · Pack Lancement</div></div>
-        </div>
+
+      <div class="comp-row">
+        <div class="comp-cell comp-criterion">Coût</div>
+        <div class="comp-cell comp-us"><span class="comp-good">590 - 990€ unique</span></div>
+        <div class="comp-cell"><span class="comp-bad">15 à 25% à vie</span></div>
+        <div class="comp-cell"><span class="comp-neutral">Gratuit (mais temps)</span></div>
       </div>
-      <div class="testimonial fade-in">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Ce qui m'a convaincu c'est la transparence. Pas de blabla, des chiffres concrets, des photos avant/après bluffantes. Mon T3 génère 1 800€ de plus par mois."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">KD</div>
-          <div><div class="testimonial-name">Karim D.</div><div class="testimonial-detail">T3 Beaux-Arts · Pack Premium</div></div>
-        </div>
+
+      <div class="comp-row">
+        <div class="comp-cell comp-criterion">Vous gardez vos revenus</div>
+        <div class="comp-cell comp-us"><span class="comp-good">100%</span></div>
+        <div class="comp-cell"><span class="comp-bad">75 à 85%</span></div>
+        <div class="comp-cell"><span class="comp-good">100%</span></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-cell comp-criterion">Photos professionnelles</div>
+        <div class="comp-cell comp-us"><span class="comp-good">✦ Inclus</span></div>
+        <div class="comp-cell"><span class="comp-neutral">Parfois</span></div>
+        <div class="comp-cell"><span class="comp-bad">À vos frais</span></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-cell comp-criterion">Pricing dynamique</div>
+        <div class="comp-cell comp-us"><span class="comp-good">✦ Configuré</span></div>
+        <div class="comp-cell"><span class="comp-good">✦ Inclus</span></div>
+        <div class="comp-cell"><span class="comp-bad">À apprendre seul</span></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-cell comp-criterion">Engagement</div>
+        <div class="comp-cell comp-us"><span class="comp-good">Aucun</span></div>
+        <div class="comp-cell"><span class="comp-bad">Contrat 12 mois</span></div>
+        <div class="comp-cell"><span class="comp-good">Aucun</span></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-cell comp-criterion">Indépendance</div>
+        <div class="comp-cell comp-us"><span class="comp-good">Totale</span></div>
+        <div class="comp-cell"><span class="comp-bad">Dépendance</span></div>
+        <div class="comp-cell"><span class="comp-good">Totale</span></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-cell comp-criterion">Délai de mise en place</div>
+        <div class="comp-cell comp-us"><span class="comp-good">5 jours</span></div>
+        <div class="comp-cell"><span class="comp-neutral">2 à 4 semaines</span></div>
+        <div class="comp-cell"><span class="comp-bad">Plusieurs mois</span></div>
       </div>
     </div>
   </div>
@@ -2336,6 +2716,45 @@ footer {
         <div class="faq-item">
           <div class="faq-question"><span>Quel délai pour démarrer ?</span><div class="faq-toggle"></div></div>
           <div class="faq-answer">Nous démarrons sous 5 à 7 jours après votre commande. La prestation complète prend ensuite 4 à 5 jours selon la disponibilité du bien. En urgence, nous pouvons accélérer le processus.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Et si je suis déjà SuperHost ?</span>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-answer">
+            Encore mieux : votre statut SuperHost combiné à notre optimisation
+            technique vous fera gagner les places les plus rentables des
+            recherches Airbnb. Nous adaptons notre méthode aux annonces déjà
+            performantes pour franchir le palier suivant — typiquement
+            +30 à 50% de revenus supplémentaires.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Comment je sais que ça va vraiment marcher chez moi ?</span>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-answer">
+            Nous travaillons exclusivement sur Montpellier et sa périphérie :
+            nous connaissons précisément les prix moyens, les saisons, les
+            événements qui font monter les nuitées. Avant chaque prestation,
+            nous réalisons un audit complet de votre annonce et nous vous
+            présentons une estimation de revenus chiffrée. Si nous estimons
+            que le potentiel est trop limité, nous vous le disons franchement.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Puis-je payer en plusieurs fois ?</span>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-answer">
+            Oui. Pour tous nos packs, nous proposons un paiement en 2 fois
+            sans frais (50% au démarrage, 50% à la livraison). Pour le Pack
+            Lancement, un paiement en 3 fois est possible sur demande. Tous
+            les paiements se font par virement bancaire ou CB.
+          </div>
         </div>
       </div>
     </div>
@@ -2507,6 +2926,21 @@ function updateResult() {
   empty.style.display = 'none';
   active.classList.add('visible');
 }
+
+// SCROLL TO TOP BUTTON
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
+});
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
+
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
 </body>
 </html>
