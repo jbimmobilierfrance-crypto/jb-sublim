@@ -3,912 +3,349 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JB Sublim — Optimisation Airbnb Montpellier</title>
+<title>JB Sublim — Optimisation Airbnb à Montpellier | +40% de revenus</title>
+<meta name="description" content="Votre Airbnb à Montpellier perd en moyenne 1 800€/mois. Photos pro, refonte d'annonce, pricing dynamique. Calculez vos revenus potentiels en 30 secondes.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
-
-/* ── RESET & ROOT ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --black:   #0D0D0D;
-  --dark:    #141414;
-  --dark2:   #1A1A1A;
-  --dark3:   #222222;
-  --gold:    #C9A96E;
-  --gold2:   #E8C98A;
-  --gold3:   #A07840;
-  --cream:   #F0EAE0;
-  --warm:    #D4C9B8;
-  --muted:   #6B6258;
-  --white:   #FEFCF8;
+  --black: #0A0A0A; --dark: #121212; --dark2: #1A1A1A; --dark3: #222222;
+  --gold: #C9A96E; --gold2: #E8C98A; --gold3: #A07840;
+  --cream: #F0EAE0; --warm: #D4C9B8; --muted: #7A7268; --muted2: #9A9088;
+  --white: #FEFCF8; --red: #C84A4A; --green: #6BA56B;
 }
 
 html { scroll-behavior: smooth; }
-
-body {
-  background: var(--black);
-  color: var(--cream);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  overflow-x: hidden;
-  cursor: none;
-}
-
-/* ── CUSTOM CURSOR ── */
-.cursor {
-  position: fixed;
-  width: 8px; height: 8px;
-  background: var(--gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease;
-}
-
-.cursor-ring {
-  position: fixed;
-  width: 36px; height: 36px;
-  border: 1px solid rgba(201,169,110,0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: all 0.15s ease;
-}
-
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar { width: 2px; }
+body { background: var(--black); color: var(--cream); font-family: 'Montserrat', sans-serif; font-weight: 300; overflow-x: hidden; line-height: 1.6; }
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--gold3); }
 
-/* ── LOGO SVG ── */
-.logo-mark {
-  width: 36px; height: 36px;
-  flex-shrink: 0;
-}
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
 
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 28px 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: all 0.4s ease;
-}
+.eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); font-weight: 500; display: inline-flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold3); }
+.eyebrow.center { display: flex; justify-content: center; }
+.eyebrow.center::after { content: ''; width: 32px; height: 1px; background: var(--gold3); }
 
-nav.scrolled {
-  padding: 18px 60px;
-  background: rgba(13,13,13,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(201,169,110,0.1);
-}
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 300; line-height: 1.05; color: var(--white); letter-spacing: -0.5px; margin-bottom: 24px; }
+.section-title em { font-style: italic; color: var(--gold); }
+.section-desc { font-size: 15px; color: var(--muted2); line-height: 1.8; max-width: 560px; font-weight: 300; }
 
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  text-decoration: none;
-}
-
-.nav-wordmark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 3px;
-  color: var(--cream);
-}
-
-.nav-wordmark span { color: var(--gold); font-style: italic; }
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover { color: var(--gold); }
-
-.nav-cta {
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--black) !important;
-  background: var(--gold);
-  padding: 10px 24px;
-  border-radius: 0;
-  transition: background 0.3s ease !important;
-}
-
-.nav-cta:hover { background: var(--gold2) !important; color: var(--black) !important; }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: 120px 60px 80px;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,169,110,0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,169,110,0.04) 0%, transparent 60%);
-}
-
-.hero-grain {
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-size: 200px;
-}
-
-.hero-line-left {
-  position: absolute;
-  left: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 0;
-  background: linear-gradient(to bottom, transparent, var(--gold3), transparent);
-  animation: lineGrow 1.5s ease forwards 0.5s;
-}
-
-@keyframes lineGrow {
-  to { height: 200px; }
-}
-
-.hero-content {
-  text-align: center;
-  max-width: 900px;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-eyebrow {
-  font-size: 10px;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 32px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-
-.hero-eyebrow::before, .hero-eyebrow::after {
-  content: '';
-  width: 40px;
-  height: 1px;
-  background: var(--gold3);
-}
-
-.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 7vw, 96px);
-  font-weight: 300;
-  line-height: 1.05;
-  color: var(--white);
-  margin-bottom: 32px;
-  overflow: hidden;
-}
-
-.hero-title-line {
-  display: block;
-  opacity: 0;
-  transform: translateY(60px);
-  animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.hero-title-line:nth-child(1) { animation-delay: 0.5s; }
-.hero-title-line:nth-child(2) { animation-delay: 0.7s; font-style: italic; color: var(--gold); }
-.hero-title-line:nth-child(3) { animation-delay: 0.9s; }
-
-.hero-sub {
-  font-size: 13px;
-  letter-spacing: 1px;
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 480px;
-  margin: 0 auto 48px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 1.2s;
-}
-
-.hero-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 1.4s;
-}
-
-.btn-primary {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--black);
-  background: var(--gold);
-  padding: 16px 40px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--gold2);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-}
-
+.btn-primary { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; color: var(--black); background: var(--gold); padding: 18px 44px; text-decoration: none; transition: all 0.3s ease; position: relative; overflow: hidden; border: none; cursor: pointer; }
+.btn-primary::after { content: ''; position: absolute; inset: 0; background: var(--gold2); transform: translateX(-101%); transition: transform 0.4s ease; }
 .btn-primary:hover::after { transform: translateX(0); }
 .btn-primary span { position: relative; z-index: 1; }
 
-.btn-secondary {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: color 0.3s ease;
-}
+.btn-secondary { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--cream); text-decoration: none; transition: color 0.3s ease; font-weight: 400; cursor: pointer; background: none; border: none; }
+.btn-secondary::after { content: '→'; font-size: 14px; transition: transform 0.3s ease; }
+.btn-secondary:hover { color: var(--gold); }
+.btn-secondary:hover::after { transform: translateX(6px); }
 
-.btn-secondary:hover { color: var(--cream); }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; }
+nav.scrolled { padding: 16px 40px; background: rgba(10,10,10,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(201,169,110,0.1); }
 
-.btn-secondary::after {
-  content: '→';
-  transition: transform 0.3s ease;
-}
+.nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.logo-mark { width: 32px; height: 32px; flex-shrink: 0; }
+.nav-wordmark { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; letter-spacing: 4px; color: var(--cream); }
+.nav-wordmark span { color: var(--gold); font-style: italic; letter-spacing: 2px; }
 
-.btn-secondary:hover::after { transform: translateX(4px); }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted2); text-decoration: none; transition: color 0.3s ease; font-weight: 400; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta { font-size: 10px !important; letter-spacing: 2px !important; color: var(--black) !important; background: var(--gold); padding: 11px 22px; transition: background 0.3s ease !important; font-weight: 500 !important; }
+.nav-cta:hover { background: var(--gold2) !important; }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 2s;
-}
+.menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+.menu-toggle span { display: block; width: 24px; height: 1.5px; background: var(--cream); transition: all 0.3s ease; }
+.menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.hero-scroll-text {
-  font-size: 8px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 140px 40px 100px; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 75% 50%, rgba(201,169,110,0.08) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 15% 80%, rgba(201,169,110,0.05) 0%, transparent 60%); }
+.hero-grain { position: absolute; inset: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size: 200px; }
+.hero-content { text-align: center; max-width: 920px; position: relative; z-index: 2; }
 
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--gold3), transparent);
-  animation: scrollAnim 2s ease infinite;
-}
+.hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; background: rgba(201,169,110,0.08); border: 1px solid rgba(201,169,110,0.2); border-radius: 100px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; }
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
 
-@keyframes scrollAnim {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  51% { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 7vw, 88px); font-weight: 300; line-height: 1.04; color: var(--white); margin-bottom: 32px; letter-spacing: -1px; }
+.hero-line { display: block; opacity: 0; transform: translateY(40px); animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.hero-line:nth-child(1) { animation-delay: 0.4s; }
+.hero-line:nth-child(2) { animation-delay: 0.55s; }
+.hero-line:nth-child(3) { animation-delay: 0.7s; }
+.hero-amount { color: var(--gold); font-style: italic; }
 
-/* ── STATS ── */
-.stats {
-  padding: 80px 60px;
-  border-top: 1px solid rgba(201,169,110,0.1);
-  border-bottom: 1px solid rgba(201,169,110,0.1);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-}
+.hero-sub { font-size: 15px; color: var(--muted2); line-height: 1.8; max-width: 600px; margin: 0 auto 48px; opacity: 0; animation: fadeUp 0.7s ease forwards 1s; }
+.hero-actions { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease forwards 1.2s; }
+.hero-trust { margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(201,169,110,0.1); display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease forwards 1.5s; }
+.trust-item { text-align: center; }
+.trust-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+.trust-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
 
-.stat-item {
-  padding: 40px;
-  text-align: center;
-  border-right: 1px solid rgba(201,169,110,0.1);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-}
+.calculator { background: var(--dark); border-top: 1px solid rgba(201,169,110,0.08); position: relative; overflow: hidden; }
+.calculator-header { text-align: center; margin-bottom: 60px; }
+.calculator-header .section-desc { margin: 0 auto; }
 
-.stat-item:last-child { border-right: none; }
-.stat-item.visible { opacity: 1; transform: translateY(0); }
+.calc-wrapper { max-width: 1100px; margin: 0 auto; background: linear-gradient(180deg, var(--dark2) 0%, var(--dark) 100%); border: 1px solid rgba(201,169,110,0.15); position: relative; }
+.calc-wrapper::before, .calc-wrapper::after { content: ''; position: absolute; width: 60px; height: 60px; border: 1px solid var(--gold); opacity: 0.4; }
+.calc-wrapper::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.calc-wrapper::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
 
-.stat-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 60px;
-  font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 12px;
-}
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; }
+.calc-form { padding: 56px 48px; border-right: 1px solid rgba(201,169,110,0.1); counter-reset: step; }
+.calc-step { margin-bottom: 28px; }
+.calc-step-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; gap: 12px; }
+.calc-step-label::before { content: counter(step); counter-increment: step; width: 22px; height: 22px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--gold); font-style: italic; }
 
-.stat-label {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
+.calc-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.calc-options.full { grid-template-columns: 1fr; }
+.calc-options.two { grid-template-columns: 1fr 1fr; }
 
-/* ── SECTION COMMON ── */
-section { padding: 120px 60px; }
+.calc-option { background: var(--black); border: 1px solid rgba(201,169,110,0.15); padding: 14px 12px; font-size: 12px; color: var(--cream); text-align: center; cursor: pointer; transition: all 0.25s ease; font-family: inherit; font-weight: 300; letter-spacing: 0.5px; }
+.calc-option:hover { border-color: var(--gold); background: rgba(201,169,110,0.05); }
+.calc-option.active { border-color: var(--gold); background: rgba(201,169,110,0.12); color: var(--white); font-weight: 400; }
 
-.section-eyebrow {
-  font-size: 9px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-}
+.calc-result { padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,169,110,0.04) 0%, transparent 70%); position: relative; }
+.result-empty { text-align: center; color: var(--muted); }
+.result-empty-icon { font-size: 48px; color: var(--gold); opacity: 0.3; margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.result-empty-text { font-size: 14px; line-height: 1.7; max-width: 280px; margin: 0 auto; }
+.result-active { display: none; }
+.result-active.visible { display: block; animation: fadeUp 0.5s ease; }
 
-.section-eyebrow.visible { opacity: 1; transform: translateY(0); }
+.result-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.result-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(201,169,110,0.1); }
+.result-block { text-align: left; }
+.result-block.highlight { text-align: right; }
+.result-amount { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; line-height: 1; margin-bottom: 4px; }
+.result-block.current .result-amount { color: var(--muted2); }
+.result-block.highlight .result-amount { color: var(--gold); font-style: italic; }
+.result-desc { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
 
-.section-eyebrow::before {
-  content: '';
-  width: 30px;
-  height: 1px;
-  background: var(--gold3);
-}
+.result-gain { background: linear-gradient(135deg, rgba(201,169,110,0.12) 0%, rgba(201,169,110,0.04) 100%); border: 1px solid rgba(201,169,110,0.25); padding: 24px 28px; margin-bottom: 28px; text-align: center; }
+.result-gain-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.result-gain-amount { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--white); line-height: 1; font-style: italic; }
+.result-gain-period { font-size: 12px; color: var(--muted2); margin-top: 6px; }
+.result-gain-yearly { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(201,169,110,0.15); font-size: 13px; color: var(--cream); }
+.result-gain-yearly span { color: var(--gold); font-weight: 500; }
 
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 300;
-  line-height: 1.1;
-  color: var(--white);
-  margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.7s ease 0.1s;
-}
+.result-cta { display: block; text-align: center; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; padding: 16px; background: var(--gold); color: var(--black); text-decoration: none; transition: background 0.3s ease; }
+.result-cta:hover { background: var(--gold2); }
+.result-disclaimer { font-size: 10px; color: var(--muted); text-align: center; margin-top: 16px; line-height: 1.5; }
 
-.section-title.visible { opacity: 1; transform: translateY(0); }
-.section-title em { font-style: italic; color: var(--gold); }
+section { padding: 120px 0; position: relative; }
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
 
-.section-desc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 500px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease 0.2s;
-}
+.problem { background: var(--black); border-top: 1px solid rgba(201,169,110,0.08); }
+.problem-header { text-align: center; margin-bottom: 80px; }
+.problem-header .section-desc { margin: 0 auto; }
+.problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.problem-card { background: var(--dark); border: 1px solid rgba(201,169,110,0.08); padding: 48px 36px; position: relative; transition: all 0.4s ease; }
+.problem-card:hover { border-color: rgba(201,169,110,0.25); background: var(--dark2); transform: translateY(-4px); }
+.problem-icon-wrap { width: 56px; height: 56px; border: 1px solid var(--gold3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; position: relative; }
+.problem-icon-wrap svg { width: 22px; height: 22px; stroke: var(--gold); }
+.problem-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--white); margin-bottom: 14px; line-height: 1.3; }
+.problem-text { font-size: 14px; color: var(--muted2); line-height: 1.7; }
+.problem-stat { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(201,169,110,0.1); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 500; }
 
-.section-desc.visible { opacity: 1; transform: translateY(0); }
+.leviers { background: var(--dark); border-top: 1px solid rgba(201,169,110,0.08); position: relative; overflow: hidden; }
+.leviers-header { text-align: center; margin-bottom: 80px; }
+.leviers-header .section-desc { margin: 0 auto; }
+.leviers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,169,110,0.15); border: 1px solid rgba(201,169,110,0.15); }
+.levier { background: var(--dark); padding: 56px 40px; position: relative; transition: all 0.4s ease; cursor: default; }
+.levier:hover { background: var(--dark2); }
+.levier-num { font-family: 'Cormorant Garamond', serif; font-size: 80px; font-weight: 300; color: rgba(201,169,110,0.15); line-height: 1; font-style: italic; position: absolute; top: 32px; right: 32px; transition: color 0.4s ease; }
+.levier:hover .levier-num { color: rgba(201,169,110,0.3); }
+.levier-icon { width: 64px; height: 64px; margin-bottom: 32px; position: relative; }
+.levier-icon svg { width: 100%; height: 100%; stroke: var(--gold); }
+.levier-name { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
+.levier-tagline { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; font-weight: 500; }
+.levier-desc { font-size: 14px; color: var(--muted2); line-height: 1.8; margin-bottom: 28px; }
+.levier-features { list-style: none; display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 1px solid rgba(201,169,110,0.1); }
+.levier-features li { font-size: 12px; color: var(--cream); display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
+.levier-features li::before { content: '✦'; color: var(--gold); font-size: 9px; flex-shrink: 0; margin-top: 4px; }
 
-/* ── SERVICES ── */
-.services { background: var(--dark); }
-
-.services-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: end;
-  margin-bottom: 80px;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(201,169,110,0.1);
-}
-
-.service-card {
-  background: var(--dark2);
-  padding: 48px 40px;
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-
-.service-card.visible { opacity: 1; transform: translateY(0); }
-.service-card:nth-child(2) { transition-delay: 0.1s; }
-.service-card:nth-child(3) { transition-delay: 0.2s; background: var(--dark3); }
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
-
-.service-card:hover::before { transform: scaleX(1); }
-
-.service-card:nth-child(3)::after {
-  content: 'Recommandé';
-  position: absolute;
-  top: 20px; right: 20px;
-  font-size: 7px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--black);
-  background: var(--gold);
-  padding: 5px 12px;
-}
-
-.service-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 64px;
-  font-weight: 300;
-  color: rgba(201,169,110,0.08);
-  line-height: 1;
-  margin-bottom: 24px;
-  transition: color 0.3s ease;
-}
-
-.service-card:hover .service-num { color: rgba(201,169,110,0.15); }
-
-.service-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
-  font-weight: 400;
-  color: var(--white);
-  margin-bottom: 8px;
-}
-
-.service-tagline {
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 24px;
-}
-
-.service-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
-  font-weight: 300;
-  color: var(--gold);
-  margin-bottom: 32px;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.service-price sup {
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-}
-
-.service-divider {
-  width: 30px;
-  height: 1px;
-  background: var(--gold3);
-  margin-bottom: 24px;
-}
-
-.service-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.service-features li {
-  font-size: 12px;
-  color: var(--muted);
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  line-height: 1.5;
-}
-
-.service-features li::before {
-  content: '✦';
-  color: var(--gold3);
-  font-size: 8px;
-  flex-shrink: 0;
-  margin-top: 3px;
-}
-
-/* ── PROCESS — 7 PILIERS ── */
-.process { background: var(--black); }
-
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1px;
-  background: rgba(201,169,110,0.08);
-  margin-top: 60px;
-}
-
-.pillar {
-  background: var(--black);
-  padding: 40px 24px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
-  cursor: default;
-}
-
-.pillar.visible { opacity: 1; transform: translateY(0); }
-.pillar:nth-child(2) { transition-delay: 0.07s; }
-.pillar:nth-child(3) { transition-delay: 0.14s; }
-.pillar:nth-child(4) { transition-delay: 0.21s; }
-.pillar:nth-child(5) { transition-delay: 0.28s; }
-.pillar:nth-child(6) { transition-delay: 0.35s; }
-.pillar:nth-child(7) { transition-delay: 0.42s; }
-
-.pillar::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(201,169,110,0.04);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.pillar:hover::after { opacity: 1; }
-
-.pillar-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 40px;
-  font-weight: 300;
-  color: rgba(201,169,110,0.2);
-  margin-bottom: 16px;
-  line-height: 1;
-}
-
-.pillar-icon {
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-
-.pillar-name {
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--cream);
-  line-height: 1.5;
-}
-
-.pillar-detail {
-  font-size: 10px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-top: 12px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.pillar:hover .pillar-detail { opacity: 1; }
-
-/* ── BEFORE / AFTER ── */
-.ba-section {
-  background: var(--dark);
-  padding: 120px 0;
-  overflow: hidden;
-}
-
-.ba-inner { padding: 0 60px; }
-
-.ba-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: end;
-  margin-bottom: 80px;
-}
-
-.ba-comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: rgba(201,169,110,0.15);
-  position: relative;
-}
-
-.ba-side {
-  background: var(--dark2);
-  padding: 60px;
-  position: relative;
-  overflow: hidden;
-}
-
-.ba-label {
-  font-size: 9px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
+.transform { background: var(--black); border-top: 1px solid rgba(201,169,110,0.08); overflow: hidden; }
+.transform-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 80px; }
+.ba-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--gold); position: relative; border: 1px solid rgba(201,169,110,0.2); }
+.ba-side { background: var(--dark2); padding: 56px 48px; position: relative; min-height: 480px; }
+.ba-side.after-side { background: linear-gradient(180deg, var(--dark2) 0%, var(--dark) 100%); }
+.ba-label { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 36px; display: flex; align-items: center; gap: 12px; font-weight: 500; }
 .ba-label.before { color: var(--muted); }
 .ba-label.after { color: var(--gold); }
-
-.ba-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.3;
-}
-
-.ba-items { display: flex; flex-direction: column; gap: 20px; }
-
-.ba-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.ba-icon {
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.ba-icon.bad { background: rgba(180,60,60,0.15); color: #B43C3C; }
+.ba-label::after { content: ''; flex: 1; height: 1px; background: currentColor; opacity: 0.3; }
+.ba-items { display: flex; flex-direction: column; gap: 18px; }
+.ba-item { display: flex; align-items: flex-start; gap: 16px; }
+.ba-icon { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 1px; font-weight: 600; }
+.ba-icon.bad { background: rgba(200,74,74,0.15); color: var(--red); }
 .ba-icon.good { background: rgba(201,169,110,0.15); color: var(--gold); }
-
-.ba-item-text {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
+.ba-item-text { font-size: 13px; color: var(--muted2); line-height: 1.6; }
 .ba-side.after-side .ba-item-text { color: var(--cream); }
+.ba-result { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(201,169,110,0.15); }
+.ba-result-number { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: var(--gold); line-height: 1; font-style: italic; }
+.ba-result-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted2); margin-top: 8px; }
 
-.ba-result {
-  position: absolute;
-  bottom: 40px;
-  right: 40px;
-  text-align: right;
-}
+.packs { background: var(--dark); border-top: 1px solid rgba(201,169,110,0.08); }
+.packs-header { text-align: center; margin-bottom: 80px; }
+.packs-header .section-desc { margin: 0 auto; }
+.packs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+.pack { background: var(--black); border: 1px solid rgba(201,169,110,0.1); padding: 48px 36px; position: relative; transition: all 0.4s ease; display: flex; flex-direction: column; }
+.pack:hover { border-color: rgba(201,169,110,0.3); transform: translateY(-6px); }
+.pack.featured { background: linear-gradient(180deg, var(--dark2) 0%, var(--black) 100%); border-color: var(--gold3); transform: scale(1.03); }
+.pack.featured:hover { transform: scale(1.03) translateY(-6px); }
+.pack-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--black); padding: 6px 18px; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
+.pack-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--white); margin-bottom: 6px; }
+.pack-tagline { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; }
+.pack-price { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 4px; display: flex; align-items: baseline; gap: 6px; }
+.pack-price-currency { font-size: 22px; font-weight: 300; }
+.pack-price-suffix { font-size: 12px; color: var(--muted); letter-spacing: 1px; margin-bottom: 28px; }
+.pack-divider { width: 32px; height: 1px; background: var(--gold3); margin-bottom: 28px; }
+.pack-features { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; flex: 1; }
+.pack-features li { font-size: 13px; color: var(--cream); display: flex; align-items: flex-start; gap: 12px; line-height: 1.6; font-weight: 300; }
+.pack-features li::before { content: '✦'; color: var(--gold); font-size: 10px; flex-shrink: 0; margin-top: 4px; }
+.pack-cta { display: block; text-align: center; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; padding: 16px; text-decoration: none; transition: all 0.3s ease; }
+.pack-cta-outline { border: 1px solid var(--gold3); color: var(--cream); }
+.pack-cta-outline:hover { background: rgba(201,169,110,0.1); border-color: var(--gold); }
+.pack-cta-filled { background: var(--gold); color: var(--black); border: 1px solid var(--gold); }
+.pack-cta-filled:hover { background: var(--gold2); border-color: var(--gold2); }
 
-.ba-result-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 56px;
-  font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
-}
+.about { background: var(--black); border-top: 1px solid rgba(201,169,110,0.08); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-visual { background: linear-gradient(135deg, var(--dark2) 0%, var(--dark) 100%); padding: 64px 48px; border: 1px solid rgba(201,169,110,0.15); position: relative; text-align: center; }
+.about-mark { font-family: 'Cormorant Garamond', serif; font-size: 100px; color: var(--gold); position: absolute; top: 20px; left: 32px; opacity: 0.15; font-style: italic; line-height: 1; }
+.about-initials { width: 120px; height: 120px; margin: 0 auto 32px; display: flex; align-items: center; justify-content: center; position: relative; }
+.about-initials svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.about-initials-text { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 400; color: var(--gold); font-style: italic; position: relative; z-index: 1; }
+.about-quote { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; font-style: italic; color: var(--white); line-height: 1.5; margin-bottom: 32px; position: relative; }
+.about-quote-author { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.about-quote-role { font-size: 11px; color: var(--muted); margin-top: 4px; font-weight: 300; letter-spacing: 1px; }
+.about-text { font-size: 15px; color: var(--muted2); line-height: 1.9; margin-bottom: 24px; }
+.about-text strong { color: var(--cream); font-weight: 400; }
+.about-credentials { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(201,169,110,0.1); }
+.credential { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--cream); }
+.credential-icon { color: var(--gold); font-size: 14px; }
 
-.ba-result-label {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
+.testimonials { background: var(--dark); border-top: 1px solid rgba(201,169,110,0.08); }
+.testimonials-header { text-align: center; margin-bottom: 80px; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonial { background: var(--black); padding: 40px 32px; border: 1px solid rgba(201,169,110,0.08); position: relative; }
+.testimonial-stars { display: flex; gap: 4px; margin-bottom: 20px; color: var(--gold); font-size: 14px; }
+.testimonial-text { font-size: 14px; color: var(--cream); line-height: 1.8; margin-bottom: 28px; font-style: italic; font-weight: 300; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid rgba(201,169,110,0.1); }
+.testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gold) 0%, var(--gold3) 100%); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--black); font-weight: 500; flex-shrink: 0; }
+.testimonial-name { font-size: 13px; color: var(--white); font-weight: 500; }
+.testimonial-detail { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
-/* ── CTA ── */
-.cta-section {
-  background: var(--black);
-  text-align: center;
-  padding: 160px 60px;
-  position: relative;
-  overflow: hidden;
-}
+.faq { background: var(--black); border-top: 1px solid rgba(201,169,110,0.08); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid rgba(201,169,110,0.1); padding: 24px 0; cursor: pointer; transition: all 0.3s ease; }
+.faq-item:first-child { padding-top: 0; }
+.faq-question { display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--cream); transition: color 0.3s ease; }
+.faq-item:hover .faq-question { color: var(--white); }
+.faq-item.active .faq-question { color: var(--gold); }
+.faq-toggle { width: 28px; height: 28px; border: 1px solid var(--gold3); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s ease; position: relative; }
+.faq-toggle::before, .faq-toggle::after { content: ''; position: absolute; background: var(--gold); transition: transform 0.3s ease; }
+.faq-toggle::before { width: 12px; height: 1px; }
+.faq-toggle::after { width: 1px; height: 12px; }
+.faq-item.active .faq-toggle { background: var(--gold); border-color: var(--gold); }
+.faq-item.active .faq-toggle::before { background: var(--black); }
+.faq-item.active .faq-toggle::after { transform: scaleY(0); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; font-size: 14px; color: var(--muted2); line-height: 1.8; }
+.faq-item.active .faq-answer { max-height: 400px; padding-top: 16px; }
 
-.cta-bg {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,169,110,0.05) 0%, transparent 70%);
-}
-
-.cta-section .section-eyebrow { justify-content: center; }
-.cta-section .section-eyebrow::before { display: none; }
-
-.cta-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(42px, 5vw, 72px);
-  font-weight: 300;
-  color: var(--white);
-  margin: 24px auto 20px;
-  max-width: 700px;
-  line-height: 1.1;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.7s ease 0.1s;
-}
-
-.cta-title.visible { opacity: 1; transform: translateY(0); }
-.cta-title em { font-style: italic; color: var(--gold); }
-
-.cta-sub {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 56px;
-  line-height: 1.8;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease 0.2s;
-}
-
-.cta-sub.visible { opacity: 1; transform: translateY(0); }
-
-.cta-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease 0.3s;
-}
-
-.cta-actions.visible { opacity: 1; transform: translateY(0); }
-
-.btn-whatsapp {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--black);
-  background: var(--gold);
-  padding: 18px 48px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
+.cta-final { background: var(--black); text-align: center; padding: 160px 40px; position: relative; overflow: hidden; border-top: 1px solid rgba(201,169,110,0.08); }
+.cta-final-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,169,110,0.08) 0%, transparent 70%); }
+.cta-final-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.cta-final-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5.5vw, 72px); font-weight: 300; color: var(--white); margin: 24px 0 24px; line-height: 1.05; letter-spacing: -0.5px; }
+.cta-final-title em { font-style: italic; color: var(--gold); }
+.cta-final-sub { font-size: 16px; color: var(--muted2); margin-bottom: 56px; line-height: 1.8; }
+.cta-final-actions { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.btn-whatsapp { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; color: var(--black); background: var(--gold); padding: 20px 56px; text-decoration: none; transition: all 0.3s ease; }
 .btn-whatsapp:hover { background: var(--gold2); }
+.btn-whatsapp svg { width: 16px; height: 16px; }
+.cta-final-trust { margin-top: 60px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font-size: 11px; color: var(--muted); letter-spacing: 1.5px; }
+.cta-final-trust span { display: flex; align-items: center; gap: 8px; }
+.cta-final-trust span::before { content: '✓'; color: var(--gold); font-size: 12px; }
 
-.btn-tel {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+footer { background: var(--dark); border-top: 1px solid rgba(201,169,110,0.1); padding: 80px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand .nav-logo { margin-bottom: 20px; }
+.footer-tagline { font-size: 13px; color: var(--muted2); line-height: 1.8; margin-bottom: 24px; }
+.footer-col-title { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; font-weight: 500; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a, .footer-links li { font-size: 13px; color: var(--muted2); text-decoration: none; transition: color 0.3s ease; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { padding-top: 32px; border-top: 1px solid rgba(201,169,110,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-copy { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 11px; color: var(--muted); text-decoration: none; transition: color 0.3s ease; }
+.footer-legal a:hover { color: var(--gold); }
 
-.btn-tel:hover { color: var(--gold); }
+.float-wa { display: none; position: fixed; bottom: 24px; right: 24px; z-index: 90; width: 56px; height: 56px; background: var(--gold); border-radius: 50%; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 0 4px rgba(201,169,110,0.15); text-decoration: none; transition: all 0.3s ease; animation: floatPulse 3s ease infinite; }
+.float-wa:hover { background: var(--gold2); transform: scale(1.05); }
+.float-wa svg { width: 26px; height: 26px; color: var(--black); }
+@keyframes floatPulse { 0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 0 4px rgba(201,169,110,0.15); } 50% { box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 0 12px rgba(201,169,110,0.05); } }
 
-/* ── FOOTER ── */
-footer {
-  background: var(--dark);
-  border-top: 1px solid rgba(201,169,110,0.1);
-  padding: 40px 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
 
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-
-.footer-wordmark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  letter-spacing: 3px;
-  color: var(--muted);
-}
-
-.footer-wordmark span { color: var(--gold); font-style: italic; }
-
-.footer-copy {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: rgba(107,98,88,0.5);
-}
-
-.footer-social {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.footer-social a {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-social a:hover { color: var(--gold); }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(60px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ── MOBILE ── */
-@media (max-width: 900px) {
-  nav { padding: 20px 24px; }
-  nav.scrolled { padding: 14px 24px; }
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
   .nav-links { display: none; }
-  .hero { padding: 100px 24px 60px; }
-  .stats { grid-template-columns: repeat(2, 1fr); padding: 40px 24px; }
-  .stat-item { border-right: none; border-bottom: 1px solid rgba(201,169,110,0.1); padding: 24px; }
-  section { padding: 80px 24px; }
-  .services-header { grid-template-columns: 1fr; gap: 32px; }
-  .services-grid { grid-template-columns: 1fr; }
-  .process-grid { grid-template-columns: repeat(2, 1fr); }
-  .ba-header { grid-template-columns: 1fr; gap: 32px; }
+  .menu-toggle { display: flex; }
+  .float-wa { display: flex; }
+  nav.mobile-open .nav-links { display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--black); flex-direction: column; justify-content: center; align-items: center; gap: 32px; z-index: 99; }
+  nav.mobile-open .nav-links a { font-size: 16px; }
+  .problem-grid, .testimonials-grid, .leviers-grid { grid-template-columns: 1fr; }
+  .leviers-grid { gap: 1px; }
+  .packs-grid { grid-template-columns: 1fr; gap: 32px; }
+  .pack.featured { transform: scale(1); }
+  .pack.featured:hover { transform: translateY(-6px); }
+  .calc-grid { grid-template-columns: 1fr; }
+  .calc-form { border-right: none; border-bottom: 1px solid rgba(201,169,110,0.1); }
+  .transform-header, .about-grid, .faq-grid { grid-template-columns: 1fr; gap: 40px; }
   .ba-comparison { grid-template-columns: 1fr; }
-  .cta-section { padding: 100px 24px; }
-  footer { flex-direction: column; gap: 24px; text-align: center; padding: 32px 24px; }
-  .hero-actions { flex-direction: column; }
-  .pillar-detail { opacity: 1; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .hero-trust { gap: 32px; }
 }
 
+@media (max-width: 640px) {
+  nav { padding: 16px 24px; }
+  nav.scrolled { padding: 12px 24px; }
+  .container { padding: 0 24px; }
+  section { padding: 80px 0; }
+  .hero { padding: 120px 24px 80px; }
+  .hero-trust { gap: 24px; }
+  .trust-item { min-width: 100px; }
+  .calc-form, .calc-result { padding: 36px 28px; }
+  .calc-options { grid-template-columns: 1fr 1fr !important; }
+  .levier { padding: 40px 28px; }
+  .levier-num { font-size: 56px; top: 24px; right: 24px; }
+  .pack { padding: 36px 28px; }
+  .ba-side { padding: 36px 24px; min-height: auto; }
+  .about-visual { padding: 48px 28px; }
+  .about-quote { font-size: 20px; }
+  .testimonial { padding: 32px 24px; }
+  .faq-question { font-size: 16px; }
+  .cta-final { padding: 100px 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-actions { flex-direction: column; gap: 16px; width: 100%; }
+  .btn-primary, .btn-whatsapp { width: 100%; justify-content: center; }
+  .result-comparison { grid-template-columns: 1fr; gap: 16px; }
+  .result-block.highlight { text-align: left; }
+}
 </style>
 </head>
 <body>
 
-<!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">
-    <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
       <polygon points="18,2 34,18 18,34 2,18" fill="none" stroke="#C9A96E" stroke-width="1"/>
       <polygon points="18,8 28,18 18,28 8,18" fill="#C9A96E" opacity="0.15"/>
       <polygon points="18,12 24,18 18,24 12,18" fill="#C9A96E" opacity="0.5"/>
@@ -917,371 +354,552 @@ footer {
     <span class="nav-wordmark">JB <span>Sublim</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#methode">Méthode</a></li>
-    <li><a href="#transformation">Résultats</a></li>
+    <li><a href="#calculator">Calculateur</a></li>
+    <li><a href="#leviers">Méthode</a></li>
+    <li><a href="#packs">Tarifs</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
   </ul>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grain"></div>
-  <div class="hero-line-left"></div>
-
   <div class="hero-content">
-    <div class="hero-eyebrow">Optimisation Airbnb · Montpellier</div>
+    <div class="hero-badge">Optimisation Airbnb · Montpellier</div>
     <h1 class="hero-title">
-      <span class="hero-title-line">Votre annonce</span>
-      <span class="hero-title-line">mérite mieux</span>
-      <span class="hero-title-line">qu'être ignorée</span>
+      <span class="hero-line">Votre Airbnb à Montpellier</span>
+      <span class="hero-line">vous fait perdre</span>
+      <span class="hero-line"><span class="hero-amount">1 800 € par mois.</span></span>
     </h1>
-    <p class="hero-sub">
-      Nous transformons des annonces Airbnb ordinaires en machines à réservations.<br>
-      Photos pro · Optimisation annonce · Stratégie de prix.
-    </p>
+    <p class="hero-sub">Sur 3 500 annonces actives à Montpellier, plus de 60% sont sous-optimisées. Photos pro, refonte d'annonce, pricing dynamique : on transforme votre annonce en machine à réservations.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary"><span>Optimiser mon annonce</span></a>
-      <a href="#services" class="btn-secondary">Voir nos offres</a>
+      <a href="#calculator" class="btn-primary"><span>Calculer mes revenus potentiels</span></a>
+      <a href="#leviers" class="btn-secondary">Voir notre méthode</a>
     </div>
-  </div>
-
-  <div class="hero-scroll">
-    <span class="hero-scroll-text">Défiler</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats">
-  <div class="stat-item">
-    <div class="stat-number">3K+</div>
-    <div class="stat-label">Annonces actives<br>à Montpellier</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number">+40%</div>
-    <div class="stat-label">Taux d'occupation<br>en moyenne</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number">7</div>
-    <div class="stat-label">Piliers d'une annonce<br>parfaite</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number">48h</div>
-    <div class="stat-label">Délai de livraison<br>moyen</div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="services-header">
-    <div>
-      <div class="section-eyebrow">Nos offres</div>
-      <h2 class="section-title">Choisissez votre<br><em>niveau de transformation</em></h2>
-    </div>
-    <p class="section-desc">
-      Trois formules conçues pour s'adapter à votre situation, que vous débutiez ou que vous souhaitiez une refonte complète de votre visibilité.
-    </p>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <div class="service-name">Audit Annonce</div>
-      <div class="service-tagline">Diagnostic complet</div>
-      <div class="service-price"><sup>€</sup>250</div>
-      <div class="service-divider"></div>
-      <ul class="service-features">
-        <li>Analyse des 7 piliers de votre annonce</li>
-        <li>Rapport écrit détaillé avec plan d'action</li>
-        <li>Recommandations photos & texte</li>
-        <li>Analyse de votre pricing actuel</li>
-        <li>100% à distance, livré en 48h</li>
-      </ul>
-    </div>
-
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <div class="service-name">Mise en Lumière</div>
-      <div class="service-tagline">Refonte complète</div>
-      <div class="service-price"><sup>€</sup>590</div>
-      <div class="service-divider"></div>
-      <ul class="service-features">
-        <li>Nettoyage professionnel du bien</li>
-        <li>Home staging & life staging</li>
-        <li>Shooting photo grand angle (20+ photos)</li>
-        <li>Refonte titre, description & mots-clés</li>
-        <li>Optimisation de l'ordre des photos</li>
-      </ul>
-    </div>
-
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <div class="service-name">Pack Lancement</div>
-      <div class="service-tagline">Pour les nouveaux hôtes</div>
-      <div class="service-price"><sup>€</sup>990</div>
-      <div class="service-divider"></div>
-      <ul class="service-features">
-        <li>Tout le pack Mise en Lumière inclus</li>
-        <li>Étude de marché locale complète</li>
-        <li>Stratégie de pricing dynamique</li>
-        <li>Configuration PriceLabs ou équivalent</li>
-        <li>Accompagnement lancement 3 semaines</li>
-      </ul>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="trust-num">+40%</div><div class="trust-label">Taux d'occupation</div></div>
+      <div class="trust-item"><div class="trust-num">3</div><div class="trust-label">Leviers d'impact</div></div>
+      <div class="trust-item"><div class="trust-num">48h</div><div class="trust-label">Délai de livraison</div></div>
+      <div class="trust-item"><div class="trust-num">100%</div><div class="trust-label">Sur Montpellier</div></div>
     </div>
   </div>
 </section>
 
-<!-- 7 PILIERS -->
-<section class="process" id="methode">
-  <div class="section-eyebrow">Notre méthode</div>
-  <h2 class="section-title">Les 7 piliers<br><em>d'une annonce parfaite</em></h2>
-  <p class="section-desc">
-    Chaque annonce que nous optimisons passe par ces 7 points de contrôle. Aucun compromis.
-  </p>
-
-  <div class="process-grid">
-    <div class="pillar">
-      <div class="pillar-num">01</div>
-      <div class="pillar-icon">📍</div>
-      <div class="pillar-name">Emplacement</div>
-      <div class="pillar-detail">Tramway, centre, commodités — mis en avant dès le titre.</div>
+<section class="calculator" id="calculator">
+  <div class="container">
+    <div class="calculator-header fade-in">
+      <div class="eyebrow center">Estimation de revenus</div>
+      <h2 class="section-title">Calculez vos revenus<br><em>en 30 secondes</em></h2>
+      <p class="section-desc">Découvrez instantanément combien votre bien pourrait générer une fois optimisé, comparé à votre situation actuelle.</p>
     </div>
-    <div class="pillar">
-      <div class="pillar-num">02</div>
-      <div class="pillar-icon">🛋</div>
-      <div class="pillar-name">Capacité d'accueil</div>
-      <div class="pillar-detail">Canapé convertible, couchages déclarés — revenus maximisés.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">03</div>
-      <div class="pillar-icon">⚙️</div>
-      <div class="pillar-name">Équipements</div>
-      <div class="pillar-detail">WiFi, Netflix, sèche-cheveux — chaque option cochée booste l'algo.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">04</div>
-      <div class="pillar-icon">🪴</div>
-      <div class="pillar-name">Décoration</div>
-      <div class="pillar-detail">Minimalisme premium, palette neutre, zéro encombrement visible.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">05</div>
-      <div class="pillar-icon">📷</div>
-      <div class="pillar-name">Photos</div>
-      <div class="pillar-detail">Grand angle, life staging, 20+ photos, ordre stratégique.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">06</div>
-      <div class="pillar-icon">✍️</div>
-      <div class="pillar-name">Annonce</div>
-      <div class="pillar-detail">Titre, description, mots-clés — complétude = classement algo.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">07</div>
-      <div class="pillar-icon">💶</div>
-      <div class="pillar-name">Pricing</div>
-      <div class="pillar-detail">Tarification dynamique, analyse concurrence, ajustement continu.</div>
+    <div class="calc-wrapper fade-in">
+      <div class="calc-grid">
+        <div class="calc-form">
+          <div class="calc-step">
+            <div class="calc-step-label">Quartier de votre bien</div>
+            <div class="calc-options" data-group="quartier">
+              <button class="calc-option" data-value="ecusson" data-mult="1.0">Écusson</button>
+              <button class="calc-option" data-value="port-marianne" data-mult="0.95">Port-Marianne</button>
+              <button class="calc-option" data-value="antigone" data-mult="0.95">Antigone</button>
+              <button class="calc-option" data-value="beaux-arts" data-mult="0.90">Beaux-Arts</button>
+              <button class="calc-option" data-value="arceaux" data-mult="0.85">Arceaux</button>
+              <button class="calc-option" data-value="autre" data-mult="0.75">Autre</button>
+            </div>
+          </div>
+          <div class="calc-step">
+            <div class="calc-step-label">Type de bien</div>
+            <div class="calc-options" data-group="type">
+              <button class="calc-option" data-value="studio" data-base="68">Studio / T1</button>
+              <button class="calc-option" data-value="t2" data-base="92">T2</button>
+              <button class="calc-option" data-value="t3" data-base="125">T3</button>
+              <button class="calc-option" data-value="t4" data-base="160">T4 et +</button>
+            </div>
+          </div>
+          <div class="calc-step">
+            <div class="calc-step-label">Capacité d'accueil</div>
+            <div class="calc-options" data-group="capacite">
+              <button class="calc-option" data-value="2" data-cap="1.0">2 voyageurs</button>
+              <button class="calc-option" data-value="4" data-cap="1.15">3-4 voyageurs</button>
+              <button class="calc-option" data-value="6" data-cap="1.30">5+ voyageurs</button>
+            </div>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div class="result-empty" id="resultEmpty">
+            <div class="result-empty-icon">✦</div>
+            <p class="result-empty-text">Sélectionnez un quartier, un type de bien et une capacité pour découvrir vos revenus potentiels.</p>
+          </div>
+          <div class="result-active" id="resultActive">
+            <div class="result-comparison">
+              <div class="result-block current">
+                <div class="result-label">Sans optimisation</div>
+                <div class="result-amount" id="currentAmount">— €</div>
+                <div class="result-desc">Par mois</div>
+              </div>
+              <div class="result-block highlight">
+                <div class="result-label">Avec JB Sublim</div>
+                <div class="result-amount" id="optimizedAmount">— €</div>
+                <div class="result-desc">Par mois</div>
+              </div>
+            </div>
+            <div class="result-gain">
+              <div class="result-gain-label">Vous pourriez gagner</div>
+              <div class="result-gain-amount" id="gainMonth">+ — €</div>
+              <div class="result-gain-period">de revenus supplémentaires par mois</div>
+              <div class="result-gain-yearly">Soit <span id="gainYear">— €</span> de revenus en plus chaque année</div>
+            </div>
+            <a href="#contact" class="result-cta">Récupérer ces revenus →</a>
+            <p class="result-disclaimer">Estimation basée sur les données AirDNA & du marché Montpellier 2025.<br>Résultats variables selon l'état du bien, la saisonnalité et la concurrence.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BEFORE / AFTER -->
-<section class="ba-section" id="transformation">
-  <div class="ba-inner">
-    <div class="ba-header">
-      <div>
-        <div class="section-eyebrow">Transformation</div>
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="problem-header fade-in">
+      <div class="eyebrow center">Le constat</div>
+      <h2 class="section-title">Pourquoi votre annonce<br><em>stagne</em></h2>
+      <p class="section-desc">Trois raisons silencieuses qui vous font perdre de l'argent chaque mois, sans que vous le sachiez.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card fade-in">
+        <div class="problem-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1.5-3h3L15 6"/></svg></div>
+        <h3 class="problem-title">Vos photos<br>ne convertissent pas</h3>
+        <p class="problem-text">La photo de couverture représente 80% de la décision de clic. Sans grand-angle, lumière travaillée et mise en scène, votre annonce passe inaperçue dans les recherches.</p>
+        <div class="problem-stat">— Impact : −60% de clics</div>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+        <h3 class="problem-title">Votre annonce<br>est invisible</h3>
+        <p class="problem-text">Titre générique, description vide, équipements non cochés. L'algorithme Airbnb pénalise les annonces incomplètes et les fait tomber en bas des résultats.</p>
+        <div class="problem-stat">— Impact : page 4+ des recherches</div>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg></div>
+        <h3 class="problem-title">Votre prix<br>est mal positionné</h3>
+        <p class="problem-text">Un prix figé toute l'année, sans analyse de concurrence ni saisonnalité. Vous perdez des nuitées en haute saison et restez vide en basse saison.</p>
+        <div class="problem-stat">— Impact : −30% de revenus annuels</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="leviers" id="leviers">
+  <div class="container">
+    <div class="leviers-header fade-in">
+      <div class="eyebrow center">Notre méthode</div>
+      <h2 class="section-title">Trois leviers.<br><em>Une transformation complète.</em></h2>
+      <p class="section-desc">Nous concentrons toute notre expertise sur les trois leviers qui font vraiment basculer une annonce d'invisible à incontournable.</p>
+    </div>
+    <div class="leviers-grid">
+      <div class="levier fade-in">
+        <div class="levier-num">01</div>
+        <div class="levier-icon"><svg viewBox="0 0 64 64" fill="none" stroke-width="1.5"><rect x="8" y="14" width="48" height="36" rx="2"/><circle cx="32" cy="32" r="9"/><circle cx="32" cy="32" r="5"/><path d="M22 14l3-6h14l3 6"/></svg></div>
+        <h3 class="levier-name">Voir</h3>
+        <div class="levier-tagline">L'attraction visuelle</div>
+        <p class="levier-desc">Photos professionnelles grand-angle, mise en scène travaillée, life staging. Votre bien doit séduire en moins de 3 secondes.</p>
+        <ul class="levier-features">
+          <li>Shooting photo pro avec photographe partenaire</li>
+          <li>Home staging & mise en scène premium</li>
+          <li>Sélection et ordre stratégique des clichés</li>
+          <li>Photo de couverture optimisée</li>
+        </ul>
+      </div>
+      <div class="levier fade-in">
+        <div class="levier-num">02</div>
+        <div class="levier-icon"><svg viewBox="0 0 64 64" fill="none" stroke-width="1.5"><circle cx="32" cy="32" r="22"/><path d="M10 32h44M32 10c5 6 8 14 8 22s-3 16-8 22c-5-6-8-14-8-22s3-16 8-22z"/></svg></div>
+        <h3 class="levier-name">Être Vu</h3>
+        <div class="levier-tagline">L'algorithme à votre service</div>
+        <p class="levier-desc">Titre, description, mots-clés et équipements optimisés pour faire monter votre annonce dans les recherches Airbnb.</p>
+        <ul class="levier-features">
+          <li>Titre & description SEO travaillés</li>
+          <li>Tous les équipements correctement déclarés</li>
+          <li>Capacité d'accueil maximisée</li>
+          <li>Profil hôte complet et rassurant</li>
+        </ul>
+      </div>
+      <div class="levier fade-in">
+        <div class="levier-num">03</div>
+        <div class="levier-icon"><svg viewBox="0 0 64 64" fill="none" stroke-width="1.5"><path d="M8 50l12-14 10 8 16-20 10 12"/><path d="M44 24h12v12"/></svg></div>
+        <h3 class="levier-name">Vendre</h3>
+        <div class="levier-tagline">Le bon prix au bon moment</div>
+        <p class="levier-desc">Pricing dynamique adapté à la concurrence, à la saison et aux événements de Montpellier. Votre prix vit avec le marché.</p>
+        <ul class="levier-features">
+          <li>Étude concurrentielle locale détaillée</li>
+          <li>Configuration tarification dynamique</li>
+          <li>Calendrier événementiel intégré</li>
+          <li>Suivi & ajustement performance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="transform" id="transform">
+  <div class="container">
+    <div class="transform-header">
+      <div class="fade-in">
+        <div class="eyebrow">Transformation</div>
         <h2 class="section-title">Avant.<br><em>Après.</em></h2>
       </div>
-      <p class="section-desc">
-        La différence entre une annonce qui stagne et une qui génère des réservations chaque semaine tient souvent à des détails que l'on ne voit plus soi-même.
-      </p>
+      <p class="section-desc fade-in">La différence entre une annonce qui stagne et une qui génère des réservations chaque semaine tient à des détails que l'on ne voit plus soi-même.</p>
     </div>
-
-    <div class="ba-comparison">
+    <div class="ba-comparison fade-in">
       <div class="ba-side">
         <div class="ba-label before">Avant optimisation</div>
         <div class="ba-items">
-          <div class="ba-item">
-            <div class="ba-icon bad">✕</div>
-            <div class="ba-item-text">Photos floues au smartphone, lumière artificielle jaune</div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-icon bad">✕</div>
-            <div class="ba-item-text">Titre générique : "Appartement Montpellier centre"</div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-icon bad">✕</div>
-            <div class="ba-item-text">Description de 3 lignes, équipements non renseignés</div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-icon bad">✕</div>
-            <div class="ba-item-text">Prix fixe toute l'année, aucune analyse concurrence</div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-icon bad">✕</div>
-            <div class="ba-item-text">Capacité sous-déclarée, canapé convertible ignoré</div>
-          </div>
+          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Photos floues au smartphone, lumière artificielle</div></div>
+          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Titre générique : "Appartement Montpellier centre"</div></div>
+          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Description courte, équipements non renseignés</div></div>
+          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Prix fixe toute l'année, aucune analyse concurrence</div></div>
+          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Capacité sous-déclarée, canapé convertible ignoré</div></div>
+          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Profil hôte vide, taux de réponse non activé</div></div>
+        </div>
+        <div class="ba-result">
+          <div class="ba-result-number" style="color: var(--muted);">42%</div>
+          <div class="ba-result-label">Taux d'occupation moyen</div>
         </div>
       </div>
-
       <div class="ba-side after-side">
         <div class="ba-label after">Après optimisation</div>
         <div class="ba-items">
-          <div class="ba-item">
-            <div class="ba-icon good">✦</div>
-            <div class="ba-item-text">Shooting grand angle + life staging, 22 photos professionnelles</div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-icon good">✦</div>
-            <div class="ba-item-text">Titre optimisé : quartier + tramway + équipement clé</div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-icon good">✦</div>
-            <div class="ba-item-text">Description complète, tous les équipements renseignés</div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-icon good">✦</div>
-            <div class="ba-item-text">Pricing dynamique — PriceLabs configuré et actif</div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-icon good">✦</div>
-            <div class="ba-item-text">4 voyageurs déclarés au lieu de 2 — revenus augmentés</div>
-          </div>
+          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Shooting grand angle, life staging, 22 photos pro</div></div>
+          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Titre optimisé : quartier + tramway + équipement clé</div></div>
+          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Description SEO complète, équipements déclarés</div></div>
+          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Pricing dynamique configuré et auto-ajusté</div></div>
+          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">4 voyageurs déclarés au lieu de 2 — revenus +90%</div></div>
+          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Profil hôte complet, super-host friendly</div></div>
         </div>
         <div class="ba-result">
-          <div class="ba-result-number">+47%</div>
-          <div class="ba-result-label">Taux d'occupation</div>
+          <div class="ba-result-number">82%</div>
+          <div class="ba-result-label">Taux d'occupation après 60 jours</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" id="contact">
-  <div class="cta-bg"></div>
-  <div class="section-eyebrow">Passez à l'action</div>
-  <h2 class="cta-title">Votre annonce perd des<br><em>réservations</em> chaque jour</h2>
-  <p class="cta-sub">Contactez-nous aujourd'hui. On analyse votre situation et on vous dit exactement ce qui cloche.</p>
-  <div class="cta-actions">
-    <a href="https://wa.me/33600000000" class="btn-whatsapp">
-      <span>Nous contacter sur WhatsApp</span>
-    </a>
-    <a href="mailto:contact@jbsublim.fr" class="btn-tel">contact@jbsublim.fr</a>
+<section class="packs" id="packs">
+  <div class="container">
+    <div class="packs-header fade-in">
+      <div class="eyebrow center">Nos offres</div>
+      <h2 class="section-title">Choisissez votre<br><em>niveau de transformation</em></h2>
+      <p class="section-desc">Trois formules pensées pour s'adapter à votre situation. Chaque pack est livré clé en main.</p>
+    </div>
+    <div class="packs-grid">
+      <div class="pack fade-in">
+        <h3 class="pack-name">Mise en Lumière</h3>
+        <div class="pack-tagline">Refonte essentielle</div>
+        <div class="pack-price"><span class="pack-price-currency">€</span>590</div>
+        <div class="pack-price-suffix">Paiement unique</div>
+        <div class="pack-divider"></div>
+        <ul class="pack-features">
+          <li>Nettoyage professionnel du bien</li>
+          <li>Home staging & life staging</li>
+          <li>Shooting photo grand angle (20+ clichés)</li>
+          <li>Refonte titre & description SEO</li>
+          <li>Optimisation des équipements déclarés</li>
+          <li>Réordonnancement stratégique des photos</li>
+          <li>Livraison sous 5 jours</li>
+        </ul>
+        <a href="#contact" class="pack-cta pack-cta-outline">Choisir cette offre</a>
+      </div>
+      <div class="pack featured fade-in">
+        <div class="pack-badge">Le plus choisi</div>
+        <h3 class="pack-name">Premium Visibilité</h3>
+        <div class="pack-tagline">Refonte + stratégie</div>
+        <div class="pack-price"><span class="pack-price-currency">€</span>790</div>
+        <div class="pack-price-suffix">Paiement unique</div>
+        <div class="pack-divider"></div>
+        <ul class="pack-features">
+          <li>Tout le pack Mise en Lumière inclus</li>
+          <li>Étude concurrentielle locale détaillée</li>
+          <li>Stratégie de pricing personnalisée</li>
+          <li>Configuration tarification dynamique</li>
+          <li>Optimisation profil hôte & règles</li>
+          <li>Suivi performance à 30 jours</li>
+          <li>Support WhatsApp pendant 3 semaines</li>
+        </ul>
+        <a href="#contact" class="pack-cta pack-cta-filled">Choisir cette offre</a>
+      </div>
+      <div class="pack fade-in">
+        <h3 class="pack-name">Pack Lancement</h3>
+        <div class="pack-tagline">Pour les nouveaux hôtes</div>
+        <div class="pack-price"><span class="pack-price-currency">€</span>990</div>
+        <div class="pack-price-suffix">Paiement unique</div>
+        <div class="pack-divider"></div>
+        <ul class="pack-features">
+          <li>Tout le pack Premium Visibilité inclus</li>
+          <li>Étude de marché locale complète</li>
+          <li>Recommandations équipements à acheter</li>
+          <li>Configuration PriceLabs / Wheelhouse</li>
+          <li>Création du profil hôte de A à Z</li>
+          <li>Accompagnement lancement (3 semaines)</li>
+          <li>Conseils gestion voyageurs</li>
+        </ul>
+        <a href="#contact" class="pack-cta pack-cta-outline">Choisir cette offre</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-in">
+        <div class="about-mark">"</div>
+        <div class="about-initials">
+          <svg viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="58" stroke="#C9A96E" stroke-width="0.5" opacity="0.3"/>
+            <circle cx="60" cy="60" r="50" stroke="#C9A96E" stroke-width="0.5" opacity="0.5"/>
+            <polygon points="60,15 105,60 60,105 15,60" stroke="#C9A96E" stroke-width="0.7" fill="none" opacity="0.4"/>
+          </svg>
+          <span class="about-initials-text">JB</span>
+        </div>
+        <p class="about-quote">Un appartement bien présenté n'est pas une dépense. C'est l'investissement le plus rentable qu'un propriétaire puisse faire.</p>
+        <div class="about-quote-author">Jamil Benlhassan</div>
+        <div class="about-quote-role">Fondateur — JB Sublim</div>
+      </div>
+      <div class="fade-in">
+        <div class="eyebrow">À propos</div>
+        <h2 class="section-title">Une approche<br><em>commerciale</em>, pas technique</h2>
+        <p class="about-text">JB Sublim est né d'un constat simple : à Montpellier, des centaines de propriétaires Airbnb perdent de l'argent chaque mois <strong>sans le savoir</strong>.</p>
+        <p class="about-text">Avec plus de <strong>10 ans d'expérience commerciale</strong> dans des enseignes comme SIXT, Decathlon et Carrefour, j'ai compris une chose essentielle : la différence entre une vente qui se fait et une vente qui se rate tient à des détails. Sur Airbnb, c'est exactement pareil.</p>
+        <div class="about-credentials">
+          <div class="credential"><span class="credential-icon">✦</span><span>Spécialiste du marché Airbnb à Montpellier</span></div>
+          <div class="credential"><span class="credential-icon">✦</span><span>Méthode formée à la pratique terrain</span></div>
+          <div class="credential"><span class="credential-icon">✦</span><span>Réseau de photographes & artisans local</span></div>
+          <div class="credential"><span class="credential-icon">✦</span><span>Partenariats avec les meilleurs outils de pricing</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header fade-in">
+      <div class="eyebrow center">Ils nous font confiance</div>
+      <h2 class="section-title">Des résultats<br><em>qui parlent</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial fade-in">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Mon appartement à Antigone tournait à 50% d'occupation depuis 8 mois. Après leur refonte, je suis passé à 85% en moins de 6 semaines. Le ROI a été immédiat."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MR</div>
+          <div><div class="testimonial-name">Marc R.</div><div class="testimonial-detail">T2 Antigone · Pack Premium</div></div>
+        </div>
+      </div>
+      <div class="testimonial fade-in">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Je me lançais sur Airbnb sans aucune idée. Le pack Lancement m'a tout expliqué et mon premier mois a déjà couvert le coût de leur prestation."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SC</div>
+          <div><div class="testimonial-name">Sophie C.</div><div class="testimonial-detail">Studio Comédie · Pack Lancement</div></div>
+        </div>
+      </div>
+      <div class="testimonial fade-in">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Ce qui m'a convaincu c'est la transparence. Pas de blabla, des chiffres concrets, des photos avant/après bluffantes. Mon T3 génère 1 800€ de plus par mois."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">KD</div>
+          <div><div class="testimonial-name">Karim D.</div><div class="testimonial-detail">T3 Beaux-Arts · Pack Premium</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="fade-in">
+        <div class="eyebrow">Questions fréquentes</div>
+        <h2 class="section-title">Tout ce que vous voulez<br><em>savoir</em></h2>
+        <p class="section-desc" style="margin-top: 24px;">Les questions que les propriétaires nous posent avant de se lancer. Si la vôtre n'y est pas, contactez-nous.</p>
+      </div>
+      <div class="faq-list fade-in">
+        <div class="faq-item">
+          <div class="faq-question"><span>Combien de temps avant de voir des résultats ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Les premiers effets sont visibles sous 7 à 14 jours après la mise en ligne. L'algorithme Airbnb met environ 30 jours à pleinement repositionner votre bien dans les recherches. Nos clients constatent en moyenne +40% de taux d'occupation sur leurs deux premiers mois.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>Pourquoi vos prix sont-ils plus élevés que la moyenne ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Parce que nous ne vendons pas un service, nous vendons un retour sur investissement. Chaque pack inclut un photographe pro, un nettoyage complet, du home staging, du life staging, et des heures d'analyse de marché. Nos clients récupèrent leur investissement en 1 à 2 mois grâce aux revenus supplémentaires.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>Faut-il que je fasse moi-même quelque chose ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Non. Nous gérons l'intégralité de la prestation : prise de rendez-vous avec le photographe, coordination du nettoyage, mise en scène, refonte de l'annonce, mise en ligne. Vous ne faites qu'ouvrir la porte.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>Travaillez-vous uniquement à Montpellier ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Notre cœur d'activité est Montpellier intra-muros et sa périphérie immédiate (Juvignac, Castelnau-le-Lez, Lattes, Pérols). Nous nous déplaçons aussi à Sète, Nîmes et dans la région selon disponibilités.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>Quel délai pour démarrer ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Nous démarrons sous 5 à 7 jours après votre commande. La prestation complète prend ensuite 4 à 5 jours selon la disponibilité du bien. En urgence, nous pouvons accélérer le processus.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="contact">
+  <div class="cta-final-bg"></div>
+  <div class="cta-final-content">
+    <div class="eyebrow center">Passez à l'action</div>
+    <h2 class="cta-final-title">Votre annonce perd des<br><em>réservations</em> chaque jour</h2>
+    <p class="cta-final-sub">Contactez-nous aujourd'hui. Nous analysons votre situation et nous vous disons exactement ce qui cloche dans votre annonce. Sans engagement.</p>
+    <div class="cta-final-actions">
+      <a href="https://wa.me/33600000000" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <a href="mailto:contact@jbsublim.fr" class="btn-secondary" style="font-size: 11px;">contact@jbsublim.fr</a>
+    </div>
+    <div class="cta-final-trust">
+      <span>Réponse sous 24h</span>
+      <span>Devis gratuit</span>
+      <span>Sans engagement</span>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/33600000000" class="float-wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
 <footer>
-  <a href="#" class="footer-logo">
-    <svg width="24" height="24" viewBox="0 0 36 36" fill="none">
-      <polygon points="18,2 34,18 18,34 2,18" fill="none" stroke="#C9A96E" stroke-width="1"/>
-      <polygon points="18,8 28,18 18,28 8,18" fill="#C9A96E" opacity="0.15"/>
-      <circle cx="18" cy="18" r="2" fill="#C9A96E"/>
-    </svg>
-    <span class="footer-wordmark">JB <span>Sublim</span></span>
-  </a>
-  <span class="footer-copy">© 2025 JB Sublim — Montpellier</span>
-  <div class="footer-social">
-    <a href="#">Instagram</a>
-    <a href="#">Facebook</a>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
+            <polygon points="18,2 34,18 18,34 2,18" fill="none" stroke="#C9A96E" stroke-width="1"/>
+            <polygon points="18,8 28,18 18,28 8,18" fill="#C9A96E" opacity="0.15"/>
+            <circle cx="18" cy="18" r="2" fill="#C9A96E"/>
+          </svg>
+          <span class="nav-wordmark">JB <span>Sublim</span></span>
+        </a>
+        <p class="footer-tagline">Optimisation d'annonces Airbnb à Montpellier.<br>Photos pro, refonte d'annonce, stratégie de prix.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#calculator">Calculateur</a></li>
+          <li><a href="#leviers">Méthode</a></li>
+          <li><a href="#packs">Tarifs</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/33600000000">WhatsApp</a></li>
+          <li><a href="mailto:contact@jbsublim.fr">Email</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Zones</div>
+        <ul class="footer-links">
+          <li>Montpellier</li>
+          <li>Juvignac</li>
+          <li>Castelnau-le-Lez</li>
+          <li>Lattes & Pérols</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 JB Sublim — JB Immo SASU</span>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">CGV</a>
+        <a href="#">Confidentialité</a>
+      </div>
+    </div>
   </div>
 </footer>
 
 <script>
-// CURSOR
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
-  cursor.style.left = mouseX + 'px';
-  cursor.style.top = mouseY + 'px';
-});
-
-function animateRing() {
-  ringX += (mouseX - ringX) * 0.12;
-  ringY += (mouseY - ringY) * 0.12;
-  ring.style.left = ringX + 'px';
-  ring.style.top = ringY + 'px';
-  requestAnimationFrame(animateRing);
-}
-animateRing();
-
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(2)';
-    ring.style.transform = 'translate(-50%,-50%) scale(1.4)';
-    ring.style.borderColor = 'rgba(201,169,110,0.6)';
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-    ring.style.transform = 'translate(-50%,-50%) scale(1)';
-    ring.style.borderColor = 'rgba(201,169,110,0.4)';
-  });
-});
-
-// NAV SCROLL
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+const menuToggle = document.getElementById('menuToggle');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  nav.classList.toggle('mobile-open');
 });
 
-// INTERSECTION OBSERVER
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.15 });
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => { menuToggle.classList.remove('active'); nav.classList.remove('mobile-open'); });
+});
 
-document.querySelectorAll(
-  '.section-eyebrow, .section-title, .section-desc, .stat-item, .service-card, .pillar, .cta-title, .cta-sub, .cta-actions'
-).forEach(el => observer.observe(el));
-
-// STAGGERED STAT ITEMS
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const items = entry.target.querySelectorAll('.stat-item');
-      items.forEach((item, i) => {
-        setTimeout(() => item.classList.add('visible'), i * 120);
-      });
-    }
-  });
-}, { threshold: 0.2 });
-
-const statsEl = document.querySelector('.stats');
-if (statsEl) statObserver.observe(statsEl);
-
-// SMOOTH LINKS
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
 
-// NUMBER COUNTER ANIMATION
-function animateCounter(el, target, suffix = '') {
-  let current = 0;
-  const increment = target / 60;
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      current = target;
-      clearInterval(timer);
-    }
-    el.textContent = Math.floor(current) + suffix;
-  }, 20);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!wasActive) item.classList.add('active');
+  });
+});
+
+const calcState = { quartier: null, type: null, capacite: null };
+document.querySelectorAll('.calc-options').forEach(group => {
+  const groupName = group.dataset.group;
+  group.querySelectorAll('.calc-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      group.querySelectorAll('.calc-option').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (groupName === 'quartier') calcState.quartier = parseFloat(btn.dataset.mult);
+      else if (groupName === 'type') calcState.type = parseFloat(btn.dataset.base);
+      else if (groupName === 'capacite') calcState.capacite = parseFloat(btn.dataset.cap);
+      updateResult();
+    });
+  });
+});
+
+function formatEuro(n) { return new Intl.NumberFormat('fr-FR').format(Math.round(n)) + ' €'; }
+
+function updateResult() {
+  const empty = document.getElementById('resultEmpty');
+  const active = document.getElementById('resultActive');
+  if (!calcState.quartier || !calcState.type || !calcState.capacite) {
+    empty.style.display = 'block';
+    active.classList.remove('visible');
+    return;
+  }
+  const basePrice = calcState.type * calcState.quartier * calcState.capacite;
+  const currentMonthly = basePrice * 30 * 0.50;
+  const optimizedMonthly = basePrice * 1.15 * 30 * 0.75;
+  const gainMonth = optimizedMonthly - currentMonthly;
+  const gainYear = gainMonth * 12;
+  document.getElementById('currentAmount').textContent = formatEuro(currentMonthly);
+  document.getElementById('optimizedAmount').textContent = formatEuro(optimizedMonthly);
+  document.getElementById('gainMonth').textContent = '+ ' + formatEuro(gainMonth);
+  document.getElementById('gainYear').textContent = formatEuro(gainYear);
+  empty.style.display = 'none';
+  active.classList.add('visible');
 }
 </script>
 </body>
