@@ -2790,7 +2790,7 @@ body.banner-visible .hero {
 @media (max-width: 640px) {
   .calculateur-simple { scroll-margin-top: 80px; }
   .calc-simple-box { padding: 32px 20px; }
-  .calc-input-wrapper { overflow: visible; }
+  .calc-input-wrapper { overflow: hidden; flex-wrap: nowrap; }
   #revenu-actuel {
     font-size: 22px;
     padding: 18px 16px;
@@ -2798,14 +2798,75 @@ body.banner-visible .hero {
     -webkit-appearance: none;
     appearance: none;
     min-height: 60px;
+    min-width: 0;
     box-sizing: border-box;
   }
-  .calc-input-suffix { padding: 0 14px; font-size: 12px; }
+  .calc-input-suffix { padding: 0 14px; font-size: 12px; flex-shrink: 0; }
   .calc-value { font-size: 28px; }
   .pack-launch-card { padding: 48px 24px; }
   .pack-launch-price-new { font-size: 48px; }
   .social-buttons { flex-direction: column; align-items: center; }
   .social-btn { width: 100%; max-width: 320px; }
+
+  /* ── FOOTER MOBILE ── */
+  .footer-grid { grid-template-columns: 1fr; gap: 0; }
+  .footer-tagline { display: none; }
+  .footer-legal-info { display: none; }
+  .footer-brand { padding: 20px 0; border-bottom: 1px solid var(--line); }
+
+  .footer-contact-col { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .footer-contact-col .footer-col-title { margin-bottom: 14px; }
+  .footer-contact-col .footer-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .footer-contact-col .footer-links li { display: contents; }
+  .footer-contact-col .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 20px;
+    border: 1px solid var(--line);
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--charcoal);
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+  .footer-contact-col .footer-links a[href*="wa.me"] {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ivory);
+    font-weight: 500;
+  }
+
+  .footer-accordion { border-bottom: 1px solid var(--line); }
+  .footer-accordion .footer-col-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    margin-bottom: 0;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .footer-accordion .ft-icon {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--gold-deep);
+    line-height: 1;
+  }
+  .footer-accordion .footer-links {
+    display: none;
+    padding-bottom: 20px;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-accordion.open .footer-links { display: flex; }
+  .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
 }
 
 /* ── MODAL MENTIONS LÉGALES ── */
@@ -2982,7 +3043,8 @@ body.banner-visible .hero {
         </div>
         <div class="calc-result-gain">
           <strong id="calc-gain">—</strong>
-          que vous laissez sur la table chaque année
+          <span id="calc-gain-suffix"> que vous laissez sur la table chaque année</span>
+          <span id="calc-gain-alt" style="display:none; font-style:italic; color:var(--graphite); font-size:14px;">Votre bien nécessite une analyse sur-mesure — Jamil évalue votre potentiel réel.</span>
         </div>
         <a
           href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20viens%20de%20faire%20l%27estimation%20sur%20le%20site.%20J%27aimerais%20en%20savoir%20plus%20sur%20le%20potentiel%20de%20mon%20bien."
@@ -3415,8 +3477,8 @@ body.banner-visible .hero {
           Siège social : 73 Allée Kléber, 34000 Montpellier
         </p>
       </div>
-      <div>
-        <div class="footer-col-title">Navigation</div>
+      <div class="footer-accordion">
+        <div class="footer-col-title">Navigation <span class="ft-icon">+</span></div>
         <ul class="footer-links">
           <li><a href="#calculator">Calculateur</a></li>
           <li><a href="#leviers">Méthode</a></li>
@@ -3425,7 +3487,7 @@ body.banner-visible .hero {
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
-      <div>
+      <div class="footer-contact-col">
         <div class="footer-col-title">Contact</div>
         <ul class="footer-links">
           <li><a href="https://wa.me/33658797037">WhatsApp</a></li>
@@ -3433,8 +3495,8 @@ body.banner-visible .hero {
           <li><a href="https://www.instagram.com/jb.sublim" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
-      <div>
-        <div class="footer-col-title">Zones d'intervention</div>
+      <div class="footer-accordion">
+        <div class="footer-col-title">Zones d'intervention <span class="ft-icon">+</span></div>
         <ul class="footer-links">
           <li>Montpellier & agglomération</li>
           <li>Toute la France</li>
@@ -3557,35 +3619,57 @@ function updateResult() {
 function calculerPotentiel() {
   const input = document.getElementById('revenu-actuel');
   const value = parseFloat(input.value);
+  const gainSuffix = document.getElementById('calc-gain-suffix');
+  const gainAlt = document.getElementById('calc-gain-alt');
+  const result = document.getElementById('calc-result');
+  const cta = document.querySelector('.calc-cta-whatsapp');
 
   if (!value || value <= 0) {
-    input.style.borderColor = '#dc2626';
-    setTimeout(() => { input.style.borderColor = ''; }, 1500);
+    input.style.boxShadow = '0 0 0 2px #dc2626';
+    setTimeout(() => { input.style.boxShadow = ''; }, 1500);
+    return;
+  }
+
+  if (value < 300) {
+    document.getElementById('calc-current').textContent = '— €';
+    document.getElementById('calc-target').textContent = '— €';
+    document.getElementById('calc-gain').textContent = '';
+    gainSuffix.style.display = 'none';
+    gainAlt.style.display = 'inline';
+    cta.href = 'https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20discuter%20du%20potentiel%20de%20mon%20bien.';
+    result.style.display = 'flex';
+    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
 
   const target = Math.round(value * 1.7);
   const gainAnnuel = (target - value) * 12;
 
-  document.getElementById('calc-current').textContent =
-    value.toLocaleString('fr-FR') + '€';
-  document.getElementById('calc-target').textContent =
-    target.toLocaleString('fr-FR') + '€';
-  document.getElementById('calc-gain').textContent =
-    '+' + gainAnnuel.toLocaleString('fr-FR') + '€';
+  document.getElementById('calc-current').textContent = value.toLocaleString('fr-FR') + ' €';
+  document.getElementById('calc-target').textContent = target.toLocaleString('fr-FR') + ' €';
+  document.getElementById('calc-gain').textContent = '+' + gainAnnuel.toLocaleString('fr-FR') + ' €';
+  gainSuffix.style.display = 'inline';
+  gainAlt.style.display = 'none';
 
-  const whatsappLink = document.querySelector('.calc-cta-whatsapp');
-  whatsappLink.href =
-    'https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20viens%20de%20faire%20l%27estimation%20sur%20le%20site.%20Mes%20revenus%20actuels%20sont%20de%20'
+  cta.href = 'https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20viens%20de%20faire%20l%27estimation%20sur%20le%20site.%20Mes%20revenus%20actuels%20sont%20de%20'
     + value + '%E2%82%AC%2Fmois.%20J%27aimerais%20en%20savoir%20plus%20sur%20le%20potentiel%20de%20mon%20bien.';
 
-  const result = document.getElementById('calc-result');
   result.style.display = 'flex';
   result.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 document.getElementById('revenu-actuel')?.addEventListener('keypress', function(e) {
   if (e.key === 'Enter') calculerPotentiel();
+});
+
+// FOOTER ACCORDION (mobile)
+document.querySelectorAll('.footer-accordion .footer-col-title').forEach(title => {
+  title.addEventListener('click', () => {
+    const acc = title.closest('.footer-accordion');
+    const icon = title.querySelector('.ft-icon');
+    acc.classList.toggle('open');
+    if (icon) icon.textContent = acc.classList.contains('open') ? '−' : '+';
+  });
 });
 
 // MENTIONS LÉGALES MODAL
