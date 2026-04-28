@@ -2776,6 +2776,67 @@ body.banner-visible .hero {
   .social-buttons { flex-direction: column; align-items: center; }
   .social-btn { width: 100%; max-width: 320px; }
 }
+
+/* ── MODAL MENTIONS LÉGALES ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20,18,16,.65);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: var(--ivory);
+  max-width: 580px;
+  width: calc(100% - 40px);
+  max-height: 82vh;
+  overflow-y: auto;
+  padding: 48px 44px 40px;
+  position: relative;
+  border-top: 3px solid var(--gold);
+}
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--graphite);
+  line-height: 1;
+  padding: 4px 8px;
+}
+.modal-close:hover { color: var(--anthracite); }
+.modal-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--anthracite);
+  margin: 0 0 24px;
+}
+.modal-box h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 22px 0 6px;
+}
+.modal-box p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--charcoal);
+  margin: 0;
+}
+.modal-box p a { color: var(--gold-deep); text-decoration: none; }
+.modal-box p a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -3223,15 +3284,11 @@ body.banner-visible .hero {
         </div>
         <div class="faq-item">
           <div class="faq-question"><span>Faut-il que je fasse quelque chose de mon côté ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">Non. Vous n'avez rien à gérer. Nous prenons en charge l'intégralité du travail, de A à Z. Vous ouvrez la porte — le reste, c'est nous.</div>
+          <div class="faq-answer">Dans certains cas, oui — de petits ajustements déco peuvent transformer l'impact de votre bien : changer des rideaux, ajouter quelques éléments, harmoniser l'ambiance. Nous vous préparons un plan précis avec des recommandations concrètes. Pas de gros travaux, pas de budget disproportionné — juste les bons détails au bon endroit.</div>
         </div>
         <div class="faq-item">
           <div class="faq-question"><span>Intervenez-vous uniquement en France ?</span><div class="faq-toggle"></div></div>
           <div class="faq-answer">Nous intervenons partout en France et à l'international, notamment au Maroc. Si vous avez un bien ailleurs, parlez-nous de votre situation — nous étudions chaque dossier individuellement.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question"><span>Puis-je payer en plusieurs fois ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">Oui. Nous proposons un paiement en 2 fois sans frais (50 % au démarrage, 50 % à la livraison). Parlez-en directement avec Jamil lors de votre premier échange.</div>
         </div>
       </div>
     </div>
@@ -3352,11 +3409,9 @@ body.banner-visible .hero {
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2025 JB Immo · SIREN 988 121 919 · Siège : 73 Allée Kléber, 34000 Montpellier</span>
+      <span class="footer-copy">© 2026 JB Immo · SIREN 988 121 919 · Siège : 73 Allée Kléber, 34000 Montpellier</span>
       <div class="footer-legal">
-        <a href="#">Mentions légales</a>
-        <a href="#">CGV</a>
-        <a href="#">Confidentialité</a>
+        <a href="#" id="openMentions">Mentions légales</a>
       </div>
     </div>
   </div>
@@ -3498,6 +3553,21 @@ document.getElementById('revenu-actuel')?.addEventListener('keypress', function(
   if (e.key === 'Enter') calculerPotentiel();
 });
 
+// MENTIONS LÉGALES MODAL
+const modalMentions = document.getElementById('modalMentions');
+document.getElementById('openMentions').addEventListener('click', e => {
+  e.preventDefault();
+  modalMentions.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+function closeModal() {
+  modalMentions.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('closeModal').addEventListener('click', closeModal);
+modalMentions.addEventListener('click', e => { if (e.target === modalMentions) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
 // SCROLL TO TOP BUTTON
 const scrollTopBtn = document.getElementById('scrollTop');
 window.addEventListener('scroll', () => {
@@ -3513,5 +3583,42 @@ scrollTopBtn.addEventListener('click', () => {
     <path d="M12 19V5M5 12l7-7 7 7"/>
   </svg>
 </button>
+
+<div class="modal-overlay" id="modalMentions" role="dialog" aria-modal="true" aria-label="Mentions légales">
+  <div class="modal-box">
+    <button class="modal-close" id="closeModal" aria-label="Fermer">✕</button>
+    <h3>Mentions légales</h3>
+
+    <h4>Éditeur du site</h4>
+    <p>
+      JB Immo SASU — Société par actions simplifiée unipersonnelle<br>
+      Capital social : 1 000 €<br>
+      SIREN : 988 121 919<br>
+      Siège social : 73 Allée Kléber, 34000 Montpellier, France
+    </p>
+
+    <h4>Directeur de la publication</h4>
+    <p>
+      Jamil — <a href="mailto:jbimmobilier.france@gmail.com">jbimmobilier.france@gmail.com</a>
+    </p>
+
+    <h4>Hébergement</h4>
+    <p>
+      Vercel Inc.<br>
+      340 Pine Street Suite 603, San Francisco, CA 94104, USA<br>
+      <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a>
+    </p>
+
+    <h4>Propriété intellectuelle</h4>
+    <p>
+      L'ensemble du contenu de ce site (textes, visuels, structure) est la propriété exclusive de JB Immo SASU et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle. Toute reproduction, même partielle, est interdite sans autorisation préalable écrite.
+    </p>
+
+    <h4>Limitation de responsabilité</h4>
+    <p>
+      Les résultats présentés sont basés sur des moyennes observées chez nos clients. Chaque bien étant unique, ils ne constituent pas une garantie contractuelle. JB Immo SASU se réserve le droit de modifier le contenu de ce site à tout moment.
+    </p>
+  </div>
+</div>
 </body>
 </html>
