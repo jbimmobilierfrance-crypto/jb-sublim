@@ -2209,9 +2209,512 @@ footer {
   .comp-row { grid-template-columns: 1.4fr 1fr 1fr 1fr; min-width: 700px; }
   .comp-cell { padding: 18px 16px; font-size: 12px; }
 }
+
+/* ─── SECTION-LABEL / SECTION-SUBTITLE (alias classes) ─── */
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--graphite);
+  line-height: 1.85;
+  max-width: 640px;
+  margin: 16px auto 0;
+  font-weight: 300;
+  text-align: center;
+}
+
+/* ─── LAUNCH BANNER ─── */
+.launch-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(90deg, #B8924A 0%, #D4A95A 100%);
+  color: #FAF7F0;
+  padding: 12px 24px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(184, 146, 74, 0.15);
+}
+
+.launch-banner-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.launch-banner-icon { font-size: 16px; color: #FAF7F0; }
+.launch-banner-text strong { font-weight: 700; }
+.launch-banner-text s { opacity: 0.7; margin: 0 4px; }
+.launch-banner-text em { font-style: italic; opacity: 0.95; }
+
+.launch-banner-cta {
+  background: rgba(250, 247, 240, 0.15);
+  border: 1px solid rgba(250, 247, 240, 0.4);
+  color: #FAF7F0;
+  padding: 6px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.launch-banner-cta:hover {
+  background: rgba(250, 247, 240, 0.25);
+  border-color: rgba(250, 247, 240, 0.7);
+}
+
+/* ─── LEVIERS (new card style) ─── */
+.leviers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 64px;
+}
+
+.levier-card {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  padding: 48px 36px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.levier-card:hover {
+  border-color: var(--gold-tint-strong);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(184, 146, 74, 0.1);
+}
+
+.levier-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.levier-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 300;
+  color: rgba(184, 146, 74, 0.15);
+  line-height: 1;
+  font-style: italic;
+  position: absolute;
+  top: 28px;
+  right: 28px;
+}
+
+.levier-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--anthracite);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.levier-subtitle {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.levier-text {
+  font-size: 14px;
+  color: var(--graphite);
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+/* ─── CALCULATEUR SIMPLE ─── */
+.calculateur-simple {
+  padding: 100px 24px;
+  background: var(--ivory);
+}
+
+.calc-simple-box {
+  max-width: 600px;
+  margin: 48px auto 0;
+  padding: 48px;
+  background: #FFFFFF;
+  border: 1px solid rgba(184, 146, 74, 0.15);
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+}
+
+.calc-input-group { margin-bottom: 24px; }
+
+.calc-input-group label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #B8924A;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.calc-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(184, 146, 74, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--ivory);
+}
+
+#revenu-actuel {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 16px 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--anthracite);
+  text-align: right;
+}
+
+#revenu-actuel:focus { outline: none; }
+
+.calc-input-suffix {
+  padding: 0 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: var(--graphite);
+  background: rgba(184, 146, 74, 0.08);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.calc-button {
+  width: 100%;
+  padding: 16px 32px;
+  background: var(--anthracite);
+  color: var(--ivory);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calc-button:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+
+.calc-result {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(184, 146, 74, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.calc-result-current,
+.calc-result-target {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.calc-result-arrow { font-size: 24px; color: var(--gold); }
+
+.calc-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+
+.calc-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  color: var(--anthracite);
+}
+
+.calc-value.highlight {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.calc-result-gain {
+  margin-top: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--anthracite);
+  text-align: center;
+}
+
+.calc-result-gain strong {
+  color: var(--gold);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.calc-cta-whatsapp {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 16px 40px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.calc-cta-whatsapp:hover {
+  background: #1FAD4F;
+  transform: translateY(-2px);
+}
+
+/* ─── TARIFS LAUNCH ─── */
+.tarifs-launch {
+  padding: 100px 24px;
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-warm) 100%);
+}
+
+.pack-launch-card {
+  max-width: 600px;
+  margin: 64px auto 0;
+  padding: 56px 48px;
+  background: #FFFFFF;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(184, 146, 74, 0.15);
+}
+
+.pack-launch-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--ivory);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.pack-launch-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--anthracite);
+  margin: 0 0 24px;
+}
+
+.pack-launch-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.pack-launch-price-old {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--graphite);
+  text-decoration: line-through;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px;
+}
+
+.pack-launch-price-new {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.pack-launch-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--charcoal);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.pack-launch-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  text-align: left;
+}
+
+.pack-launch-features li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(184, 146, 74, 0.1);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: var(--anthracite);
+}
+
+.pack-launch-features li:last-child { border-bottom: none; }
+
+.pack-launch-cta {
+  display: inline-block;
+  padding: 18px 48px;
+  background: var(--anthracite);
+  color: var(--ivory);
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.pack-launch-cta:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(184, 146, 74, 0.3);
+}
+
+.pack-launch-deadline {
+  margin-top: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: var(--graphite);
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+/* ─── SOCIAL REDIRECT ─── */
+.social-redirect {
+  padding: 100px 24px;
+  background: #FFFFFF;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 32px;
+  background: var(--ivory);
+  border: 1px solid rgba(184, 146, 74, 0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--anthracite);
+  transition: all 0.3s ease;
+  min-width: 240px;
+}
+
+.social-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(184, 146, 74, 0.15);
+}
+
+.social-btn-icon { font-size: 32px; }
+
+.social-btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.social-btn-platform {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--anthracite);
+  font-weight: 600;
+}
+
+.social-btn-handle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .launch-banner { padding: 10px 16px; font-size: 12px; }
+  .launch-banner-inner { flex-direction: column; gap: 8px; }
+  .launch-banner-cta { margin-top: 4px; }
+  .leviers-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
+@media (max-width: 640px) {
+  .calc-simple-box { padding: 32px 24px; }
+  #revenu-actuel { font-size: 24px; }
+  .calc-value { font-size: 28px; }
+  .pack-launch-card { padding: 48px 24px; }
+  .pack-launch-price-new { font-size: 48px; }
+  .social-buttons { flex-direction: column; align-items: center; }
+  .social-btn { width: 100%; max-width: 320px; }
+}
 </style>
 </head>
 <body>
+
+<div class="launch-banner">
+  <div class="launch-banner-inner">
+    <span class="launch-banner-icon">✦</span>
+    <span class="launch-banner-text">
+      <strong>OFFRE LANCEMENT</strong> —
+      Pack complet à <s>790€</s> <strong>490€</strong>
+      pour les 5 premiers propriétaires ·
+      <em>Avant le 31 mai</em>
+    </span>
+    <a href="#tarifs" class="launch-banner-cta">En profiter →</a>
+  </div>
+</div>
 
 <nav id="nav">
   <a href="#" class="nav-logo">
@@ -2219,10 +2722,10 @@ footer {
     <span class="nav-wordmark">JB <span>Sublim</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#calculator">Calculateur</a></li>
-    <li><a href="#leviers">Méthode</a></li>
+    <li><a href="#calculateur">Calculateur</a></li>
+    <li><a href="#methode">Méthode</a></li>
     <li><a href="#process">Process</a></li>
-    <li><a href="#packs">Tarifs</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
     <li><a href="#comparison">Comparatif</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
@@ -2268,77 +2771,63 @@ footer {
   </div>
 </section>
 
-<section class="calculator" id="calculator">
+<section class="calculateur-simple" id="calculateur">
   <div class="container">
-    <div class="calculator-header fade-in">
-      <div class="eyebrow center">Estimation de revenus</div>
-      <h2 class="section-title">Calculez vos revenus<br><em>en 30 secondes</em></h2>
-      <p class="section-desc">Découvrez instantanément combien votre bien pourrait générer une fois optimisé, comparé à votre situation actuelle.</p>
-    </div>
-    <div class="calc-wrapper fade-in">
-      <div class="calc-grid">
-        <div class="calc-form">
-          <div class="calc-step">
-            <div class="calc-step-label">Quartier de votre bien</div>
-            <div class="calc-options" data-group="quartier">
-              <button class="calc-option" data-value="ecusson" data-mult="1.0">Écusson</button>
-              <button class="calc-option" data-value="port-marianne" data-mult="0.95">Port-Marianne</button>
-              <button class="calc-option" data-value="antigone" data-mult="0.95">Antigone</button>
-              <button class="calc-option" data-value="beaux-arts" data-mult="0.90">Beaux-Arts</button>
-              <button class="calc-option" data-value="arceaux" data-mult="0.85">Arceaux</button>
-              <button class="calc-option" data-value="autre" data-mult="0.75">Autre</button>
-            </div>
-          </div>
-          <div class="calc-step">
-            <div class="calc-step-label">Type de bien</div>
-            <div class="calc-options" data-group="type">
-              <button class="calc-option" data-value="studio" data-base="65" data-opt="88">Studio / T1</button>
-              <button class="calc-option" data-value="t2" data-base="79" data-opt="108">T2</button>
-              <button class="calc-option" data-value="t3" data-base="110" data-opt="150">T3</button>
-              <button class="calc-option" data-value="t4" data-base="145" data-opt="200">T4 et +</button>
-            </div>
-          </div>
-          <div class="calc-step">
-            <div class="calc-step-label">Capacité d'accueil</div>
-            <div class="calc-options" data-group="capacite">
-              <button class="calc-option" data-value="2" data-cap="1.0">2 voyageurs</button>
-              <button class="calc-option" data-value="4" data-cap="1.18">3-4 voyageurs</button>
-              <button class="calc-option" data-value="6" data-cap="1.35">5+ voyageurs</button>
-            </div>
-          </div>
+    <div class="section-label">DIAGNOSTIC RAPIDE</div>
+    <h2 class="section-title">
+      Combien votre Airbnb<br>
+      <em>devrait-il vraiment générer ?</em>
+    </h2>
+    <p class="section-subtitle">
+      Indiquez vos revenus mensuels actuels,
+      découvrez votre potentiel réel.
+    </p>
+
+    <div class="calc-simple-box">
+      <div class="calc-input-group">
+        <label for="revenu-actuel">Vos revenus Airbnb actuels</label>
+        <div class="calc-input-wrapper">
+          <input
+            type="number"
+            id="revenu-actuel"
+            placeholder="1 200"
+            min="0"
+            step="50"
+          >
+          <span class="calc-input-suffix">€/mois</span>
         </div>
-        <div class="calc-result">
-          <div class="result-empty" id="resultEmpty">
-            <div class="result-empty-icon">✦</div>
-            <p class="result-empty-text">Sélectionnez un quartier, un type de bien et une capacité pour découvrir vos revenus potentiels.</p>
-          </div>
-          <div class="result-active" id="resultActive">
-            <div class="result-comparison">
-              <div class="result-block current">
-                <div class="result-label">Sans optimisation</div>
-                <div class="result-amount" id="currentAmount">— €</div>
-                <div class="result-desc">Par mois</div>
-              </div>
-              <div class="result-block highlight">
-                <div class="result-label">Avec JB Sublim</div>
-                <div class="result-amount" id="optimizedAmount">— €</div>
-                <div class="result-desc">Par mois</div>
-              </div>
-            </div>
-            <div class="result-gain">
-              <div class="result-gain-label">Vous pourriez gagner</div>
-              <div class="result-gain-amount" id="gainMonth">+ — €</div>
-              <div class="result-gain-period">de revenus supplémentaires par mois</div>
-              <div class="result-gain-yearly">Soit <span id="gainYear">— €</span> de revenus en plus chaque année</div>
-            </div>
-            <a href="#contact" class="result-cta">Récupérer ces revenus →</a>
-            <p class="result-disclaimer">Estimation basée sur les données du marché Airbnb Montpellier 2025.<br>Résultats variables selon l'état du bien, la saisonnalité et la concurrence.</p>
-          </div>
+      </div>
+
+      <button class="calc-button" onclick="calculerPotentiel()">
+        Calculer mon potentiel
+      </button>
+
+      <div class="calc-result" id="calc-result" style="display:none;">
+        <div class="calc-result-current">
+          <span class="calc-label">Aujourd'hui</span>
+          <span class="calc-value" id="calc-current">—</span>
         </div>
+        <div class="calc-result-arrow">→</div>
+        <div class="calc-result-target">
+          <span class="calc-label">Avec optimisation</span>
+          <span class="calc-value highlight" id="calc-target">—</span>
+        </div>
+        <div class="calc-result-gain">
+          <strong id="calc-gain">—</strong>
+          que vous laissez sur la table chaque année
+        </div>
+        <a
+          href="https://wa.me/33658797037?text=Bonjour%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20Airbnb.%20Mes%20revenus%20actuels%20sont%20de%20"
+          class="calc-cta-whatsapp"
+          target="_blank"
+        >
+          💬 Diagnostic gratuit sur WhatsApp
+        </a>
       </div>
     </div>
   </div>
 </section>
+
 
 <section class="problem" id="problem">
   <div class="container">
@@ -2370,53 +2859,56 @@ footer {
   </div>
 </section>
 
-<section class="leviers" id="leviers">
+<section class="leviers" id="methode">
   <div class="container">
-    <div class="leviers-header fade-in">
-      <div class="eyebrow center">Notre méthode</div>
-      <h2 class="section-title">Trois leviers.<br><em>Une transformation complète.</em></h2>
-      <p class="section-desc">Nous concentrons toute notre expertise sur les trois leviers qui font vraiment basculer une annonce d'invisible à incontournable.</p>
-    </div>
+    <div class="section-label">NOTRE APPROCHE</div>
+    <h2 class="section-title">
+      Trois leviers.<br>
+      <em>Une transformation complète.</em>
+    </h2>
+    <p class="section-subtitle">
+      Pendant que la plupart des annonces stagnent, certaines
+      explosent. La différence ne se voit pas à l'œil nu —
+      mais elle change tout.
+    </p>
+
     <div class="leviers-grid">
-      <div class="levier fade-in">
-        <div class="levier-num">01</div>
-        <div class="levier-icon"><svg viewBox="0 0 64 64" fill="none" stroke-width="1.5"><rect x="8" y="14" width="48" height="36" rx="2"/><circle cx="32" cy="32" r="9"/><circle cx="32" cy="32" r="5"/><path d="M22 14l3-6h14l3 6"/></svg></div>
-        <h3 class="levier-name">Voir</h3>
-        <div class="levier-tagline">L'attraction visuelle</div>
-        <p class="levier-desc">Photos professionnelles grand-angle, mise en scène travaillée, life staging. Votre bien doit séduire en moins de 3 secondes.</p>
-        <ul class="levier-features">
-          <li>Shooting photo pro avec photographe partenaire</li>
-          <li>Home staging & mise en scène premium</li>
-          <li>Sélection et ordre stratégique des clichés</li>
-          <li>Photo de couverture optimisée</li>
-        </ul>
+
+      <div class="levier-card">
+        <div class="levier-icon">📷</div>
+        <div class="levier-number">01</div>
+        <h3 class="levier-title">Voir</h3>
+        <div class="levier-subtitle">L'attraction visuelle</div>
+        <p class="levier-text">
+          Un voyageur décide en moins de 8 secondes.
+          Tout se joue dans ce qu'il voit — et surtout
+          dans ce qu'il ne voit pas.
+        </p>
       </div>
-      <div class="levier fade-in">
-        <div class="levier-num">02</div>
-        <div class="levier-icon"><svg viewBox="0 0 64 64" fill="none" stroke-width="1.5"><circle cx="32" cy="32" r="22"/><path d="M10 32h44M32 10c5 6 8 14 8 22s-3 16-8 22c-5-6-8-14-8-22s3-16 8-22z"/></svg></div>
-        <h3 class="levier-name">Être Vu</h3>
-        <div class="levier-tagline">L'algorithme à votre service</div>
-        <p class="levier-desc">Titre, description, mots-clés et équipements optimisés pour faire monter votre annonce dans les recherches Airbnb.</p>
-        <ul class="levier-features">
-          <li>Titre & description SEO travaillés</li>
-          <li>Tous les équipements correctement déclarés</li>
-          <li>Capacité d'accueil maximisée</li>
-          <li>Profil hôte complet et rassurant</li>
-        </ul>
+
+      <div class="levier-card">
+        <div class="levier-icon">🌐</div>
+        <div class="levier-number">02</div>
+        <h3 class="levier-title">Être Vu</h3>
+        <div class="levier-subtitle">L'algorithme à votre service</div>
+        <p class="levier-text">
+          Airbnb pousse certaines annonces, en enterre
+          d'autres. Comprendre les règles du jeu fait
+          toute la différence.
+        </p>
       </div>
-      <div class="levier fade-in">
-        <div class="levier-num">03</div>
-        <div class="levier-icon"><svg viewBox="0 0 64 64" fill="none" stroke-width="1.5"><path d="M8 50l12-14 10 8 16-20 10 12"/><path d="M44 24h12v12"/></svg></div>
-        <h3 class="levier-name">Vendre</h3>
-        <div class="levier-tagline">Le bon prix au bon moment</div>
-        <p class="levier-desc">Pricing dynamique adapté à la concurrence, à la saison et aux événements de Montpellier. Votre prix vit avec le marché.</p>
-        <ul class="levier-features">
-          <li>Étude concurrentielle locale détaillée</li>
-          <li>Configuration tarification dynamique</li>
-          <li>Calendrier événementiel intégré</li>
-          <li>Suivi & ajustement performance</li>
-        </ul>
+
+      <div class="levier-card">
+        <div class="levier-icon">📈</div>
+        <div class="levier-number">03</div>
+        <h3 class="levier-title">Vendre</h3>
+        <div class="levier-subtitle">Le bon prix au bon moment</div>
+        <p class="levier-text">
+          Le tarif fixe, c'est la stratégie du débutant.
+          Le marché bouge — votre prix doit suivre.
+        </p>
       </div>
+
     </div>
   </div>
 </section>
@@ -2501,66 +2993,53 @@ footer {
   </div>
 </section>
 
-<section class="packs" id="packs">
+<section class="tarifs-launch" id="tarifs">
   <div class="container">
-    <div class="packs-header fade-in">
-      <div class="eyebrow center">Nos offres</div>
-      <h2 class="section-title">Choisissez votre<br><em>niveau de transformation</em></h2>
-      <p class="section-desc">Trois formules pensées pour s'adapter à votre situation. Chaque pack est livré clé en main.</p>
-    </div>
-    <div class="packs-grid">
-      <div class="pack fade-in">
-        <h3 class="pack-name">Mise en Lumière</h3>
-        <div class="pack-tagline">Refonte essentielle</div>
-        <div class="pack-price"><span class="pack-price-currency">€</span>590</div>
-        <div class="pack-price-suffix">Paiement unique</div>
-        <div class="pack-divider"></div>
-        <ul class="pack-features">
-          <li>Nettoyage professionnel du bien</li>
-          <li>Home staging & life staging</li>
-          <li>Shooting photo grand angle (20+ clichés)</li>
-          <li>Refonte titre & description SEO</li>
-          <li>Optimisation des équipements déclarés</li>
-          <li>Réordonnancement stratégique des photos</li>
-          <li>Livraison sous 5 jours</li>
-        </ul>
-        <a href="#contact" class="pack-cta pack-cta-outline">Choisir cette offre</a>
+    <div class="section-label">OFFRE LIMITÉE</div>
+    <h2 class="section-title">
+      Pack Lancement.<br>
+      <em>Pour les 5 premiers proprios.</em>
+    </h2>
+    <p class="section-subtitle">
+      Avant le 31 mai 2026, et avant l'arrivée
+      de la haute saison.
+    </p>
+
+    <div class="pack-launch-card">
+      <div class="pack-launch-badge">5 PLACES SEULEMENT</div>
+
+      <h3 class="pack-launch-name">Pack Lancement Complet</h3>
+
+      <div class="pack-launch-price">
+        <span class="pack-launch-price-old">790€</span>
+        <span class="pack-launch-price-new">490€</span>
       </div>
-      <div class="pack featured fade-in">
-        <div class="pack-badge">Le plus choisi</div>
-        <h3 class="pack-name">Premium Visibilité</h3>
-        <div class="pack-tagline">Refonte + stratégie</div>
-        <div class="pack-price"><span class="pack-price-currency">€</span>790</div>
-        <div class="pack-price-suffix">Paiement unique</div>
-        <div class="pack-divider"></div>
-        <ul class="pack-features">
-          <li>Tout le pack Mise en Lumière inclus</li>
-          <li>Étude concurrentielle locale détaillée</li>
-          <li>Stratégie de pricing personnalisée</li>
-          <li>Configuration tarification dynamique</li>
-          <li>Optimisation profil hôte & règles</li>
-          <li>Suivi performance à 30 jours</li>
-          <li>Support WhatsApp pendant 3 semaines</li>
-        </ul>
-        <a href="#contact" class="pack-cta pack-cta-filled">Choisir cette offre</a>
-      </div>
-      <div class="pack fade-in">
-        <h3 class="pack-name">Pack Lancement</h3>
-        <div class="pack-tagline">Pour les nouveaux hôtes</div>
-        <div class="pack-price"><span class="pack-price-currency">€</span>990</div>
-        <div class="pack-price-suffix">Paiement unique</div>
-        <div class="pack-divider"></div>
-        <ul class="pack-features">
-          <li>Tout le pack Premium Visibilité inclus</li>
-          <li>Étude de marché locale complète</li>
-          <li>Recommandations équipements à acheter</li>
-          <li>Configuration PriceLabs / Wheelhouse</li>
-          <li>Création du profil hôte de A à Z</li>
-          <li>Accompagnement lancement (3 semaines)</li>
-          <li>Conseils gestion voyageurs</li>
-        </ul>
-        <a href="#contact" class="pack-cta pack-cta-outline">Choisir cette offre</a>
-      </div>
+
+      <p class="pack-launch-tagline">
+        L'optimisation complète de votre annonce Airbnb.
+        Photos, refonte d'annonce, stratégie de pricing,
+        suivi sur 60 jours.
+      </p>
+
+      <ul class="pack-launch-features">
+        <li>✦ Audit complet de votre annonce actuelle</li>
+        <li>✦ Refonte intégrale (photos, titre, description)</li>
+        <li>✦ Stratégie de pricing personnalisée</li>
+        <li>✦ Suivi & ajustements pendant 60 jours</li>
+        <li>✦ Garantie satisfaction ou remboursé</li>
+      </ul>
+
+      <a
+        href="https://wa.me/33658797037?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20le%20Pack%20Lancement%20%C3%A0%20490%E2%82%AC"
+        class="pack-launch-cta"
+        target="_blank"
+      >
+        Réserver ma place →
+      </a>
+
+      <p class="pack-launch-deadline">
+        Offre valable jusqu'au 31 mai 2026
+      </p>
     </div>
   </div>
 </section>
@@ -2816,6 +3295,46 @@ footer {
   </div>
 </section>
 
+<section class="social-redirect">
+  <div class="container">
+    <div class="section-label">SUIVEZ-NOUS</div>
+    <h2 class="section-title">
+      Le quotidien d'une<br>
+      <em>annonce qui transforme.</em>
+    </h2>
+    <p class="section-subtitle">
+      Conseils, avant/après, transformations réelles.
+      Tous les jours sur nos réseaux.
+    </p>
+
+    <div class="social-buttons">
+      <a
+        href="https://www.instagram.com/jb.sublim/"
+        class="social-btn social-btn-instagram"
+        target="_blank"
+      >
+        <span class="social-btn-icon">📸</span>
+        <div class="social-btn-text">
+          <span class="social-btn-platform">Instagram</span>
+          <span class="social-btn-handle">@jb.sublim</span>
+        </div>
+      </a>
+
+      <a
+        href="https://www.facebook.com/homesublim"
+        class="social-btn social-btn-facebook"
+        target="_blank"
+      >
+        <span class="social-btn-icon">📘</span>
+        <div class="social-btn-text">
+          <span class="social-btn-platform">Facebook</span>
+          <span class="social-btn-handle">Home Sublim</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <a href="https://wa.me/33658797037" class="float-wa" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
@@ -2957,6 +3476,41 @@ function updateResult() {
   empty.style.display = 'none';
   active.classList.add('visible');
 }
+
+// CALCULATEUR SIMPLE
+function calculerPotentiel() {
+  const input = document.getElementById('revenu-actuel');
+  const value = parseFloat(input.value);
+
+  if (!value || value <= 0) {
+    input.style.borderColor = '#dc2626';
+    setTimeout(() => { input.style.borderColor = ''; }, 1500);
+    return;
+  }
+
+  const target = Math.round(value * 1.7);
+  const gainAnnuel = (target - value) * 12;
+
+  document.getElementById('calc-current').textContent =
+    value.toLocaleString('fr-FR') + '€';
+  document.getElementById('calc-target').textContent =
+    target.toLocaleString('fr-FR') + '€';
+  document.getElementById('calc-gain').textContent =
+    '+' + gainAnnuel.toLocaleString('fr-FR') + '€';
+
+  const whatsappLink = document.querySelector('.calc-cta-whatsapp');
+  whatsappLink.href =
+    'https://wa.me/33658797037?text=Bonjour%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20Airbnb.%20Mes%20revenus%20actuels%20sont%20de%20'
+    + value + '%E2%82%AC%2Fmois';
+
+  const result = document.getElementById('calc-result');
+  result.style.display = 'flex';
+  result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+document.getElementById('revenu-actuel')?.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') calculerPotentiel();
+});
 
 // SCROLL TO TOP BUTTON
 const scrollTopBtn = document.getElementById('scrollTop');
