@@ -210,9 +210,10 @@ main, nav, footer, section { position: relative; z-index: 2; }
 /* ── NAV ── */
 nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 48px; left: 0; right: 0;
   z-index: 100;
   padding: 24px 40px;
+  transition: top 0.4s ease, padding 0.4s ease, background 0.4s ease;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -311,7 +312,7 @@ nav.scrolled {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 140px 40px 100px;
+  padding: 188px 40px 100px;
   background-color: var(--ivory);
   background-image: url('images/hero-bg.jpg');
   background-size: cover;
@@ -2169,7 +2170,10 @@ footer {
   nav.scrolled { padding: 12px 24px; }
   .container { padding: 0 24px; }
   section { padding: 90px 0; }
-  .hero { padding: 130px 24px 90px; }
+  nav { top: 64px; }
+  body.banner-visible nav { top: 64px; }
+  body.banner-visible .hero { padding-top: 200px; }
+  .hero { padding: 178px 24px 90px; }
   .hero::after {
     background: linear-gradient(
       180deg,
@@ -2232,11 +2236,20 @@ footer {
   text-align: center;
 }
 
+.calculateur-simple .section-title,
+.tarifs-launch .section-title,
+.social-redirect .section-title,
+.leviers .section-title {
+  text-align: center;
+}
+
 /* ─── LAUNCH BANNER ─── */
 .launch-banner {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  z-index: 102;
   background: linear-gradient(90deg, #B8924A 0%, #D4A95A 100%);
   color: #FAF7F0;
   padding: 12px 24px;
@@ -2277,6 +2290,36 @@ footer {
 .launch-banner-cta:hover {
   background: rgba(250, 247, 240, 0.25);
   border-color: rgba(250, 247, 240, 0.7);
+}
+
+.launch-banner-close {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(250, 247, 240, 0.7);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.launch-banner-close:hover { color: #FAF7F0; }
+
+.launch-banner.hidden {
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+}
+
+body.banner-visible nav {
+  top: 48px;
+}
+
+body.banner-visible .hero {
+  padding-top: 188px;
 }
 
 /* ─── LEVIERS (new card style) ─── */
@@ -2660,7 +2703,12 @@ footer {
   box-shadow: 0 8px 24px rgba(184, 146, 74, 0.15);
 }
 
-.social-btn-icon { font-size: 32px; }
+.social-btn-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--gold);
+}
 
 .social-btn-text {
   display: flex;
@@ -2703,7 +2751,7 @@ footer {
 </head>
 <body>
 
-<div class="launch-banner">
+<div class="launch-banner" id="launchBanner">
   <div class="launch-banner-inner">
     <span class="launch-banner-icon">✦</span>
     <span class="launch-banner-text">
@@ -2714,11 +2762,11 @@ footer {
     </span>
     <a href="#tarifs" class="launch-banner-cta">En profiter →</a>
   </div>
+  <button class="launch-banner-close" id="closeBanner" aria-label="Fermer">✕</button>
 </div>
 
 <nav id="nav">
   <a href="#" class="nav-logo">
-    <img src="logos/logo-monogram.png" alt="JB Sublim" class="logo-mark">
     <span class="nav-wordmark">JB <span>Sublim</span></span>
   </a>
   <ul class="nav-links">
@@ -2759,14 +2807,14 @@ footer {
     </h1>
     <p class="hero-sub">Sur les 3 500 annonces actives à Montpellier, plus de 60% sont sous-optimisées. Photos pro, refonte d'annonce, pricing dynamique — on transforme votre annonce en machine à réservations.</p>
     <div class="hero-actions">
-      <a href="#calculator" class="btn-primary"><span>Calculer mes revenus potentiels</span></a>
-      <a href="#leviers" class="btn-secondary">Voir notre méthode</a>
+      <a href="#calculateur" class="btn-primary"><span>Calculer mes revenus potentiels</span></a>
+      <a href="#methode" class="btn-secondary">Voir notre méthode</a>
     </div>
     <div class="hero-trust">
-      <div class="trust-item"><div class="trust-num">+90%</div><div class="trust-label">Revenus moyens</div></div>
-      <div class="trust-item"><div class="trust-num">3</div><div class="trust-label">Leviers d'impact</div></div>
+      <div class="trust-item"><div class="trust-num">+90%</div><div class="trust-label">Revenus générés</div></div>
       <div class="trust-item"><div class="trust-num">5j</div><div class="trust-label">Délai de livraison</div></div>
-      <div class="trust-item"><div class="trust-num">100%</div><div class="trust-label">Sur Montpellier</div></div>
+      <div class="trust-item"><div class="trust-num">FR·MA</div><div class="trust-label">France & Maroc</div></div>
+      <div class="trust-item"><div class="trust-num">60j</div><div class="trust-label">Garantie résultats</div></div>
     </div>
   </div>
 </section>
@@ -2875,7 +2923,6 @@ footer {
     <div class="leviers-grid">
 
       <div class="levier-card">
-        <div class="levier-icon">📷</div>
         <div class="levier-number">01</div>
         <h3 class="levier-title">Voir</h3>
         <div class="levier-subtitle">L'attraction visuelle</div>
@@ -2887,7 +2934,6 @@ footer {
       </div>
 
       <div class="levier-card">
-        <div class="levier-icon">🌐</div>
         <div class="levier-number">02</div>
         <h3 class="levier-title">Être Vu</h3>
         <div class="levier-subtitle">L'algorithme à votre service</div>
@@ -2899,7 +2945,6 @@ footer {
       </div>
 
       <div class="levier-card">
-        <div class="levier-icon">📈</div>
         <div class="levier-number">03</div>
         <h3 class="levier-title">Vendre</h3>
         <div class="levier-subtitle">Le bon prix au bon moment</div>
@@ -3313,7 +3358,11 @@ footer {
         class="social-btn social-btn-instagram"
         target="_blank"
       >
-        <span class="social-btn-icon">📸</span>
+        <svg class="social-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
         <div class="social-btn-text">
           <span class="social-btn-platform">Instagram</span>
           <span class="social-btn-handle">@jb.sublim</span>
@@ -3325,7 +3374,9 @@ footer {
         class="social-btn social-btn-facebook"
         target="_blank"
       >
-        <span class="social-btn-icon">📘</span>
+        <svg class="social-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+        </svg>
         <div class="social-btn-text">
           <span class="social-btn-platform">Facebook</span>
           <span class="social-btn-handle">Home Sublim</span>
@@ -3476,6 +3527,24 @@ function updateResult() {
   empty.style.display = 'none';
   active.classList.add('visible');
 }
+
+// BANNER DISMISS
+(function() {
+  const banner = document.getElementById('launchBanner');
+  const closeBtn = document.getElementById('closeBanner');
+  const nav = document.getElementById('nav');
+
+  if (banner && closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      banner.style.transform = 'translateY(-100%)';
+      banner.style.transition = 'transform 0.35s ease';
+      setTimeout(function() {
+        banner.style.display = 'none';
+        nav.style.top = '0';
+      }, 350);
+    });
+  }
+})();
 
 // CALCULATEUR SIMPLE
 function calculerPotentiel() {
