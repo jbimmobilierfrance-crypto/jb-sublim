@@ -2874,6 +2874,122 @@ body.banner-visible .hero {
   .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
 }
 
+/* ── SECTION AVANT/APRÈS ── */
+.before-after {
+  padding: 100px 24px;
+  background: #FFFFFF;
+}
+
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 64px auto 48px;
+  max-width: 960px;
+}
+
+.ba-card {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.ba-label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  padding: 6px 14px;
+  border-radius: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.ba-label--before { background: rgba(0,0,0,0.65); color: #FFFFFF; }
+.ba-label--after  { background: #B8924A; color: #FAF7F0; }
+
+.ba-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.ba-card:hover .ba-img { transform: scale(1.02); }
+
+.ba-stats {
+  padding: 20px 24px;
+  background: #FAF7F0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ba-card--before .ba-stats { border-top: 2px solid rgba(0,0,0,0.1); }
+.ba-card--after  .ba-stats { border-top: 2px solid #B8924A; }
+
+.ba-stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #2D2A26;
+  line-height: 1;
+}
+
+.ba-card--after .ba-stat-number { color: #B8924A; font-size: 28px; }
+
+.ba-stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8B7B6B;
+  text-align: center;
+}
+
+.ba-testimonial {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: center;
+  padding: 32px;
+  background: rgba(184,146,74,0.05);
+  border-left: 3px solid #B8924A;
+  border-radius: 0 4px 4px 0;
+}
+
+.ba-testimonial blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #2D2A26;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.ba-testimonial cite {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #B8924A;
+  letter-spacing: 1px;
+  font-style: normal;
+}
+
+.ba-cta { text-align: center; }
+
+@media (max-width: 768px) {
+  .ba-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ba-img { height: 240px; }
+  .ba-stat-number { font-size: 36px; }
+  .ba-card--after .ba-stat-number { font-size: 22px; }
+  .ba-testimonial { padding: 24px 20px; }
+  .ba-testimonial blockquote { font-size: 18px; }
+}
+
 .calc-credibility-note {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
@@ -3222,6 +3338,71 @@ body.banner-visible .hero {
         <div class="process-time">J+60</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="before-after" id="transformation">
+  <div class="container">
+    <div class="section-label">RÉSULTAT RÉEL</div>
+    <h2 class="section-title">
+      Même appartement.<br>
+      <em>Deux résultats incomparables.</em>
+    </h2>
+    <p class="section-subtitle">
+      Ce T2 en hyper-centre tournait en dessous de son potentiel.
+      Voilà ce qu'il est devenu en moins de 5 jours.
+    </p>
+
+    <div class="ba-grid">
+
+      <div class="ba-card ba-card--before">
+        <div class="ba-label ba-label--before">AVANT</div>
+        <img
+          src="images/AVANT_-_Salon.jpg"
+          alt="Salon avant optimisation JB Sublim"
+          class="ba-img"
+          loading="lazy"
+        >
+        <div class="ba-stats">
+          <span class="ba-stat-number">41%</span>
+          <span class="ba-stat-label">Taux d'occupation</span>
+        </div>
+      </div>
+
+      <div class="ba-card ba-card--after">
+        <div class="ba-label ba-label--after">APRÈS</div>
+        <img
+          src="images/APRÈS_-_Salon.jpg"
+          alt="Salon après optimisation JB Sublim"
+          class="ba-img"
+          loading="lazy"
+        >
+        <div class="ba-stats">
+          <span class="ba-stat-number">★★★★★</span>
+          <span class="ba-stat-label">Coup de cœur voyageurs · 13 avis</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ba-testimonial">
+      <blockquote>
+        "On applique les mêmes méthodes depuis notre formation commune.
+        Le résultat parle de lui-même — Coup de cœur voyageurs, 13 avis 5 étoiles."
+      </blockquote>
+      <cite>— A. & S., gestionnaires · T2 hyper-centre · Sud de la France</cite>
+    </div>
+
+    <div class="ba-cta">
+      <a
+        href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb."
+        class="btn-primary"
+        target="_blank"
+      >
+        Diagnostic gratuit →
+      </a>
+    </div>
+
   </div>
 </section>
 
