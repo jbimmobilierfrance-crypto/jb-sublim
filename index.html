@@ -1071,136 +1071,6 @@ section { padding: 130px 0; position: relative; }
 }
 
 /* ── BEFORE / AFTER ── */
-.transform {
-  background: var(--ivory-warm);
-  border-top: 1px solid var(--line);
-  overflow: hidden;
-}
-
-.transform-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: end;
-  margin-bottom: 84px;
-}
-
-.ba-comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: var(--gold);
-  position: relative;
-  border: 1px solid var(--gold);
-}
-
-.ba-side {
-  background: var(--ivory);
-  padding: 60px 52px;
-  position: relative;
-  min-height: 520px;
-}
-
-.ba-side.after-side {
-  background: linear-gradient(135deg, var(--cream) 0%, var(--ivory-warm) 100%);
-}
-
-.ba-label {
-  font-size: 10px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-weight: 600;
-}
-
-.ba-label.before { color: var(--slate); }
-.ba-label.after { color: var(--gold-deep); }
-
-.ba-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.3;
-}
-
-.ba-items { display: flex; flex-direction: column; gap: 20px; }
-
-.ba-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.ba-icon {
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  flex-shrink: 0;
-  margin-top: 1px;
-  font-weight: 600;
-}
-
-.ba-icon.bad { background: rgba(184, 101, 74, 0.12); color: var(--red-soft); }
-.ba-icon.good { background: var(--gold-tint-strong); color: var(--gold-deep); }
-
-.ba-item-text {
-  font-size: 13px;
-  line-height: 1.65;
-  font-weight: 300;
-}
-
-.ba-side .ba-item-text { color: var(--slate); }
-.ba-side.after-side .ba-item-text { color: var(--charcoal); font-weight: 400; }
-
-.ba-result {
-  margin-top: 44px;
-  padding-top: 36px;
-  border-top: 1px solid var(--line);
-}
-
-.ba-result-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 68px;
-  font-weight: 300;
-  line-height: 1;
-  font-style: italic;
-  letter-spacing: -1px;
-}
-
-.ba-side .ba-result-number { color: var(--slate); }
-.ba-side.after-side .ba-result-number { color: var(--gold); }
-
-.ba-result-label {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--graphite);
-  margin-top: 10px;
-  font-weight: 500;
-}
-
-.results-cta {
-  margin-top: 72px;
-  text-align: center;
-  padding-top: 56px;
-  border-top: 1px solid var(--line);
-}
-
-.results-cta-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
-  font-style: italic;
-  font-weight: 300;
-  color: var(--charcoal);
-  margin-bottom: 32px;
-}
 
 /* ── PACKS ── */
 .packs {
@@ -2196,12 +2066,10 @@ footer {
   .calc-grid { grid-template-columns: 1fr; }
   .calc-form { border-right: none; border-bottom: 1px solid var(--line); }
 
-  .transform-header, .about-grid, .faq-grid {
+  .about-grid, .faq-grid {
     grid-template-columns: 1fr;
     gap: 44px;
   }
-
-  .ba-comparison { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 44px; }
   .hero-trust { gap: 36px; }
 }
@@ -3358,7 +3226,7 @@ body.banner-visible .hero {
       <div class="ba-card ba-card--before">
         <div class="ba-label ba-label--before">AVANT</div>
         <img
-          src="images/AVANT_-_Salon.jpg"
+          src="images/avant-salon.jpg"
           alt="Salon avant optimisation JB Sublim"
           class="ba-img"
           loading="lazy"
@@ -3372,7 +3240,7 @@ body.banner-visible .hero {
       <div class="ba-card ba-card--after">
         <div class="ba-label ba-label--after">APRÈS</div>
         <img
-          src="images/APRÈS_-_Salon.jpg"
+          src="images/apres-salon.jpg"
           alt="Salon après optimisation JB Sublim"
           class="ba-img"
           loading="lazy"
@@ -3406,63 +3274,6 @@ body.banner-visible .hero {
   </div>
 </section>
 
-<section class="transform" id="transform">
-  <div class="container">
-    <div class="transform-header">
-      <div class="fade-in">
-        <div class="eyebrow">Témoignages</div>
-        <h2 class="section-title">Ce que vivent<br><em>nos clients.</em></h2>
-      </div>
-      <p class="section-desc fade-in">Des propriétaires qui ne comprenaient pas pourquoi leur bien ne performait pas. Jusqu'au jour où ils nous ont contacté.</p>
-    </div>
-    <div class="testimonial-quote fade-in">
-      <blockquote>
-        "En 5 jours, mon taux d'occupation est passé de 41% à 78%. Je me demande encore pourquoi j'ai attendu si longtemps."
-      </blockquote>
-      <cite>— Sophie M., propriétaire à Lyon · T2 centre-ville · résultats à 60 jours</cite>
-    </div>
-
-    <div class="ba-comparison fade-in">
-      <div class="ba-side">
-        <div class="ba-label before">Avant JB Sublim</div>
-        <div class="ba-items">
-          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Un bien qui passe inaperçu parmi les concurrents</div></div>
-          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Des voyageurs qui regardent mais ne réservent pas</div></div>
-          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Un calendrier à moitié vide chaque mois</div></div>
-          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Des revenus bien en dessous du potentiel réel</div></div>
-          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Peu d'avis, une note insuffisante pour convaincre</div></div>
-          <div class="ba-item"><div class="ba-icon bad">✕</div><div class="ba-item-text">Un profil qui n'inspire ni confiance ni désir</div></div>
-        </div>
-        <div class="ba-result">
-          <div class="ba-result-number">42%</div>
-          <div class="ba-result-label">Taux d'occupation moyen constaté</div>
-        </div>
-      </div>
-      <div class="ba-side after-side">
-        <div class="ba-label after">Après JB Sublim</div>
-        <div class="ba-items">
-          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Une annonce qui se démarque dès le premier regard</div></div>
-          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Des réservations qui s'enchaînent sans effort</div></div>
-          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Un calendrier complet des semaines à l'avance</div></div>
-          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Des revenus qui correspondent au vrai potentiel du bien</div></div>
-          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Des commentaires 5 étoiles qui s'accumulent</div></div>
-          <div class="ba-item"><div class="ba-icon good">✦</div><div class="ba-item-text">Un profil qui inspire confiance et donne envie</div></div>
-        </div>
-        <div class="ba-result">
-          <div class="ba-result-number">83%</div>
-          <div class="ba-result-label">Taux d'occupation après 60 jours</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="results-cta fade-in">
-      <p class="results-cta-text">Un appel suffit pour savoir si votre bien a du potentiel inexploité.</p>
-      <a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb." class="btn-primary" target="_blank">
-        <span>Diagnostic gratuit →</span>
-      </a>
-    </div>
-  </div>
-</section>
 
 <section class="tarifs-launch" id="tarifs">
   <div class="container">
