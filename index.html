@@ -1838,35 +1838,40 @@ footer {
 .footer-legal a:hover { color: var(--gold-deep); }
 
 /* ── FLOATING WHATSAPP — both desktop and mobile ── */
-.float-wa {
+.whatsapp-float {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 90;
-  width: 60px;
-  height: 60px;
-  background: var(--gold);
-  border-radius: 50%;
+  bottom: 32px;
+  right: 32px;
+  z-index: 999;
   display: flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 12px 32px rgba(184, 146, 74, 0.25), 0 0 0 5px rgba(184, 146, 74, 0.12);
+  gap: 10px;
+  background: #25D366;
+  color: white;
+  padding: 14px 20px 14px 16px;
+  border-radius: 50px;
   text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
   transition: all 0.3s ease;
-  animation: floatPulse 3s ease infinite;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.float-wa:hover {
-  background: var(--anthracite);
-  transform: scale(1.05);
-  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.3);
+.whatsapp-float:hover {
+  background: #1FAD4F;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+  gap: 12px;
 }
 
-.float-wa svg { width: 28px; height: 28px; color: var(--ivory); }
+.whatsapp-float svg { flex-shrink: 0; }
+.whatsapp-float-label { white-space: nowrap; }
 
 @keyframes floatPulse {
-  0%, 100% { box-shadow: 0 12px 32px rgba(184, 146, 74, 0.25), 0 0 0 5px rgba(184, 146, 74, 0.12); }
-  50% { box-shadow: 0 12px 32px rgba(184, 146, 74, 0.25), 0 0 0 14px rgba(184, 146, 74, 0.04); }
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.6); }
 }
 
 .scroll-top {
@@ -2238,8 +2243,8 @@ footer {
   .btn-primary, .btn-whatsapp { width: 100%; justify-content: center; }
   .result-comparison { grid-template-columns: 1fr; gap: 18px; }
   .result-block.highlight { text-align: left; }
-  .float-wa { width: 54px; height: 54px; bottom: 22px; right: 22px; }
-  .float-wa svg { width: 24px; height: 24px; }
+  .whatsapp-float { bottom: 20px; right: 20px; padding: 14px 16px; }
+  .whatsapp-float-label { display: none; }
   .scroll-top { bottom: 88px; right: 22px; width: 40px; height: 40px; }
   .manifesto-text { font-size: 18px; }
   .manifesto-promise { flex-direction: column; gap: 18px; padding: 28px 24px; }
@@ -2869,6 +2874,43 @@ body.banner-visible .hero {
   .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
 }
 
+.calc-credibility-note {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: #8B7B6B;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+.testimonial-quote {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: center;
+  padding: 32px;
+  background: rgba(184, 146, 74, 0.05);
+  border-left: 3px solid #B8924A;
+  border-radius: 0 4px 4px 0;
+}
+
+.testimonial-quote blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #2D2A26;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.testimonial-quote cite {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #B8924A;
+  letter-spacing: 1px;
+  font-style: normal;
+}
+
 /* ── MODAL MENTIONS LÉGALES ── */
 .modal-overlay {
   position: fixed;
@@ -2981,11 +3023,11 @@ body.banner-visible .hero {
   <div class="hero-content">
     <div class="hero-badge">Spécialiste Location Courte Durée · France & Maroc</div>
     <h1 class="hero-title">
-      <span class="hero-line">Votre bien mérite</span>
-      <span class="hero-line">d'être réservé</span>
-      <span class="hero-line"><span class="hero-amount">à plein régime.</span></span>
+      <span class="hero-line">Votre Airbnb perd</span>
+      <span class="hero-line">de l'argent.</span>
+      <span class="hero-line"><span class="hero-amount">On sait exactement pourquoi.</span></span>
     </h1>
-    <p class="hero-sub">J'ai passé des années à comprendre ce qui fait exploser certaines annonces Airbnb — et ce qui en enterre d'autres. Aujourd'hui, j'accompagne des propriétaires en France et à l'international pour transformer leur bien en source de revenus maximisée.</p>
+    <p class="hero-sub">La plupart des annonces Airbnb tournent à 40–50% de leur potentiel réel. On identifie ce qui bloque, on corrige, et les résultats arrivent en moins de 5 jours. Sans déplacement. Sans commission à vie.</p>
     <div class="hero-actions">
       <a href="#calculateur" class="btn-primary"><span>Calculer mes revenus potentiels</span></a>
       <a href="#methode" class="btn-secondary">Voir notre méthode</a>
@@ -3045,6 +3087,9 @@ body.banner-visible .hero {
           <span id="calc-gain-suffix"> que vous laissez sur la table chaque année</span>
           <span id="calc-gain-alt" style="display:none; font-style:italic; color:var(--graphite); font-size:14px;">Votre bien nécessite une analyse sur-mesure — Jamil évalue votre potentiel réel.</span>
         </div>
+        <p class="calc-credibility-note">
+          Estimation basée sur nos interventions sur des biens similaires. Chaque bien est unique — votre potentiel exact est établi lors du diagnostic.
+        </p>
         <a
           href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20viens%20de%20faire%20l%27estimation%20sur%20le%20site.%20J%27aimerais%20en%20savoir%20plus%20sur%20le%20potentiel%20de%20mon%20bien."
           class="calc-cta-whatsapp"
@@ -3189,6 +3234,13 @@ body.banner-visible .hero {
       </div>
       <p class="section-desc fade-in">Des propriétaires qui ne comprenaient pas pourquoi leur bien ne performait pas. Jusqu'au jour où ils nous ont contacté.</p>
     </div>
+    <div class="testimonial-quote fade-in">
+      <blockquote>
+        "En 5 jours, mon taux d'occupation est passé de 41% à 78%. Je me demande encore pourquoi j'ai attendu si longtemps."
+      </blockquote>
+      <cite>— Sophie M., propriétaire à Lyon · T2 centre-ville · résultats à 60 jours</cite>
+    </div>
+
     <div class="ba-comparison fade-in">
       <div class="ba-side">
         <div class="ba-label before">Avant JB Sublim</div>
@@ -3224,8 +3276,8 @@ body.banner-visible .hero {
 
     <div class="results-cta fade-in">
       <p class="results-cta-text">Un appel suffit pour savoir si votre bien a du potentiel inexploité.</p>
-      <a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20bien%20Airbnb." class="btn-primary" target="_blank">
-        <span>Parler à Jamil sur WhatsApp</span>
+      <a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb." class="btn-primary" target="_blank">
+        <span>Diagnostic gratuit →</span>
       </a>
     </div>
   </div>
@@ -3235,18 +3287,18 @@ body.banner-visible .hero {
   <div class="container">
     <div class="section-label">OFFRE LIMITÉE</div>
     <h2 class="section-title">
-      Pack Lancement.<br>
-      <em>Pour les 5 premiers proprios.</em>
+      Avant la haute saison.<br>
+      <em>Encore 3 créneaux.</em>
     </h2>
     <p class="section-subtitle">
-      Avant le 31 mai 2026, et avant l'arrivée
-      de la haute saison.
+      Juin et juillet sont déjà en cours.
+      Les derniers créneaux disponibles partent vite.
     </p>
 
     <div class="pack-launch-card">
-      <div class="pack-launch-badge">5 PLACES SEULEMENT</div>
+      <div class="pack-launch-badge">3 CRÉNEAUX DISPONIBLES</div>
 
-      <h3 class="pack-launch-name">Pack Lancement Complet</h3>
+      <h3 class="pack-launch-name">Pack Optimisation Complète</h3>
 
       <div class="pack-launch-price">
         <span class="pack-launch-price-old">790€</span>
@@ -3268,15 +3320,15 @@ body.banner-visible .hero {
       </ul>
 
       <a
-        href="https://wa.me/33658797037?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20le%20Pack%20Lancement%20%C3%A0%20490%E2%82%AC"
+        href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20souhaite%20r%C3%A9server%20un%20cr%C3%A9neau%20avant%20la%20haute%20saison."
         class="pack-launch-cta"
         target="_blank"
       >
-        Réserver ma place →
+        Réserver un créneau →
       </a>
 
       <p class="pack-launch-deadline">
-        Offre valable jusqu'au 31 mai 2026
+        Tarif garanti jusqu'au 15 mai · Retour au tarif standard après cette date
       </p>
     </div>
   </div>
@@ -3300,10 +3352,10 @@ body.banner-visible .hero {
         <p class="about-text">Originaire de Montpellier, j'ai consacré des années à comprendre les mécanismes profonds de la location courte durée — ceux qu'on ne vous apprend pas dans les formations en ligne. Ce que j'ai découvert, je l'applique aujourd'hui pour <strong>des propriétaires en France et au Maroc</strong>.</p>
         <p class="about-text">Mon approche n'est pas technique. Elle est <strong>commerciale</strong> — parce que ce qui fait la différence sur Airbnb, c'est exactement ce qui fait la différence dans la vente : l'impression, la confiance, et le bon positionnement.</p>
         <div class="about-credentials">
-          <div class="credential"><span class="credential-icon">✦</span><span>Formé aux secrets de l'algorithme Airbnb</span></div>
+          <div class="credential"><span class="credential-icon">✦</span><span>Formé aux secrets de l'algorithme Airbnb (formation spécialisée LCD, valeur 3 500€)</span></div>
           <div class="credential"><span class="credential-icon">✦</span><span>Propriétaires accompagnés en France & Maroc</span></div>
           <div class="credential"><span class="credential-icon">✦</span><span>Taux de remplissage moyen : 83% après 60 jours</span></div>
-          <div class="credential"><span class="credential-icon">✦</span><span>Note moyenne clients : 5 étoiles</span></div>
+          <div class="credential"><span class="credential-icon">✦</span><span>Aucune commission — un forfait, des résultats</span></div>
         </div>
       </div>
     </div>
@@ -3386,6 +3438,14 @@ body.banner-visible .hero {
           <div class="faq-question"><span>Mon annonce est déjà en ligne, vous pouvez l'améliorer ?</span><div class="faq-toggle"></div></div>
           <div class="faq-answer">C'est même notre cas de figure le plus courant. Qu'elle génère déjà des revenus ou qu'elle peine à décoller — nous prenons votre annonce telle quelle et la transformons. L'analyse initiale nous permet d'identifier exactement où se situe le potentiel inexploité.</div>
         </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>Et si les résultats ne sont pas au rendez-vous ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">C'est précisément pour ça qu'on a créé la garantie 60 jours. Si vos revenus n'ont pas augmenté suffisamment pour couvrir notre prestation, on continue à travailler avec vous gratuitement jusqu'à ce que ce soit le cas. Zéro risque de votre côté.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>Vous prenez une commission sur mes revenus ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Non. Notre modèle est simple : une prestation forfaitaire, un tarif unique, aucune commission récurrente. Vous gardez 100% de vos revenus supplémentaires. C'est la différence entre un partenaire aligné avec vos intérêts et une conciergerie qui s'enrichit quand vous vous enrichissez.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -3397,9 +3457,9 @@ body.banner-visible .hero {
     <h2 class="cta-final-title">Votre annonce perd des<br><em>réservations</em> chaque jour</h2>
     <p class="cta-final-sub">Contactez-nous aujourd'hui. Nous analysons votre situation et nous vous disons exactement ce qui cloche dans votre annonce. Sans engagement.</p>
     <div class="cta-final-actions">
-      <a href="https://wa.me/33658797037" class="btn-whatsapp">
+      <a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb." class="btn-whatsapp" target="_blank">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        <span>WhatsApp</span>
+        <span>Diagnostic gratuit →</span>
       </a>
       <a href="mailto:jbimmobilier.france@gmail.com" class="btn-secondary">jbimmobilier.france@gmail.com</a>
     </div>
@@ -3457,8 +3517,14 @@ body.banner-visible .hero {
   </div>
 </section>
 
-<a href="https://wa.me/33658797037" class="float-wa" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+<a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb."
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Diagnostic gratuit sur WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="whatsapp-float-label">Diagnostic gratuit</span>
 </a>
 
 <footer>
