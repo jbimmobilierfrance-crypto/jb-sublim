@@ -2670,7 +2670,7 @@ body.banner-visible .hero {
 
 .ba-img {
   width: 100%;
-  height: 320px;
+  height: 380px;
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
@@ -2698,7 +2698,23 @@ body.banner-visible .hero {
   line-height: 1;
 }
 
-.ba-card--after .ba-stat-number { color: #B8924A; font-size: 28px; }
+.ba-card--after .ba-stat-number { color: #B8924A; }
+
+.ba-stat-sep {
+  width: 28px;
+  height: 1px;
+  background: rgba(184, 146, 74, 0.25);
+  margin: 6px auto;
+}
+
+.ba-stat-coup {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--gold-deep);
+  font-weight: 600;
+  text-align: center;
+}
 
 .ba-stat-label {
   font-family: 'Montserrat', sans-serif;
@@ -2764,13 +2780,75 @@ body.banner-visible .hero {
 
 .ba-cta { text-align: center; }
 
+/* ── METRICS STRIP ── */
+.ba-metrics {
+  display: flex;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto 48px;
+  background: var(--anthracite);
+  border-radius: 4px;
+  padding: 28px 40px;
+}
+
+.ba-metric {
+  flex: 1;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.ba-metric-div {
+  width: 1px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.10);
+  flex-shrink: 0;
+}
+
+.ba-metric-label {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.ba-metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ba-metric-before {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.30);
+}
+
+.ba-metric-arrow {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.ba-metric-after {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold-soft);
+}
+
 @media (max-width: 768px) {
   .ba-grid { grid-template-columns: 1fr; gap: 16px; }
-  .ba-img { height: 240px; }
+  .ba-img { height: 260px; }
   .ba-stat-number { font-size: 36px; }
-  .ba-card--after .ba-stat-number { font-size: 22px; }
   .ba-testimonial { padding: 24px 20px; }
   .ba-testimonial blockquote { font-size: 18px; }
+  .ba-metrics { padding: 20px 16px; gap: 0; }
+  .ba-metric { padding: 0 10px; }
+  .ba-metric-before { font-size: 14px; }
+  .ba-metric-after { font-size: 18px; }
 }
 
 .calc-credibility-note {
@@ -2951,11 +3029,49 @@ body.banner-visible .hero {
           loading="lazy"
         >
         <div class="ba-stats">
-          <span class="ba-stat-number">★★★★★</span>
-          <span class="ba-stat-label">Coup de cœur voyageurs · 13 avis</span>
+          <span class="ba-stat-number">83%</span>
+          <span class="ba-stat-label">Taux d'occupation</span>
+          <span class="ba-stat-sep"></span>
+          <span class="ba-stat-coup">★★★★★ &nbsp;Coup de cœur voyageurs · 13 avis</span>
         </div>
       </div>
 
+    </div>
+
+    <div class="ba-metrics">
+      <div class="ba-metric">
+        <div class="ba-metric-label">Occupation</div>
+        <div class="ba-metric-row">
+          <span class="ba-metric-before">41%</span>
+          <span class="ba-metric-arrow">→</span>
+          <span class="ba-metric-after">83%</span>
+        </div>
+      </div>
+      <div class="ba-metric-div"></div>
+      <div class="ba-metric">
+        <div class="ba-metric-label">Revenus</div>
+        <div class="ba-metric-row">
+          <span class="ba-metric-before">stagnants</span>
+          <span class="ba-metric-arrow">→</span>
+          <span class="ba-metric-after">+90%</span>
+        </div>
+      </div>
+      <div class="ba-metric-div"></div>
+      <div class="ba-metric">
+        <div class="ba-metric-label">Avis voyageurs</div>
+        <div class="ba-metric-row">
+          <span class="ba-metric-before">aucun</span>
+          <span class="ba-metric-arrow">→</span>
+          <span class="ba-metric-after">★★★★★ ×13</span>
+        </div>
+      </div>
+      <div class="ba-metric-div"></div>
+      <div class="ba-metric">
+        <div class="ba-metric-label">Délai</div>
+        <div class="ba-metric-row">
+          <span class="ba-metric-after">5 jours</span>
+        </div>
+      </div>
     </div>
 
     <div class="ba-testimonial">
