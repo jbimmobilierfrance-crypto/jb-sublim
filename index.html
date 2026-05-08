@@ -490,294 +490,6 @@ nav.scrolled {
   font-weight: 500;
 }
 
-/* ── CALCULATEUR ── */
-.calculator {
-  background: var(--ivory-warm);
-  border-top: 1px solid var(--line);
-  position: relative;
-  overflow: hidden;
-}
-
-.calculator-header {
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.calculator-header .section-desc { margin: 0 auto; }
-
-.calc-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  background: var(--ivory);
-  border: 1px solid var(--line);
-  position: relative;
-  box-shadow: 0 30px 80px -30px rgba(74, 70, 62, 0.12);
-}
-
-.calc-wrapper::before, .calc-wrapper::after {
-  content: '';
-  position: absolute;
-  width: 60px; height: 60px;
-  border: 1px solid var(--gold);
-  opacity: 0.6;
-}
-
-.calc-wrapper::before {
-  top: -1px; left: -1px;
-  border-right: none; border-bottom: none;
-}
-
-.calc-wrapper::after {
-  bottom: -1px; right: -1px;
-  border-left: none; border-top: none;
-}
-
-.calc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 540px;
-}
-
-.calc-form {
-  padding: 60px 52px;
-  border-right: 1px solid var(--line);
-  counter-reset: step;
-}
-
-.calc-step {
-  margin-bottom: 32px;
-}
-
-.calc-step:last-child { margin-bottom: 0; }
-
-.calc-step-label {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 14px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.calc-step-label::before {
-  content: counter(step);
-  counter-increment: step;
-  width: 22px; height: 22px;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  color: var(--gold);
-  font-style: italic;
-  background: var(--ivory);
-}
-
-.calc-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-.calc-option {
-  background: var(--ivory-warm);
-  border: 1px solid var(--line);
-  padding: 14px 12px;
-  font-size: 12px;
-  color: var(--charcoal);
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  font-family: inherit;
-  font-weight: 400;
-  letter-spacing: 0.3px;
-}
-
-.calc-option:hover {
-  border-color: var(--gold);
-  background: var(--ivory);
-  color: var(--anthracite);
-}
-
-.calc-option.active {
-  border-color: var(--gold);
-  background: var(--gold);
-  color: var(--ivory);
-  font-weight: 500;
-}
-
-.calc-result {
-  padding: 60px 52px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--ivory) 0%, var(--ivory-warm) 100%);
-  position: relative;
-}
-
-.result-empty {
-  text-align: center;
-  color: var(--slate);
-}
-
-.result-empty-icon {
-  font-size: 56px;
-  color: var(--gold);
-  opacity: 0.4;
-  margin-bottom: 24px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  line-height: 1;
-}
-
-.result-empty-text {
-  font-size: 14px;
-  line-height: 1.8;
-  max-width: 290px;
-  margin: 0 auto;
-  font-weight: 300;
-}
-
-.result-active { display: none; }
-.result-active.visible { display: block; animation: fadeUp 0.5s ease; }
-
-.result-label {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-.result-comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 36px;
-  padding-bottom: 36px;
-  border-bottom: 1px solid var(--line);
-}
-
-.result-block.highlight { text-align: right; }
-
-.result-amount {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 38px;
-  font-weight: 300;
-  line-height: 1;
-  margin-bottom: 6px;
-  letter-spacing: -0.5px;
-}
-
-.result-block.current .result-amount { color: var(--slate); }
-.result-block.highlight .result-amount { color: var(--gold); font-style: italic; }
-
-.result-desc {
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 1px;
-  font-weight: 500;
-}
-
-.result-gain {
-  background: linear-gradient(135deg, rgba(184, 146, 74, 0.08) 0%, rgba(184, 146, 74, 0.02) 100%);
-  border: 1px solid var(--gold-tint-strong);
-  padding: 28px 32px;
-  margin-bottom: 28px;
-  text-align: center;
-  position: relative;
-}
-
-.result-gain::before, .result-gain::after {
-  content: '';
-  position: absolute;
-  width: 18px; height: 18px;
-  border: 1px solid var(--gold);
-}
-
-.result-gain::before {
-  top: -1px; left: -1px;
-  border-right: none; border-bottom: none;
-}
-
-.result-gain::after {
-  bottom: -1px; right: -1px;
-  border-left: none; border-top: none;
-}
-
-.result-gain-label {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.result-gain-amount {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 56px;
-  font-weight: 300;
-  color: var(--anthracite);
-  line-height: 1;
-  font-style: italic;
-  letter-spacing: -1px;
-}
-
-.result-gain-period {
-  font-size: 12px;
-  color: var(--graphite);
-  margin-top: 8px;
-  font-weight: 400;
-}
-
-.result-gain-yearly {
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--gold-tint-strong);
-  font-size: 13px;
-  color: var(--charcoal);
-  font-weight: 400;
-}
-
-.result-gain-yearly span {
-  color: var(--gold-deep);
-  font-weight: 600;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 16px;
-}
-
-.result-cta {
-  display: block;
-  text-align: center;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 17px;
-  background: var(--anthracite);
-  color: var(--ivory);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.result-cta:hover { background: var(--gold); color: var(--anthracite); }
-
-.result-disclaimer {
-  font-size: 10px;
-  color: var(--muted);
-  text-align: center;
-  margin-top: 20px;
-  line-height: 1.6;
-  font-weight: 300;
-}
-
 /* ── SECTION COMMON ── */
 section { padding: 130px 0; position: relative; }
 
@@ -1705,8 +1417,8 @@ footer {
 
 .footer-legal a:hover { color: var(--gold-deep); }
 
-/* ── FLOATING WHATSAPP — both desktop and mobile ── */
-.whatsapp-float {
+/* ── FLOATING CALENDLY ── */
+.calendly-float {
   position: fixed;
   bottom: 32px;
   right: 32px;
@@ -1714,102 +1426,31 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #25D366;
-  color: white;
-  padding: 14px 20px 14px 16px;
-  border-radius: 50px;
+  background: var(--anthracite);
+  color: var(--ivory);
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-  transition: all 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  font-family: var(--sans);
+  box-shadow: 0 4px 20px rgba(74, 70, 62, 0.35);
+  animation: floatPulse 3s ease-in-out infinite;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, gap 0.2s ease;
 }
-
-.whatsapp-float:hover {
-  background: #1FAD4F;
+.calendly-float:hover {
+  background: var(--gold-deep);
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 8px 28px rgba(184, 146, 74, 0.45);
   gap: 12px;
 }
-
-.whatsapp-float svg { flex-shrink: 0; }
-.whatsapp-float-label { white-space: nowrap; }
+.calendly-float svg { flex-shrink: 0; }
+.calendly-float-label { white-space: nowrap; }
 
 @keyframes floatPulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-  50% { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.6); }
-}
-
-.scroll-top {
-  position: fixed;
-  bottom: 100px;
-  right: 28px;
-  z-index: 89;
-  width: 44px;
-  height: 44px;
-  background: var(--ivory);
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(74, 70, 62, 0.1);
-}
-
-.scroll-top.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.scroll-top:hover {
-  background: var(--gold);
-  transform: translateY(-3px);
-}
-
-.scroll-top svg {
-  width: 18px;
-  height: 18px;
-  color: var(--gold);
-  transition: color 0.3s ease;
-}
-
-.scroll-top:hover svg {
-  color: var(--ivory);
-}
-
-
-
-.comp-criterion {
-  font-weight: 500;
-  color: var(--anthracite);
-  font-size: 13px;
-  letter-spacing: 0.3px;
-}
-
-.comp-us {
-  background: var(--gold-tint);
-  font-weight: 500;
-}
-
-.comp-good {
-  color: var(--gold-deep);
-  font-weight: 600;
-}
-
-.comp-bad {
-  color: var(--red-soft);
-  font-weight: 400;
-}
-
-.comp-neutral {
-  color: var(--slate);
-  font-weight: 400;
+  0%, 100% { box-shadow: 0 4px 20px rgba(74, 70, 62, 0.35); }
+  50% { box-shadow: 0 4px 28px rgba(74, 70, 62, 0.5); }
 }
 
 /* ── ANIMATIONS ── */
@@ -1933,8 +1574,8 @@ footer {
   .pack-guarantee span { font-size: 11px; }
 
   /* float buttons */
-  .whatsapp-float { bottom: 20px; right: 20px; padding: 14px 16px; }
-  .whatsapp-float-label { display: none; }
+  .calendly-float { bottom: 20px; right: 20px; padding: 14px 16px; }
+  .calendly-float-label { display: none; }
   .scroll-top { bottom: 88px; right: 22px; width: 40px; height: 40px; }
 
   /* section titles */
@@ -2117,177 +1758,6 @@ body.banner-visible .hero {
   color: var(--graphite);
   line-height: 1.85;
   font-weight: 300;
-}
-
-/* ─── CALCULATEUR SIMPLE ─── */
-.calculateur-simple {
-  padding: 100px 24px 48px;
-  background: var(--ivory);
-}
-
-.calc-simple-box {
-  max-width: 600px;
-  margin: 48px auto 0;
-  padding: 48px;
-  background: #FFFFFF;
-  border: 1px solid rgba(184, 146, 74, 0.15);
-  border-radius: 4px;
-  text-align: center;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-}
-
-.calc-input-group { margin-bottom: 24px; }
-
-.calc-input-group label {
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #B8924A;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.calc-input-wrapper {
-  display: flex;
-  align-items: center;
-  border: 1px solid rgba(184, 146, 74, 0.3);
-  border-radius: 4px;
-  overflow: hidden;
-  background: var(--ivory);
-}
-
-#revenu-actuel {
-  flex: 1;
-  border: none;
-  background: transparent;
-  padding: 16px 20px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px;
-  color: var(--anthracite);
-  text-align: right;
-}
-
-#revenu-actuel:focus { outline: none; }
-
-.calc-input-suffix {
-  padding: 0 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: var(--graphite);
-  background: rgba(184, 146, 74, 0.08);
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-}
-
-.calc-button {
-  width: 100%;
-  padding: 16px 32px;
-  background: var(--anthracite);
-  color: var(--ivory);
-  border: none;
-  border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.calc-button:hover {
-  background: var(--gold);
-  transform: translateY(-2px);
-}
-
-.calc-result {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(184, 146, 74, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.calc-result-current,
-.calc-result-target {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.calc-result-arrow { font-size: 24px; color: var(--gold); }
-
-.calc-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--graphite);
-}
-
-.calc-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  color: var(--anthracite);
-}
-
-.calc-value.highlight {
-  color: var(--gold);
-  font-weight: 600;
-}
-
-.calc-result-gain {
-  margin-top: 16px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-style: italic;
-  color: var(--anthracite);
-  text-align: center;
-}
-
-.calc-result-gain strong {
-  color: var(--gold);
-  font-weight: 700;
-  font-style: normal;
-}
-
-.calc-cta-whatsapp {
-  display: inline-block;
-  margin-top: 24px;
-  padding: 16px 40px;
-  background: #25D366;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.calc-cta-whatsapp:hover {
-  background: #1FAD4F;
-  transform: translateY(-2px);
-}
-
-.calc-disclaimer {
-  margin-top: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  color: var(--graphite);
-  line-height: 1.7;
-  opacity: 0.7;
-  font-style: italic;
-  max-width: 440px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* ─── TARIFS LAUNCH ─── */
@@ -2851,8 +2321,6 @@ body.banner-visible .hero {
   .ba-metric-before { font-size: 14px; }
   .ba-metric-after { font-size: 18px; }
 }
-
-.calc-credibility-note {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   color: #8B7B6B;
@@ -3081,66 +2549,6 @@ body.banner-visible .hero {
 }
 .qualify-email-form button:hover { background: var(--gold-deep); }
 
-/* ── CALCULATEUR EMAIL GATE ── */
-.calc-email-gate {
-  padding: 32px 24px;
-  background: var(--ivory-warm);
-  border: 1px solid var(--line-strong);
-  border-radius: 4px;
-  text-align: center;
-  margin-top: 8px;
-}
-.calc-gate-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  color: var(--anthracite);
-  margin-bottom: 4px;
-}
-.calc-gate-sub {
-  font-size: 13px;
-  color: var(--graphite);
-  margin-bottom: 20px;
-}
-.calc-gate-form {
-  display: flex;
-  gap: 8px;
-  max-width: 380px;
-  margin: 0 auto 12px;
-}
-.calc-gate-form input {
-  flex: 1;
-  padding: 12px 16px;
-  border: 1px solid var(--line-strong);
-  border-radius: 2px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  background: #FFFFFF;
-  color: var(--anthracite);
-  outline: none;
-  min-width: 0;
-}
-.calc-gate-form input:focus { border-color: var(--gold); }
-.calc-gate-form button {
-  padding: 12px 20px;
-  background: var(--gold-deep);
-  color: var(--ivory);
-  border: none;
-  border-radius: 2px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-  letter-spacing: 1px;
-  transition: background 0.2s ease;
-}
-.calc-gate-form button:hover { background: var(--anthracite); }
-.calc-gate-note {
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 0.5px;
-}
-
 /* ── MOBILE ── */
 @media (max-width: 768px) {
 }
@@ -3189,9 +2597,7 @@ body.banner-visible .hero {
   <div class="launch-banner-inner">
     <span class="launch-banner-text">
       <span class="launch-banner-icon">✦</span>
-      Prochain créneau disponible :
-      <strong id="bannerNextSlot">chargement…</strong>
-      · <em>490€ au lieu de 790€</em>
+      3 créneaux disponibles avant la haute saison · <em>490€ au lieu de 790€</em>
     </span>
     <a href="#tarifs" class="launch-banner-cta">Vérifier les disponibilités →</a>
   </div>
@@ -3203,12 +2609,11 @@ body.banner-visible .hero {
     <span class="nav-wordmark">JB <span>Sublim</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#calculateur">Calculateur</a></li>
     <li><a href="#methode">Méthode</a></li>
     <li><a href="#process">Comment ça marche</a></li>
     <li><a href="#tarifs">Tarifs</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+    <li><a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="nav-cta" target="_blank" rel="noopener">Nous contacter</a></li>
   </ul>
 
   <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -3244,7 +2649,6 @@ body.banner-visible .hero {
     <p class="hero-sub">La plupart des annonces Airbnb tournent à 40–50% de leur potentiel réel. On identifie ce qui bloque, on corrige, et les résultats arrivent en moins de 5 jours. Sans déplacement. Sans commission à vie.</p>
     <div class="hero-actions">
       <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary btn-calendly" target="_blank"><span>Réserver mon appel stratégique →</span></a>
-      <a href="#calculateur" class="btn-secondary">Calculer mon potentiel</a>
     </div>
     <div class="hero-wa-secondary">
       <a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27ai%20une%20question%20urgente." target="_blank" class="wa-secondary-link">
@@ -3610,83 +3014,6 @@ body.banner-visible .hero {
     </div>
   </div>
 </section>
-
-<section class="calculateur-simple" id="calculateur">
-  <div class="container">
-    <div class="section-label">DIAGNOSTIC RAPIDE</div>
-    <h2 class="section-title">
-      Combien votre Airbnb<br>
-      <em>devrait-il vraiment générer ?</em>
-    </h2>
-    <p class="section-subtitle">
-      Indiquez vos revenus mensuels actuels,
-      découvrez votre potentiel réel.
-    </p>
-
-    <div class="calc-simple-box">
-      <div class="calc-input-group">
-        <label for="revenu-actuel">Vos revenus Airbnb actuels</label>
-        <div class="calc-input-wrapper">
-          <input
-            type="number"
-            id="revenu-actuel"
-            placeholder="1 200"
-            min="0"
-            step="50"
-          >
-          <span class="calc-input-suffix">€/mois</span>
-        </div>
-      </div>
-
-      <button class="calc-button" onclick="calculerPotentiel()">
-        Calculer mon potentiel
-      </button>
-
-      <div class="calc-email-gate" id="calcEmailGate" style="display:none;">
-        <p class="calc-gate-text">Votre estimation est prête.</p>
-        <p class="calc-gate-sub">Entrez votre email pour accéder à votre résultat :</p>
-        <form class="calc-gate-form" id="calcGateForm">
-          <input type="email" id="calcGateEmail" placeholder="votre@email.com" required autocomplete="email">
-          <button type="submit">Voir mon potentiel →</button>
-        </form>
-        <p class="calc-gate-note">Résultat immédiat · Pas de spam</p>
-      </div>
-
-      <div class="calc-result" id="calc-result" style="display:none;">
-        <div class="calc-result-current">
-          <span class="calc-label">Aujourd'hui</span>
-          <span class="calc-value" id="calc-current">—</span>
-        </div>
-        <div class="calc-result-arrow">→</div>
-        <div class="calc-result-target">
-          <span class="calc-label">Avec optimisation</span>
-          <span class="calc-value highlight" id="calc-target">—</span>
-        </div>
-        <div class="calc-result-gain">
-          <strong id="calc-gain">—</strong>
-          <span id="calc-gain-suffix"> que vous laissez sur la table chaque année</span>
-          <span id="calc-gain-alt" style="display:none; font-style:italic; color:var(--graphite); font-size:14px;">Votre bien nécessite une analyse sur-mesure — Jamil évalue votre potentiel réel.</span>
-        </div>
-        <p class="calc-credibility-note">
-          Estimation basée sur nos interventions sur des biens similaires. Chaque bien est unique — votre potentiel exact est établi lors du diagnostic.
-        </p>
-        <a
-          href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20viens%20de%20faire%20l%27estimation%20sur%20le%20site.%20J%27aimerais%20en%20savoir%20plus%20sur%20le%20potentiel%20de%20mon%20bien."
-          class="calc-cta-whatsapp"
-          target="_blank"
-        >
-          Diagnostic gratuit →
-        </a>
-        <p class="calc-disclaimer">
-          Cette projection est indicative. Chaque bien est unique —
-          votre potentiel exact sera établi sur la base d'une analyse
-          personnalisée de votre marché et de votre environnement concurrentiel.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
@@ -3773,14 +3100,17 @@ body.banner-visible .hero {
 
 
 
-<a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb."
-   class="whatsapp-float"
+<a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim"
+   class="calendly-float"
    target="_blank"
-   aria-label="Diagnostic gratuit sur WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+   rel="noopener"
+   aria-label="Réserver mon appel stratégique">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22">
+    <rect x="3" y="4" width="18" height="18" rx="2"/>
+    <path d="M16 2v4M8 2v4M3 10h18"/>
+    <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
   </svg>
-  <span class="whatsapp-float-label">Diagnostic gratuit</span>
+  <span class="calendly-float-label">Réserver mon appel</span>
 </a>
 
 <footer>
@@ -3801,7 +3131,6 @@ body.banner-visible .hero {
       <div class="footer-accordion">
         <div class="footer-col-title">Navigation <span class="ft-icon">+</span></div>
         <ul class="footer-links">
-          <li><a href="#calculateur">Calculateur</a></li>
           <li><a href="#methode">Méthode</a></li>
           <li><a href="#process">Comment ça marche</a></li>
           <li><a href="#tarifs">Tarifs</a></li>
@@ -3872,11 +3201,11 @@ document.querySelectorAll('.faq-item').forEach(item => {
 // CALCULATOR — calibrated on real prévisionnels: T2 Écusson 2vy = 1422€ → 2689€
 const calcState = { quartier: null, type: null, capacite: null, typeBase: null, typeOpt: null };
 
-document.querySelectorAll('.calc-options').forEach(group => {
+document.querySelectorAll('
   const groupName = group.dataset.group;
-  group.querySelectorAll('.calc-option').forEach(btn => {
+  group.querySelectorAll('
     btn.addEventListener('click', () => {
-      group.querySelectorAll('.calc-option').forEach(b => b.classList.remove('active'));
+      group.querySelectorAll('
       btn.classList.add('active');
       if (groupName === 'quartier') calcState.quartier = parseFloat(btn.dataset.mult);
       else if (groupName === 'type') {
@@ -3936,51 +3265,6 @@ function updateResult() {
   }
 })();
 
-// CALCULATEUR SIMPLE
-function calculerPotentiel() {
-  const input = document.getElementById('revenu-actuel');
-  const value = parseFloat(input.value);
-  const gainSuffix = document.getElementById('calc-gain-suffix');
-  const gainAlt = document.getElementById('calc-gain-alt');
-  const result = document.getElementById('calc-result');
-  const cta = document.querySelector('.calc-cta-whatsapp');
-
-  if (!value || value <= 0) {
-    input.style.boxShadow = '0 0 0 2px #dc2626';
-    setTimeout(() => { input.style.boxShadow = ''; }, 1500);
-    return;
-  }
-
-  if (value < 300) {
-    document.getElementById('calc-current').textContent = '— €';
-    document.getElementById('calc-target').textContent = '— €';
-    document.getElementById('calc-gain').textContent = '';
-    gainSuffix.style.display = 'none';
-    gainAlt.style.display = 'inline';
-    cta.href = 'https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20discuter%20du%20potentiel%20de%20mon%20bien.';
-    result.style.display = 'flex';
-    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
-  }
-
-  const target = Math.round(value * 1.7);
-  const gainAnnuel = (target - value) * 12;
-
-  document.getElementById('calc-current').textContent = value.toLocaleString('fr-FR') + ' €';
-  document.getElementById('calc-target').textContent = target.toLocaleString('fr-FR') + ' €';
-  document.getElementById('calc-gain').textContent = '+' + gainAnnuel.toLocaleString('fr-FR') + ' €';
-  gainSuffix.style.display = 'inline';
-  gainAlt.style.display = 'none';
-
-  cta.href = 'https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20viens%20de%20faire%20l%27estimation%20sur%20le%20site.%20Mes%20revenus%20actuels%20sont%20de%20'
-    + value + '%E2%82%AC%2Fmois.%20J%27aimerais%20en%20savoir%20plus%20sur%20le%20potentiel%20de%20mon%20bien.';
-
-  result.style.display = 'flex';
-  result.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-document.getElementById('revenu-actuel')?.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') calculerPotentiel();
 });
 
 // FOOTER ACCORDION (mobile)
@@ -4016,20 +3300,6 @@ window.addEventListener('scroll', () => {
 scrollTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
-// BANNIÈRE — prochain créneau dynamique
-(function() {
-  const el = document.getElementById('bannerNextSlot');
-  if (!el) return;
-  const jours = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
-  const mois = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
-  const now = new Date();
-  const d = new Date(now);
-  d.setDate(d.getDate() + 2); // au moins 2 jours d'avance
-  // Trouver le prochain mardi (2) ou jeudi (4)
-  while (d.getDay() !== 2 && d.getDay() !== 4) d.setDate(d.getDate() + 1);
-  el.textContent = jours[d.getDay()] + ' ' + d.getDate() + ' ' + mois[d.getMonth()];
-})();
 
 // FORMULAIRE DE QUALIFICATION
 (function() {
@@ -4070,74 +3340,6 @@ scrollTopBtn.addEventListener('click', () => {
 })();
 
 // CALCULATEUR — email gate
-(function() {
-  var pending = false;
-  var origCalculer = window.calculerPotentiel;
-
-  window.calculerPotentiel = function() {
-    var gate = document.getElementById('calcEmailGate');
-    var result = document.getElementById('calc-result');
-    var input = document.getElementById('revenu-actuel');
-    var value = parseFloat(input.value);
-
-    if (!value || value <= 0) {
-      input.style.boxShadow = '0 0 0 2px #dc2626';
-      setTimeout(function() { input.style.boxShadow = ''; }, 1500);
-      return;
-    }
-
-    // Stocker la valeur pour après la gate
-    pending = value;
-    result.style.display = 'none';
-    gate.style.display = 'block';
-    gate.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
-
-  document.getElementById('calcGateForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var email = document.getElementById('calcGateEmail').value;
-    if (!email || !pending) return;
-
-    // Envoi Formspree (async, non bloquant)
-    fetch('https://formspree.io/f/VOTRE_ID_FORMSPREE', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email, revenu: pending, source: 'calculateur' })
-    }).catch(function() {});
-
-    // Masquer gate, afficher résultat
-    document.getElementById('calcEmailGate').style.display = 'none';
-
-    // Recalculer et afficher
-    var gainSuffix = document.getElementById('calc-gain-suffix');
-    var gainAlt = document.getElementById('calc-gain-alt');
-    var result = document.getElementById('calc-result');
-    var cta = document.querySelector('.calc-cta-whatsapp');
-
-    if (pending < 300) {
-      document.getElementById('calc-current').textContent = '— €';
-      document.getElementById('calc-target').textContent = '— €';
-      document.getElementById('calc-gain').textContent = '';
-      if (gainSuffix) gainSuffix.style.display = 'none';
-      if (gainAlt) gainAlt.style.display = 'inline';
-    } else {
-      var target = Math.round(pending * 1.7);
-      var gainAnnuel = (target - pending) * 12;
-      document.getElementById('calc-current').textContent = pending.toLocaleString('fr-FR') + ' €';
-      document.getElementById('calc-target').textContent = target.toLocaleString('fr-FR') + ' €';
-      document.getElementById('calc-gain').textContent = '+' + gainAnnuel.toLocaleString('fr-FR') + ' €';
-      if (gainSuffix) gainSuffix.style.display = 'inline';
-      if (gainAlt) gainAlt.style.display = 'none';
-      if (cta) {
-        cta.href = 'https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim';
-        cta.textContent = 'Réserver mon appel stratégique →';
-      }
-    }
-    result.style.display = 'flex';
-    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
-})();
-
 </script>
 
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
