@@ -3233,6 +3233,49 @@ body.banner-visible .hero {
   .calc-gate-form { flex-direction: column; }
   .calc-gate-form button { width: 100%; }
 }
+
+/* ── QONTO SECONDARY CTA ── */
+.qonto-secondary-cta {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: var(--slate);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.qonto-secondary-cta:hover { color: var(--gold-deep); border-color: var(--gold); }
+
+/* ── HERO LOGO PLACEHOLDER ── */
+.hero-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+/* ── TEMO PENDING CARDS ── */
+.temo-pending { border: 1px dashed var(--line); background: transparent; }
+.temo-coming {
+  color: var(--slate);
+  font-style: italic;
+  opacity: 0.6;
+  font-size: 15px;
+}
+.temo-result-pending {
+  font-size: 11px;
+  color: var(--slate);
+  opacity: 0.5;
+  letter-spacing: 0.5px;
+}
+
 </style>
 </head>
 <body>
@@ -3290,14 +3333,12 @@ body.banner-visible .hero {
       <span class="hero-line">de l'argent.</span>
       <span class="hero-line"><span class="hero-amount">On sait exactement pourquoi.</span></span>
     </h1>
-    <div class="hero-video-wrap">
-      <video class="hero-video" autoplay loop muted playsinline>
-        <source src="/videos/intro-jamil.mp4" type="video/mp4">
-      </video>
+    <div class="hero-video-wrap hero-video-placeholder">
+      <img src="/logos/logo-officiel-fond transparent.png" alt="JB Sublim" class="hero-logo-img">
     </div>
     <p class="hero-sub">La plupart des annonces Airbnb tournent à 40–50% de leur potentiel réel. On identifie ce qui bloque, on corrige, et les résultats arrivent en moins de 5 jours. Sans déplacement. Sans commission à vie.</p>
     <div class="hero-actions">
-      <a href="[LIEN_CALENDLY_À_INSÉRER]" class="btn-primary btn-calendly" target="_blank"><span>Réserver mon appel stratégique →</span></a>
+      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary btn-calendly" target="_blank"><span>Réserver mon appel stratégique →</span></a>
       <a href="#calculateur" class="btn-secondary">Calculer mon potentiel</a>
     </div>
     <div class="hero-wa-secondary">
@@ -3414,7 +3455,7 @@ body.banner-visible .hero {
     </div>
 
     <div class="ba-cta">
-      <a href="[LIEN_CALENDLY_À_INSÉRER]" class="btn-primary btn-calendly" target="_blank">Réserver mon appel stratégique →</a>
+      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary btn-calendly" target="_blank">Réserver mon appel stratégique →</a>
     </div>
 
   </div>
@@ -3492,8 +3533,11 @@ body.banner-visible .hero {
           </div>
         </div>
 
-        <a href="[LIEN_CALENDLY_À_INSÉRER]" class="pack-launch-cta qualify-cta" id="qualifyCta" target="_blank" aria-disabled="true">
+        <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="pack-launch-cta qualify-cta" id="qualifyCta" target="_blank" aria-disabled="true">
           Réserver mon appel stratégique →
+        </a>
+        <a href="https://pay.qonto.com/payment-links/019e082e-3e2f-7e88-9212-e4a73bd8fc0d?resource_id=019e082e-3e31-7206-b52f-1ddb5e9764ba" class="qonto-secondary-cta" target="_blank" rel="noopener">
+          Déjà convaincu&nbsp;? Payer directement →
         </a>
 
         <div class="qualify-low-budget" id="qualifyLowBudget">
@@ -3635,51 +3679,24 @@ body.banner-visible .hero {
       <em>Des résultats réels.</em>
     </h2>
 
-    <div class="temo-grid">
+        <div class="temo-grid">
 
-      <div class="temo-card fade-in">
-        <div class="temo-header">
-          <div class="temo-avatar">
-            <img src="[PHOTO_1]" alt="[Prénom 1]" class="temo-photo">
-          </div>
-          <div class="temo-meta">
-            <div class="temo-name">[Prénom 1]</div>
-            <div class="temo-location">[Ville] · [Type de bien]</div>
-          </div>
-        </div>
+      <div class="temo-card temo-pending fade-in">
         <div class="temo-stars">★★★★★</div>
-        <blockquote class="temo-quote">"[Témoignage à remplir — résultat, émotion, transformation]"</blockquote>
-        <div class="temo-result">+[X]% de revenus en [Y] jours</div>
+        <blockquote class="temo-quote temo-coming">&laquo;&nbsp;Témoignage à venir&nbsp;&raquo;</blockquote>
+        <div class="temo-result temo-result-pending">Premier client en cours d'intégration</div>
       </div>
 
-      <div class="temo-card fade-in">
-        <div class="temo-header">
-          <div class="temo-avatar">
-            <img src="[PHOTO_2]" alt="[Prénom 2]" class="temo-photo">
-          </div>
-          <div class="temo-meta">
-            <div class="temo-name">[Prénom 2]</div>
-            <div class="temo-location">[Ville] · [Type de bien]</div>
-          </div>
-        </div>
+      <div class="temo-card temo-pending fade-in">
         <div class="temo-stars">★★★★★</div>
-        <blockquote class="temo-quote">"[Témoignage à remplir — résultat, émotion, transformation]"</blockquote>
-        <div class="temo-result">+[X]% de revenus en [Y] jours</div>
+        <blockquote class="temo-quote temo-coming">&laquo;&nbsp;Témoignage à venir&nbsp;&raquo;</blockquote>
+        <div class="temo-result temo-result-pending">Premier client en cours d'intégration</div>
       </div>
 
-      <div class="temo-card fade-in">
-        <div class="temo-header">
-          <div class="temo-avatar">
-            <img src="[PHOTO_3]" alt="[Prénom 3]" class="temo-photo">
-          </div>
-          <div class="temo-meta">
-            <div class="temo-name">[Prénom 3]</div>
-            <div class="temo-location">[Ville] · [Type de bien]</div>
-          </div>
-        </div>
+      <div class="temo-card temo-pending fade-in">
         <div class="temo-stars">★★★★★</div>
-        <blockquote class="temo-quote">"[Témoignage à remplir — résultat, émotion, transformation]"</blockquote>
-        <div class="temo-result">+[X]% de revenus en [Y] jours</div>
+        <blockquote class="temo-quote temo-coming">&laquo;&nbsp;Témoignage à venir&nbsp;&raquo;</blockquote>
+        <div class="temo-result temo-result-pending">Premier client en cours d'intégration</div>
       </div>
 
     </div>
@@ -3871,7 +3888,7 @@ body.banner-visible .hero {
     <h2 class="cta-final-title">Votre annonce perd des<br><em>réservations</em> chaque jour</h2>
     <p class="cta-final-sub">Contactez-nous aujourd'hui. Nous analysons votre situation et nous vous disons exactement ce qui cloche dans votre annonce. Sans engagement.</p>
     <div class="cta-final-actions">
-      <a href="[LIEN_CALENDLY_À_INSÉRER]" class="btn-primary btn-calendly" target="_blank"><span>Réserver mon appel stratégique →</span></a>
+      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary btn-calendly" target="_blank"><span>Réserver mon appel stratégique →</span></a>
       <a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27ai%20une%20question%20urgente." class="btn-secondary" target="_blank">Question sur WhatsApp</a>
     </div>
     <div class="cta-final-trust">
@@ -4240,7 +4257,7 @@ scrollTopBtn.addEventListener('click', () => {
       if (gainSuffix) gainSuffix.style.display = 'inline';
       if (gainAlt) gainAlt.style.display = 'none';
       if (cta) {
-        cta.href = '[LIEN_CALENDLY_À_INSÉRER]';
+        cta.href = 'https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim';
         cta.textContent = 'Réserver mon appel stratégique →';
       }
     }
