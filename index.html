@@ -2810,8 +2810,9 @@ body.banner-visible .hero {
   .ba-stat-number { font-size: 36px; }
   .ba-testimonial { padding: 24px 20px; }
   .ba-testimonial blockquote { font-size: 18px; }
-  .ba-metrics { padding: 20px 16px; gap: 0; }
-  .ba-metric { padding: 0 10px; }
+  .ba-metrics { display: grid; grid-template-columns: 1fr 1fr; padding: 20px 16px; gap: 16px 0; }
+  .ba-metric { padding: 12px 10px; }
+  .ba-metric-div { display: none; }
   .ba-metric-before { font-size: 14px; }
   .ba-metric-after { font-size: 18px; }
 }
@@ -2901,16 +2902,16 @@ body.banner-visible .hero {
 }
 .hero-video {
   width: 100%; height: 100%;
-  object-fit: cover; display: block;
+  object-fit: cover;
+  display: none; /* shown when video file uploaded */
 }
 .hero-video-fallback {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  display: block;
 }
-/* hide fallback when video loads */
-.hero-video:not([error]) ~ .hero-video-fallback { display: none; }
 @media (max-width: 640px) {
   .hero-video-wrap { width: 160px; height: 160px; }
 }
@@ -3478,39 +3479,6 @@ document.querySelectorAll('.faq-item').forEach(item => {
     if (!wasActive) item.classList.add('active');
   });
 });
-
-);
-  });
-});
-
-function formatEuro(n) { return new Intl.NumberFormat('fr-FR').format(Math.round(n)) + ' €'; }
-
-function updateResult() {
-  const empty = document.getElementById('resultEmpty');
-  const active = document.getElementById('resultActive');
-  if (!calcState.quartier || !calcState.typeBase || !calcState.capacite) {
-    empty.style.display = 'block';
-    active.classList.remove('visible');
-    return;
-  }
-  // Données calibrées sur prévisionnels réels :
-  // T2 standard 2vy : 79€/nuit × 60% occupation × 30j = 1422€
-  // T2 optimisé 2vy : 108€/nuit × 83% occupation × 30j = 2689€
-  const occupancyCurrent = 0.60;
-  const occupancyOptimized = 0.83;
-
-  const currentMonthly = calcState.typeBase * calcState.quartier * calcState.capacite * 30 * occupancyCurrent;
-  const optimizedMonthly = calcState.typeOpt * calcState.quartier * calcState.capacite * 30 * occupancyOptimized;
-  const gainMonth = optimizedMonthly - currentMonthly;
-  const gainYear = gainMonth * 12;
-
-  document.getElementById('currentAmount').textContent = formatEuro(currentMonthly);
-  document.getElementById('optimizedAmount').textContent = formatEuro(optimizedMonthly);
-  document.getElementById('gainMonth').textContent = '+ ' + formatEuro(gainMonth);
-  document.getElementById('gainYear').textContent = formatEuro(gainYear);
-  empty.style.display = 'none';
-  active.classList.add('visible');
-}
 
 // BANNER DISMISS
 (function() {
