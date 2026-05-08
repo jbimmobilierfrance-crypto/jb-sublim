@@ -2900,17 +2900,23 @@ body.banner-visible .hero {
   position: relative;
   background: var(--ivory-warm);
 }
-.hero-video {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: none; /* shown when video file uploaded */
-}
-.hero-video-fallback {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+.hero-logo-placeholder {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: block;
+}
+.hero-video-active {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  inset: 0;
 }
 @media (max-width: 640px) {
   .hero-video-wrap { width: 160px; height: 160px; }
@@ -2935,6 +2941,256 @@ body.banner-visible .hero {
 }
 .pack-qonto-cta:hover { color: var(--gold-deep); border-color: var(--gold); }
 
+
+/* ═══════════════════════════════════════════════════════════
+   OPTIMISATION MOBILE — max-width: 768px
+   Toutes ces règles sont UNIQUEMENT mobiles. Desktop inchangé.
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── OVERFLOW ── */
+  html { overflow-x: hidden; }
+  .container { padding: 0 16px !important; max-width: 100%; box-sizing: border-box; }
+
+  /* ── SECTIONS — rythme vertical ── */
+  section { padding-top: 50px !important; padding-bottom: 50px !important; }
+  .hero { padding-top: 160px !important; padding-bottom: 60px !important; }
+  .hero-content { padding: 0 !important; }
+  .section-title { font-size: 28px !important; margin-bottom: 24px; line-height: 1.25; }
+  .section-subtitle, .section-desc { margin-top: 12px !important; }
+
+  /* ── TYPOGRAPHIE ── */
+  .hero-title { font-size: 38px !important; }
+  h2:not(.hero-title):not(.section-title) { font-size: 28px; }
+  h3 { font-size: 20px; }
+
+  /* ── BOUTONS CTA — pleine largeur ── */
+  .hero-actions { flex-direction: column; gap: 12px; width: 100%; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    display: block !important;
+    width: 100% !important;
+    text-align: center;
+    padding: 16px 20px !important;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    box-sizing: border-box;
+  }
+  .ba-cta .btn-primary { width: 100% !important; justify-content: center !important; }
+
+  /* ── BA-METRICS — grille 2×2 sans débordement ── */
+  .ba-metrics {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    max-width: 92vw;
+    width: 92vw;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 24px !important;
+    gap: 20px !important;
+    box-sizing: border-box;
+  }
+  .ba-metric-div { display: none !important; }
+  .ba-metric-label { font-size: 8px; letter-spacing: 1.5px; }
+  .ba-metric-before { font-size: 13px !important; }
+  .ba-metric-after { font-size: 16px !important; }
+  .ba-metric-row { gap: 4px; }
+
+  /* ── PROBLEM — accordéons ── */
+  .problem-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0 !important;
+    margin-top: 32px;
+  }
+  .problem-card {
+    border-top: none !important;
+    border-bottom: 1px solid rgba(184, 146, 74, 0.4) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 4px !important;
+    cursor: pointer;
+    background: transparent !important;
+  }
+  .problem-card:first-child { border-top: 1px solid rgba(184, 146, 74, 0.4) !important; }
+  .problem-icon-wrap { display: none !important; }
+  .problem-title {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0 !important;
+    margin: 0 !important;
+    font-size: 16px;
+    line-height: 1.3;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .problem-title br { display: none; }
+  .problem-title::after {
+    content: '+';
+    color: #B8924A;
+    font-size: 20px;
+    font-weight: 300;
+    flex-shrink: 0;
+    margin-left: 12px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+  }
+  .problem-card.mob-open .problem-title::after { content: '2'; }
+  .problem-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin: 0 !important;
+  }
+  .problem-stat {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin: 0 !important;
+  }
+  .problem-card.mob-open .problem-text { max-height: 300px; margin-bottom: 12px !important; }
+  .problem-card.mob-open .problem-stat {
+    max-height: 60px;
+    margin-bottom: 16px !important;
+    font-size: 13px;
+    color: var(--gold-deep);
+  }
+
+  /* ── LEVIERS — accordéons ── */
+  .leviers-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0 !important;
+    margin-top: 32px;
+  }
+  .levier-card {
+    border-bottom: 1px solid rgba(184, 146, 74, 0.4) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    padding: 0 4px !important;
+    cursor: pointer;
+    background: transparent !important;
+  }
+  .levier-card:first-child { border-top: 1px solid rgba(184, 146, 74, 0.4) !important; }
+  .levier-card:hover { transform: none !important; border-color: rgba(184, 146, 74, 0.4) !important; }
+  .levier-number { display: none !important; }
+  .levier-title {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0 4px !important;
+    margin: 0 !important;
+    font-size: 17px !important;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .levier-title::after {
+    content: '+';
+    color: #B8924A;
+    font-size: 20px;
+    font-weight: 300;
+    flex-shrink: 0;
+    margin-left: 12px;
+    line-height: 1;
+  }
+  .levier-card.mob-open .levier-title::after { content: '2'; }
+  .levier-subtitle { font-size: 12px !important; padding-bottom: 4px; margin: 0 !important; }
+  .levier-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .levier-card.mob-open .levier-text { max-height: 200px; padding-bottom: 16px !important; }
+
+  /* ── PROCESS — accordéons ── */
+  .process-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  .process-grid::before { display: none !important; }
+  .process-step {
+    border-bottom: 1px solid rgba(184, 146, 74, 0.4) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 4px !important;
+    text-align: left !important;
+    cursor: pointer;
+    background: transparent !important;
+  }
+  .process-step:first-child { border-top: 1px solid rgba(184, 146, 74, 0.4) !important; }
+  .process-step:hover .process-num { background: transparent !important; color: inherit !important; }
+  .process-num { display: none !important; }
+  .process-title {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0 8px !important;
+    margin: 0 !important;
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .process-title::after {
+    content: '+';
+    color: #B8924A;
+    font-size: 20px;
+    font-weight: 300;
+    flex-shrink: 0;
+    margin-left: 12px;
+    line-height: 1;
+  }
+  .process-step.mob-open .process-title::after { content: '2'; }
+  .process-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin: 0 !important;
+    text-align: left;
+  }
+  .process-step.mob-open .process-text { max-height: 200px; }
+  .process-time {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin: 0 !important;
+    font-size: 12px;
+    color: var(--gold);
+  }
+  .process-step.mob-open .process-time { max-height: 40px; padding: 4px 0 16px; }
+
+  /* ── ABOUT — lire la suite ── */
+  .about-read-more-btn {
+    display: inline-block;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    padding: 12px 0 2px;
+    text-decoration: none;
+  }
+  .about-mob-hidden { display: none !important; }
+
+  /* ── FAQ ── */
+  .faq-question { padding: 14px 0 !important; font-size: 15px !important; }
+  .faq-answer { font-size: 14px; }
+
+  /* ── FLOATING CTA ── */
+  .calendly-float-label { display: none; }
+  .calendly-float { bottom: 20px; right: 16px; padding: 12px 16px; }
+
+}
 </style>
 </head>
 <body>
@@ -2991,11 +3247,8 @@ body.banner-visible .hero {
       <span class="hero-line">de l'argent.</span>
       <span class="hero-line"><span class="hero-amount">On sait exactement pourquoi.</span></span>
     </h1>
-    <div class="hero-video-wrap">
-      <video class="hero-video" autoplay loop muted playsinline>
-        <source src="/videos/intro-jamil.mp4" type="video/mp4">
-      </video>
-      <img src="/logos/logo-officiel-fond transparent.png" alt="JB Sublim" class="hero-video-fallback">
+    <div class="hero-video-wrap" id="heroMediaWrap">
+      <img src="/logos/logo-officiel-fond%20transparent.png" alt="JB Sublim" class="hero-logo-placeholder" id="heroLogo">
     </div>
     <p class="hero-sub">La plupart des annonces Airbnb tournent à 40–50% de leur potentiel réel. On identifie ce qui bloque, on corrige, et les résultats arrivent en moins de 5 jours. Sans déplacement. Sans commission à vie.</p>
     <div class="hero-actions">
@@ -3533,6 +3786,73 @@ window.addEventListener('scroll', () => {
 scrollTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// ── MOBILE : hero vidéo + accordéons ──
+(function() {
+
+  // Vérification vidéo hero — si disponible, on l'affiche
+  fetch('/videos/intro-jamil.mp4', { method: 'HEAD' })
+    .then(function(res) {
+      if (!res.ok) return;
+      var logo = document.getElementById('heroLogo');
+      var wrap = document.getElementById('heroMediaWrap');
+      if (!wrap) return;
+      if (logo) logo.style.display = 'none';
+      var vid = document.createElement('video');
+      vid.autoplay = true; vid.loop = true; vid.muted = true;
+      vid.setAttribute('playsinline', '');
+      vid.className = 'hero-video-active';
+      var src = document.createElement('source');
+      src.src = '/videos/intro-jamil.mp4';
+      src.type = 'video/mp4';
+      vid.appendChild(src);
+      wrap.appendChild(vid);
+    })
+    .catch(function() {});
+
+  // Accordéons uniquement sur mobile
+  if (window.innerWidth > 768) return;
+
+  function initAccordion(nodeList) {
+    var cards = Array.from(nodeList);
+    cards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        var isOpen = card.classList.contains('mob-open');
+        cards.forEach(function(c) { c.classList.remove('mob-open'); });
+        if (!isOpen) card.classList.add('mob-open');
+      });
+    });
+  }
+
+  initAccordion(document.querySelectorAll('.problem-card'));
+  initAccordion(document.querySelectorAll('.levier-card'));
+  initAccordion(document.querySelectorAll('.process-step'));
+
+  // About — Lire la suite
+  var aboutGrid = document.querySelector('.about-grid');
+  if (aboutGrid && aboutGrid.children.length > 1) {
+    var rightCol = aboutGrid.children[1];
+    var texts = rightCol.querySelectorAll('.about-text');
+    var creds = rightCol.querySelector('.about-credentials');
+    if (texts.length > 1) {
+      for (var i = 1; i < texts.length; i++) {
+        texts[i].classList.add('about-mob-hidden');
+      }
+      if (creds) creds.classList.add('about-mob-hidden');
+      var btn = document.createElement('button');
+      btn.className = 'about-read-more-btn';
+      btn.textContent = 'Lire la suite →';
+      btn.addEventListener('click', function() {
+        rightCol.querySelectorAll('.about-mob-hidden').forEach(function(el) {
+          el.classList.remove('about-mob-hidden');
+        });
+        btn.style.display = 'none';
+      });
+      texts[0].after(btn);
+    }
+  }
+
+})();
 </script>
 
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
