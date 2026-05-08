@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JB Sublim — Optimisation Airbnb en France & Maroc | +90% de revenus</title>
-<meta name="description" content="Votre Airbnb tourne à 40–50% de son potentiel réel. Un accompagnement expert sur-mesure pour des résultats concrets en moins de 5 jours. Diagnostic gratuit.">
+<meta name="description" content="Votre Airbnb tourne à 40–50% de son potentiel réel. Un appel stratégique de 25 min pour identifier ce qui bloque vos revenus — résultats garantis en moins de 5 jours.">
 
 <!-- Favicons -->
 <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
@@ -18,7 +18,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jb-sublim.vercel.app/">
 <meta property="og:title" content="JB Sublim — Optimisation Airbnb en France & Maroc">
-<meta property="og:description" content="Votre Airbnb perd 40% de son potentiel. Diagnostic gratuit, résultats en 5 jours. Intervention en France & Maroc.">
+<meta property="og:description" content="Votre Airbnb perd 40% de son potentiel. Réservez un appel stratégique — résultats en 5 jours. Intervention en France & Maroc.">
 <meta property="og:image" content="https://jb-sublim.vercel.app/images/apres-salon.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="JB Sublim">
@@ -26,7 +26,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="JB Sublim — Optimisation Airbnb en France & Maroc">
-<meta name="twitter:description" content="Votre Airbnb perd 40% de son potentiel. Diagnostic gratuit, résultats en 5 jours.">
+<meta name="twitter:description" content="Votre Airbnb perd 40% de son potentiel. Réservez un appel stratégique — résultats en 5 jours.">
 <meta name="twitter:image" content="https://jb-sublim.vercel.app/images/apres-salon.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1704,41 +1704,6 @@ footer {
 }
 
 .footer-legal a:hover { color: var(--gold-deep); }
-
-/* ── FLOATING WHATSAPP — both desktop and mobile ── */
-.whatsapp-float {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #25D366;
-  color: white;
-  padding: 14px 20px 14px 16px;
-  border-radius: 50px;
-  text-decoration: none;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-  transition: all 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.whatsapp-float:hover {
-  background: #1FAD4F;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
-  gap: 12px;
-}
-
-.whatsapp-float svg { flex-shrink: 0; }
-.whatsapp-float-label { white-space: nowrap; }
-
-@keyframes floatPulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
   50% { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.6); }
 }
 
@@ -1933,8 +1898,6 @@ footer {
   .pack-guarantee span { font-size: 11px; }
 
   /* float buttons */
-  .whatsapp-float { bottom: 20px; right: 20px; padding: 14px 16px; }
-  .whatsapp-float-label { display: none; }
   .scroll-top { bottom: 88px; right: 22px; width: 40px; height: 40px; }
 
   /* section titles */
@@ -1982,14 +1945,14 @@ footer {
   left: 0;
   right: 0;
   z-index: 102;
-  background: linear-gradient(90deg, #B8924A 0%, #D4A95A 100%);
+  background: #2D2A26;
   color: #FAF7F0;
   padding: 12px 24px;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(184, 146, 74, 0.15);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
 }
 
 .launch-banner-inner {
@@ -2005,23 +1968,24 @@ footer {
 .launch-banner-icon { font-size: 16px; color: #FAF7F0; }
 .launch-banner-text strong { font-weight: 700; }
 .launch-banner-text s { opacity: 0.7; margin: 0 4px; }
-.launch-banner-text em { font-style: italic; opacity: 0.95; }
+.launch-banner-text em { font-style: italic; color: #B8924A; font-weight: 600; }
 
 .launch-banner-cta {
-  background: rgba(250, 247, 240, 0.15);
-  border: 1px solid rgba(250, 247, 240, 0.4);
-  color: #FAF7F0;
-  padding: 6px 16px;
+  background: transparent;
+  border: 1px solid #B8924A;
+  color: #B8924A;
+  padding: 5px 16px;
   border-radius: 20px;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
+  font-size: 12px;
+  transition: all 0.25s ease;
   white-space: nowrap;
 }
 
 .launch-banner-cta:hover {
-  background: rgba(250, 247, 240, 0.25);
-  border-color: rgba(250, 247, 240, 0.7);
+  background: #B8924A;
+  color: #2D2A26;
 }
 
 .launch-banner-close {
@@ -2922,6 +2886,54 @@ body.banner-visible .hero {
 }
 .modal-box p a { color: var(--gold-deep); text-decoration: none; }
 .modal-box p a:hover { text-decoration: underline; }
+
+/* ── HERO VIDEO / PLACEHOLDER ── */
+.hero-video-wrap {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 32px;
+  border: 2px solid rgba(184,146,74,0.35);
+  box-shadow: 0 8px 32px rgba(184,146,74,0.15);
+  position: relative;
+  background: var(--ivory-warm);
+}
+.hero-video {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.hero-video-fallback {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+/* hide fallback when video loads */
+.hero-video:not([error]) ~ .hero-video-fallback { display: none; }
+@media (max-width: 640px) {
+  .hero-video-wrap { width: 160px; height: 160px; }
+}
+
+
+/* ── QONTO SECONDARY ── */
+.pack-qonto-cta {
+  display: block;
+  margin-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: var(--slate);
+  text-decoration: none;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+  width: fit-content;
+  margin-left: auto; margin-right: auto;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.pack-qonto-cta:hover { color: var(--gold-deep); border-color: var(--gold); }
+
 </style>
 </head>
 <body>
@@ -2934,7 +2946,7 @@ body.banner-visible .hero {
       3 créneaux disponibles avant la haute saison ·
       <em>Tarif actuel : 490€</em>
     </span>
-    <a href="#tarifs" class="launch-banner-cta">Vérifier les disponibilités →</a>
+    <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="launch-banner-cta" target="_blank" rel="noopener">Réserver maintenant →</a>
   </div>
   <button class="launch-banner-close" id="closeBanner" aria-label="Fermer">✕</button>
 </div>
@@ -2944,12 +2956,11 @@ body.banner-visible .hero {
     <span class="nav-wordmark">JB <span>Sublim</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#calculateur">Calculateur</a></li>
     <li><a href="#methode">Méthode</a></li>
     <li><a href="#process">Comment ça marche</a></li>
     <li><a href="#tarifs">Tarifs</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+    <li><a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="nav-cta" target="_blank" rel="noopener">Réserver un appel</a></li>
   </ul>
 
   <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -2979,10 +2990,16 @@ body.banner-visible .hero {
       <span class="hero-line">de l'argent.</span>
       <span class="hero-line"><span class="hero-amount">On sait exactement pourquoi.</span></span>
     </h1>
+    <div class="hero-video-wrap">
+      <video class="hero-video" autoplay loop muted playsinline>
+        <source src="/videos/intro-jamil.mp4" type="video/mp4">
+      </video>
+      <img src="/logos/logo-officiel-fond transparent.png" alt="JB Sublim" class="hero-video-fallback">
+    </div>
     <p class="hero-sub">La plupart des annonces Airbnb tournent à 40–50% de leur potentiel réel. On identifie ce qui bloque, on corrige, et les résultats arrivent en moins de 5 jours. Sans déplacement. Sans commission à vie.</p>
     <div class="hero-actions">
-      <a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb." class="btn-primary" target="_blank"><span>Diagnostic gratuit →</span></a>
-      <a href="#calculateur" class="btn-secondary">Calculer mon potentiel</a>
+      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary btn-hero-cta" target="_blank" rel="noopener"><span>Réserver mon appel stratégique →</span></a>
+      <a href="#transformation" class="btn-secondary btn-hero-proof">Voir un cas concret →</a>
     </div>
     <div class="hero-trust">
       <div class="trust-item"><div class="trust-num">+90%</div><div class="trust-label">Revenus en hausse</div></div>
@@ -3092,17 +3109,93 @@ body.banner-visible .hero {
     </div>
 
     <div class="ba-cta">
-      <a
-        href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb."
-        class="btn-primary"
-        target="_blank"
-      >
-        Diagnostic gratuit →
+      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary btn-hero-cta" target="_blank" rel="noopener">
+        <span>Réserver mon appel stratégique →</span>
       </a>
     </div>
 
   </div>
 </section>
+
+
+<section class="tarifs-launch" id="tarifs">
+  <div class="container">
+    <div class="section-label">OFFRE LIMITÉE</div>
+    <h2 class="section-title">
+      Avant la haute saison.<br>
+      <em>Encore 3 créneaux.</em>
+    </h2>
+    <p class="section-subtitle">
+      Les réservations de juin et juillet se remplissent déjà.
+      Les derniers créneaux disponibles partent vite.
+    </p>
+
+    <div class="pack-launch-card">
+      <div class="pack-launch-badge">3 CRÉNEAUX DISPONIBLES</div>
+
+      <h3 class="pack-launch-name">Pack Optimisation Complète</h3>
+
+      <div class="pack-launch-price">
+        <span class="pack-launch-price-old">790€</span>
+        <span class="pack-launch-price-new">490€</span>
+      </div>
+
+      <p class="pack-launch-tagline">
+        Une intervention complète sur votre bien.
+        Du premier regard jusqu'aux premières réservations.
+      </p>
+
+      <ul class="pack-launch-features">
+        <li>✦ Diagnostic de votre potentiel inexploité</li>
+        <li>✦ Transformation complète de votre présentation</li>
+        <li>✦ Stratégie de revenus sur-mesure</li>
+        <li>✦ Pilotage & optimisation continue sur 60 jours</li>
+        <li>✦ Garantie résultats ou on continue gratuitement</li>
+      </ul>
+
+      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="pack-launch-cta" target="_blank" rel="noopener">
+        Réserver mon appel stratégique →
+      </a>
+      <a href="https://pay.qonto.com/payment-links/019e082e-3e2f-7e88-9212-e4a73bd8fc0d?resource_id=019e082e-3e31-7206-b52f-1ddb5e9764ba" class="pack-qonto-cta" target="_blank" rel="noopener">
+        Déjà convaincu&nbsp;? Payer directement →
+      </a>
+
+      <p class="pack-launch-deadline">
+        3 créneaux restants à ce prix · Tarif standard : 790€
+      </p>
+
+      <div class="pack-guarantee">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <span>Garantie 60 jours — Si vos revenus n'augmentent pas suffisamment pour couvrir la prestation, on continue gratuitement jusqu'à ce que ce soit le cas.</span>
+      </div>
+    </div>
+
+    <div class="pack-suivi-card">
+      <div class="pack-suivi-badge">SUIVI PRIORITAIRE</div>
+      <h3 class="pack-suivi-name">Suivi & Performance</h3>
+      <p class="pack-suivi-tagline">
+        Pour maintenir et amplifier vos résultats dans la durée.
+        Accès direct prioritaire, réactivité garantie.
+      </p>
+      <div class="pack-suivi-price">
+        <span class="pack-suivi-price-num">49€</span>
+        <span class="pack-suivi-price-freq">/mois</span>
+      </div>
+      <span class="pack-suivi-note">Sans engagement · Résiliable à tout moment</span>
+      <ul class="pack-suivi-features">
+        <li>✦ Analyse mensuelle de vos performances</li>
+        <li>✦ Pilotage continu de votre positionnement</li>
+        <li>✦ Ajustements saisonniers sur-mesure</li>
+        <li>✦ Accès direct prioritaire sur WhatsApp</li>
+        <li>✦ Veille & adaptation continue</li>
+      </ul>
+      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="pack-suivi-cta" target="_blank" rel="noopener">
+        En savoir plus →
+      </a>
+    </div>
+  </div>
+</section>
+
 
 
 <section class="problem" id="problem">
@@ -3221,80 +3314,13 @@ body.banner-visible .hero {
     </div>
   </div>
 </section>
-
-<section class="calculateur-simple" id="calculateur">
-  <div class="container">
-    <div class="section-label">DIAGNOSTIC RAPIDE</div>
-    <h2 class="section-title">
-      Combien votre Airbnb<br>
-      <em>devrait-il vraiment générer ?</em>
-    </h2>
-    <p class="section-subtitle">
-      Indiquez vos revenus mensuels actuels,
-      découvrez votre potentiel réel.
-    </p>
-
-    <div class="calc-simple-box">
-      <div class="calc-input-group">
-        <label for="revenu-actuel">Vos revenus Airbnb actuels</label>
-        <div class="calc-input-wrapper">
-          <input
-            type="number"
-            id="revenu-actuel"
-            placeholder="1 200"
-            min="0"
-            step="50"
-          >
-          <span class="calc-input-suffix">€/mois</span>
-        </div>
-      </div>
-
-      <button class="calc-button" onclick="calculerPotentiel()">
-        Calculer mon potentiel
-      </button>
-
-      <div class="calc-result" id="calc-result" style="display:none;">
-        <div class="calc-result-current">
-          <span class="calc-label">Aujourd'hui</span>
-          <span class="calc-value" id="calc-current">—</span>
-        </div>
-        <div class="calc-result-arrow">→</div>
-        <div class="calc-result-target">
-          <span class="calc-label">Avec optimisation</span>
-          <span class="calc-value highlight" id="calc-target">—</span>
-        </div>
-        <div class="calc-result-gain">
-          <strong id="calc-gain">—</strong>
-          <span id="calc-gain-suffix"> que vous laissez sur la table chaque année</span>
-          <span id="calc-gain-alt" style="display:none; font-style:italic; color:var(--graphite); font-size:14px;">Votre bien nécessite une analyse sur-mesure — Jamil évalue votre potentiel réel.</span>
-        </div>
-        <p class="calc-credibility-note">
-          Estimation basée sur nos interventions sur des biens similaires. Chaque bien est unique — votre potentiel exact est établi lors du diagnostic.
-        </p>
-        <a
-          href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20viens%20de%20faire%20l%27estimation%20sur%20le%20site.%20J%27aimerais%20en%20savoir%20plus%20sur%20le%20potentiel%20de%20mon%20bien."
-          class="calc-cta-whatsapp"
-          target="_blank"
-        >
-          Diagnostic gratuit →
-        </a>
-        <p class="calc-disclaimer">
-          Cette projection est indicative. Chaque bien est unique —
-          votre potentiel exact sera établi sur la base d'une analyse
-          personnalisée de votre marché et de votre environnement concurrentiel.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-visual fade-in">
         <div class="about-mark">"</div>
         <div class="about-initials">
-          <img src="logos/logo-monogram.png" alt="JB Sublim" class="about-initials-img">
+          <img loading="lazy" src="logos/logo-monogram.png" alt="JB Sublim" class="about-initials-img">
         </div>
         <p class="about-quote">Un appartement bien présenté n'est pas une dépense. C'est l'investissement le plus rentable qu'un propriétaire puisse faire.</p>
         <div class="about-quote-author">Jamil</div>
@@ -3303,8 +3329,8 @@ body.banner-visible .hero {
       <div class="fade-in">
         <div class="eyebrow">À propos</div>
         <h2 class="section-title">Jamil,<br><em>spécialiste LCD</em></h2>
-        <p class="about-text">Originaire de Montpellier, j'ai consacré des années à comprendre les mécanismes profonds de la location courte durée — ceux qu'on ne vous apprend pas dans les formations en ligne. Ce que j'ai découvert, je l'applique aujourd'hui pour <strong>des propriétaires en France et au Maroc</strong>.</p>
-        <p class="about-text">Mon approche n'est pas technique. Elle est <strong>commerciale</strong> — parce que ce qui fait la différence sur Airbnb, c'est exactement ce qui fait la différence dans la vente : l'impression, la confiance, et le bon positionnement.</p>
+        <p class="about-text">J'ai consacré des années à comprendre les mécanismes de la location courte durée — ceux qu'on ne vous apprend pas dans les formations. Ce que j'ai découvert, je l'applique pour <strong>des propriétaires en France et au Maroc</strong>.</p>
+        <p class="about-text">Mon approche est <strong>commerciale</strong> — ce qui fait la différence sur Airbnb, c'est l'impression, la confiance, et le bon positionnement. Pas la technique.</p>
         <div class="about-credentials">
           <div class="credential"><span class="credential-icon">✦</span><span>Formé aux secrets de l'algorithme Airbnb (formation spécialisée LCD, valeur 3 500€)</span></div>
           <div class="credential"><span class="credential-icon">✦</span><span>Accompagnement en France & Maroc — résultats garantis</span></div>
@@ -3316,90 +3342,6 @@ body.banner-visible .hero {
   </div>
 </section>
 
-<section class="tarifs-launch" id="tarifs">
-  <div class="container">
-    <div class="section-label">OFFRE LIMITÉE</div>
-    <h2 class="section-title">
-      Avant la haute saison.<br>
-      <em>Encore 3 créneaux.</em>
-    </h2>
-    <p class="section-subtitle">
-      Les réservations de juin et juillet se remplissent déjà.
-      Les derniers créneaux disponibles partent vite.
-    </p>
-
-    <div class="pack-launch-card">
-      <div class="pack-launch-badge">3 CRÉNEAUX DISPONIBLES</div>
-
-      <h3 class="pack-launch-name">Pack Optimisation Complète</h3>
-
-      <div class="pack-launch-price">
-        <span class="pack-launch-price-old">790€</span>
-        <span class="pack-launch-price-new">490€</span>
-      </div>
-
-      <p class="pack-launch-tagline">
-        Une intervention complète sur votre bien.
-        Du premier regard jusqu'aux premières réservations.
-      </p>
-
-      <ul class="pack-launch-features">
-        <li>✦ Diagnostic de votre potentiel inexploité</li>
-        <li>✦ Transformation complète de votre présentation</li>
-        <li>✦ Stratégie de revenus sur-mesure</li>
-        <li>✦ Pilotage & optimisation continue sur 60 jours</li>
-        <li>✦ Garantie résultats ou on continue gratuitement</li>
-      </ul>
-
-      <a
-        href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20souhaite%20r%C3%A9server%20un%20cr%C3%A9neau%20avant%20la%20haute%20saison."
-        class="pack-launch-cta"
-        target="_blank"
-      >
-        Réserver un créneau →
-      </a>
-
-      <p class="pack-launch-deadline">
-        3 créneaux restants à ce prix · Tarif standard : 790€
-      </p>
-
-      <div class="pack-guarantee">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-        <span>Garantie 60 jours — Si vos revenus n'augmentent pas suffisamment pour couvrir la prestation, on continue gratuitement jusqu'à ce que ce soit le cas.</span>
-      </div>
-    </div>
-
-    <div class="pack-suivi-card">
-      <div class="pack-suivi-badge">SUIVI PRIORITAIRE</div>
-      <h3 class="pack-suivi-name">Suivi & Performance</h3>
-      <p class="pack-suivi-tagline">
-        Pour maintenir et amplifier vos résultats dans la durée.
-        Accès direct prioritaire, réactivité garantie.
-      </p>
-      <div class="pack-suivi-price">
-        <span class="pack-suivi-price-num">49€</span>
-        <span class="pack-suivi-price-freq">/mois</span>
-      </div>
-      <span class="pack-suivi-note">Sans engagement · Résiliable à tout moment</span>
-      <ul class="pack-suivi-features">
-        <li>✦ Analyse mensuelle de vos performances</li>
-        <li>✦ Pilotage continu de votre positionnement</li>
-        <li>✦ Ajustements saisonniers sur-mesure</li>
-        <li>✦ Accès direct prioritaire sur WhatsApp</li>
-        <li>✦ Veille & adaptation continue</li>
-      </ul>
-      <a
-        href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20le%20suivi%20prioritaire."
-        class="pack-suivi-cta"
-        target="_blank"
-      >
-        En savoir plus →
-      </a>
-    </div>
-  </div>
-</section>
-
-
 <section class="faq" id="faq">
   <div class="container">
     <div class="faq-grid">
@@ -3410,28 +3352,28 @@ body.banner-visible .hero {
       </div>
       <div class="faq-list fade-in">
         <div class="faq-item">
-          <div class="faq-question"><span>Combien de temps avant de voir des résultats ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">Les premiers effets sont visibles dès les premières semaines suivant la mise en ligne. Nos clients constatent en moyenne +90 % de revenus sur leurs deux premiers mois. Chaque bien est différent — c'est pourquoi nous commençons toujours par une analyse personnalisée.</div>
+          <div class="faq-question"><span>Comment se déroule concrètement votre intervention ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Tout commence par un appel stratégique de 25 minutes. J'analyse votre situation, votre marché, votre potentiel réel. Si on travaille ensemble, je prends en charge l'optimisation complète : annonce, photos, pricing, algorithme. Vous n'avez rien à exécuter de votre côté. 60 jours de suivi inclus.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Faut-il que je fasse quelque chose de mon côté ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">Dans certains cas, oui — nous identifions les ajustements qui auront le plus d'impact sur votre bien. Nous vous préparons un plan précis avec des recommandations concrètes. Pas de gros travaux, pas de budget disproportionné — juste les bons gestes au bon endroit.</div>
+          <div class="faq-question"><span>En combien de temps verrai-je des résultats ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Les premiers effets sont visibles dès les premières semaines. Mes clients constatent en moyenne +90% de revenus sur les deux premiers mois. La majorité voit son taux d'occupation doubler avant J+30.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Intervenez-vous uniquement en France ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">Nous intervenons partout en France et à l'international, notamment au Maroc. Si vous avez un bien ailleurs, parlez-nous de votre situation — nous étudions chaque dossier individuellement.</div>
+          <div class="faq-question"><span>Et si ça ne fonctionne pas pour mon bien ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Garantie 60 jours sans condition. Si vos revenus n'augmentent pas suffisamment pour couvrir la prestation, je continue à travailler avec vous gratuitement jusqu'à ce que ce soit le cas. Le risque est entièrement de mon côté.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Mon annonce est déjà en ligne, vous pouvez l'améliorer ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">C'est même notre cas de figure le plus courant. Qu'elle génère déjà des revenus ou qu'elle peine à décoller — nous prenons votre annonce telle quelle et la transformons. L'analyse initiale nous permet d'identifier exactement où se situe le potentiel inexploité.</div>
+          <div class="faq-question"><span>Pourquoi pas une conciergerie classique ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Une conciergerie prend 20 à 30% de vos revenus à vie et gère uniquement la logistique. Moi je m'occupe de l'optimisation commerciale de votre annonce — ce qui détermine si votre calendrier se remplit ou pas. Forfait unique, aucune commission, vous gardez 100% de vos revenus supplémentaires.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Et si les résultats ne sont pas au rendez-vous ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">C'est précisément pour ça qu'on a créé la garantie 60 jours. Si vos revenus n'ont pas augmenté suffisamment pour couvrir notre prestation, on continue à travailler avec vous gratuitement jusqu'à ce que ce soit le cas. Zéro risque de votre côté.</div>
+          <div class="faq-question"><span>Mon annonce est déjà en ligne — ça change quelque chose ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Aucune importance. J'interviens autant sur des annonces existantes qui peinent à décoller que sur des lancements. Dans les deux cas, l'audit révèle exactement ce qui freine votre potentiel.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Vous prenez une commission sur mes revenus ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">Non. Notre modèle est simple : une prestation forfaitaire, un tarif unique, aucune commission récurrente. Vous gardez 100% de vos revenus supplémentaires. C'est la différence entre un partenaire aligné avec vos intérêts et une conciergerie qui s'enrichit quand vous vous enrichissez.</div>
+          <div class="faq-question"><span>Intervenez-vous dans toute la France ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Oui — partout en France et également au Maroc. J'interviens à distance via WhatsApp et visio, donc votre localisation n'est pas un frein.</div>
         </div>
       </div>
     </div>
@@ -3444,38 +3386,20 @@ body.banner-visible .hero {
     <h2 class="cta-final-title">Votre annonce perd des<br><em>réservations</em> chaque jour</h2>
     <p class="cta-final-sub">Contactez-nous aujourd'hui. Nous analysons votre situation et nous vous disons exactement ce qui cloche dans votre annonce. Sans engagement.</p>
     <div class="cta-final-actions">
-      <a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb." class="btn-whatsapp" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        <span>Diagnostic gratuit →</span>
-      </a>
+      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary btn-hero-cta" target="_blank" rel="noopener"><span>Réserver mon appel stratégique →</span></a>
       <a href="mailto:jbimmobilier.france@gmail.com" class="btn-secondary">jbimmobilier.france@gmail.com</a>
     </div>
     <div class="cta-final-trust">
-      <span>Réponse rapide sur WhatsApp</span>
-      <span>Devis gratuit</span>
-      <span>Sans engagement</span>
+      <span>Réponse rapide · Sans engagement</span>
     </div>
   </div>
 </section>
-
-
-
-<a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb."
-   class="whatsapp-float"
-   target="_blank"
-   aria-label="Diagnostic gratuit sur WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-  <span class="whatsapp-float-label">Diagnostic gratuit</span>
-</a>
-
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="nav-logo">
-          <img src="logos/logo-monogram.png" alt="JB Sublim" class="logo-mark">
+          <img loading="lazy" src="logos/logo-monogram.png" alt="JB Sublim" class="logo-mark">
         </a>
         <p class="footer-tagline">Optimisation d'annonces Airbnb — France & international. Revenus maximisés, zéro effort pour le propriétaire.</p>
         <p class="footer-legal-info">
@@ -3488,8 +3412,7 @@ body.banner-visible .hero {
       <div class="footer-accordion">
         <div class="footer-col-title">Navigation <span class="ft-icon">+</span></div>
         <ul class="footer-links">
-          <li><a href="#calculateur">Calculateur</a></li>
-          <li><a href="#methode">Méthode</a></li>
+                <li><a href="#methode">Méthode</a></li>
           <li><a href="#process">Comment ça marche</a></li>
           <li><a href="#tarifs">Tarifs</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -3556,23 +3479,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// CALCULATOR — calibrated on real prévisionnels: T2 Écusson 2vy = 1422€ → 2689€
-const calcState = { quartier: null, type: null, capacite: null, typeBase: null, typeOpt: null };
-
-document.querySelectorAll('.calc-options').forEach(group => {
-  const groupName = group.dataset.group;
-  group.querySelectorAll('.calc-option').forEach(btn => {
-    btn.addEventListener('click', () => {
-      group.querySelectorAll('.calc-option').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      if (groupName === 'quartier') calcState.quartier = parseFloat(btn.dataset.mult);
-      else if (groupName === 'type') {
-        calcState.typeBase = parseFloat(btn.dataset.base);
-        calcState.typeOpt = parseFloat(btn.dataset.opt);
-      }
-      else if (groupName === 'capacite') calcState.capacite = parseFloat(btn.dataset.cap);
-      updateResult();
-    });
+);
   });
 });
 
@@ -3623,52 +3530,7 @@ function updateResult() {
   }
 })();
 
-// CALCULATEUR SIMPLE
-function calculerPotentiel() {
-  const input = document.getElementById('revenu-actuel');
-  const value = parseFloat(input.value);
-  const gainSuffix = document.getElementById('calc-gain-suffix');
-  const gainAlt = document.getElementById('calc-gain-alt');
-  const result = document.getElementById('calc-result');
-  const cta = document.querySelector('.calc-cta-whatsapp');
 
-  if (!value || value <= 0) {
-    input.style.boxShadow = '0 0 0 2px #dc2626';
-    setTimeout(() => { input.style.boxShadow = ''; }, 1500);
-    return;
-  }
-
-  if (value < 300) {
-    document.getElementById('calc-current').textContent = '— €';
-    document.getElementById('calc-target').textContent = '— €';
-    document.getElementById('calc-gain').textContent = '';
-    gainSuffix.style.display = 'none';
-    gainAlt.style.display = 'inline';
-    cta.href = 'https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20discuter%20du%20potentiel%20de%20mon%20bien.';
-    result.style.display = 'flex';
-    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
-  }
-
-  const target = Math.round(value * 1.7);
-  const gainAnnuel = (target - value) * 12;
-
-  document.getElementById('calc-current').textContent = value.toLocaleString('fr-FR') + ' €';
-  document.getElementById('calc-target').textContent = target.toLocaleString('fr-FR') + ' €';
-  document.getElementById('calc-gain').textContent = '+' + gainAnnuel.toLocaleString('fr-FR') + ' €';
-  gainSuffix.style.display = 'inline';
-  gainAlt.style.display = 'none';
-
-  cta.href = 'https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20viens%20de%20faire%20l%27estimation%20sur%20le%20site.%20Mes%20revenus%20actuels%20sont%20de%20'
-    + value + '%E2%82%AC%2Fmois.%20J%27aimerais%20en%20savoir%20plus%20sur%20le%20potentiel%20de%20mon%20bien.';
-
-  result.style.display = 'flex';
-  result.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-document.getElementById('revenu-actuel')?.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') calculerPotentiel();
-});
 
 // FOOTER ACCORDION (mobile)
 document.querySelectorAll('.footer-accordion .footer-col-title').forEach(title => {
