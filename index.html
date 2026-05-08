@@ -2961,86 +2961,6 @@ body.banner-visible .hero {
 }
 .wa-secondary-link:hover { color: var(--gold-deep); border-color: var(--gold); }
 
-/* ── TÉMOIGNAGES ── */
-.temoignages {
-  padding: 100px 24px;
-  background: var(--ivory-warm);
-}
-.temo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 56px;
-}
-.temo-card {
-  background: #FFFFFF;
-  border: 1px solid var(--line-strong);
-  border-radius: 4px;
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.temo-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-.temo-avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--cream);
-  flex-shrink: 0;
-  border: 2px solid var(--gold-tint-strong);
-}
-.temo-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.temo-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--anthracite);
-  margin-bottom: 2px;
-}
-.temo-location {
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 0.5px;
-}
-.temo-stars {
-  color: var(--gold);
-  font-size: 13px;
-  letter-spacing: 2px;
-  margin-bottom: 14px;
-}
-.temo-quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-style: italic;
-  color: var(--graphite);
-  line-height: 1.65;
-  margin-bottom: 20px;
-  flex: 1;
-}
-.temo-result {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--green);
-  background: var(--green-soft);
-  padding: 5px 12px;
-  border-radius: 2px;
-  align-self: flex-start;
-}
-
 /* ── FORMULAIRE DE QUALIFICATION ── */
 .qualify-form {
   margin-bottom: 32px;
@@ -3223,7 +3143,6 @@ body.banner-visible .hero {
 
 /* ── MOBILE ── */
 @media (max-width: 768px) {
-  .temo-grid { grid-template-columns: 1fr; gap: 16px; }
 }
 @media (max-width: 640px) {
   .hero-video-wrap { width: 160px; height: 160px; margin-bottom: 24px; }
@@ -3261,20 +3180,6 @@ body.banner-visible .hero {
   border-radius: 50%;
 }
 
-/* ── TEMO PENDING CARDS ── */
-.temo-pending { border: 1px dashed var(--line); background: transparent; }
-.temo-coming {
-  color: var(--slate);
-  font-style: italic;
-  opacity: 0.6;
-  font-size: 15px;
-}
-.temo-result-pending {
-  font-size: 11px;
-  color: var(--slate);
-  opacity: 0.5;
-  letter-spacing: 0.5px;
-}
 
 </style>
 </head>
@@ -3670,39 +3575,6 @@ body.banner-visible .hero {
     </div>
   </div>
 </section>
-
-<section class="temoignages" id="temoignages">
-  <div class="container">
-    <div class="section-label">ILS NOUS ONT FAIT CONFIANCE</div>
-    <h2 class="section-title">
-      Des propriétaires.<br>
-      <em>Des résultats réels.</em>
-    </h2>
-
-        <div class="temo-grid">
-
-      <div class="temo-card temo-pending fade-in">
-        <div class="temo-stars">★★★★★</div>
-        <blockquote class="temo-quote temo-coming">&laquo;&nbsp;Témoignage à venir&nbsp;&raquo;</blockquote>
-        <div class="temo-result temo-result-pending">Premier client en cours d'intégration</div>
-      </div>
-
-      <div class="temo-card temo-pending fade-in">
-        <div class="temo-stars">★★★★★</div>
-        <blockquote class="temo-quote temo-coming">&laquo;&nbsp;Témoignage à venir&nbsp;&raquo;</blockquote>
-        <div class="temo-result temo-result-pending">Premier client en cours d'intégration</div>
-      </div>
-
-      <div class="temo-card temo-pending fade-in">
-        <div class="temo-stars">★★★★★</div>
-        <blockquote class="temo-quote temo-coming">&laquo;&nbsp;Témoignage à venir&nbsp;&raquo;</blockquote>
-        <div class="temo-result temo-result-pending">Premier client en cours d'intégration</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <section class="process" id="process">
   <div class="container">
     <div class="process-header fade-in">
