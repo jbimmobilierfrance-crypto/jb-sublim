@@ -2143,14 +2143,17 @@ body.banner-visible .hero {
     font-family: 'Montserrat', sans-serif;
   }
   .problem-card.mob-open .problem-title::after { content: '−'; }
-  .problem-text, .problem-stat {
+  .mob-accordion-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0 16px;
+    transition: max-height 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
   }
-  .problem-card.mob-open .problem-text { max-height: 200px; padding: 0 16px 8px; }
-  .problem-card.mob-open .problem-stat { max-height: 60px; padding: 0 16px 16px; }
+  .mob-open .mob-accordion-body {
+    max-height: 500px;
+    padding: 0 16px 16px;
+  }
 
   /* ── ACCORDION : Trois leviers ── */
   .leviers-grid { grid-template-columns: 1fr; gap: 0; }
@@ -2185,14 +2188,6 @@ body.banner-visible .hero {
     font-family: 'Montserrat', sans-serif;
   }
   .levier-card.mob-open .levier-title::after { content: '−'; }
-  .levier-subtitle, .levier-text {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0 16px;
-  }
-  .levier-card.mob-open .levier-subtitle { max-height: 60px; padding: 0 16px 4px; }
-  .levier-card.mob-open .levier-text { max-height: 150px; padding: 0 16px 16px; }
 
   /* ── ACCORDION : Comment ça se passe ── */
   .process-grid {
@@ -2242,15 +2237,6 @@ body.banner-visible .hero {
     font-family: 'Montserrat', sans-serif;
   }
   .process-step.mob-open .process-title::after { content: '−'; }
-  .process-text, .process-time {
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0 16px;
-  }
-  .process-step.mob-open .process-text { max-height: 150px; padding: 0 16px 8px; }
-  .process-step.mob-open .process-time { max-height: 40px; padding: 0 16px 14px; }
 }
 
 @media (max-width: 640px) {
@@ -2898,20 +2884,26 @@ body.banner-visible .hero {
       <div class="problem-card fade-in">
         <div class="problem-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1.5-3h3L15 6"/></svg></div>
         <h3 class="problem-title">La première impression<br>ne se répète pas</h3>
-        <p class="problem-text">Sur Airbnb, un voyageur prend sa décision en quelques secondes. Si votre annonce ne capte pas immédiatement l'attention, il passe à la suivante — et ne revient jamais.</p>
-        <div class="problem-stat">— 9 clics sur 10 ignorent les mauvaises annonces</div>
+        <div class="mob-accordion-body">
+          <p class="problem-text">Sur Airbnb, un voyageur prend sa décision en quelques secondes. Si votre annonce ne capte pas immédiatement l'attention, il passe à la suivante — et ne revient jamais.</p>
+          <div class="problem-stat">— 9 clics sur 10 ignorent les mauvaises annonces</div>
+        </div>
       </div>
       <div class="problem-card fade-in">
         <div class="problem-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
         <h3 class="problem-title">Votre bien est présent,<br>mais introuvable</h3>
-        <p class="problem-text">Airbnb fonctionne comme un moteur de recherche avec ses propres règles. La plupart des annonces ne les respectent pas — et disparaissent, noyées sous des centaines de concurrents.</p>
-        <div class="problem-stat">— Moins de 3 voyageurs voient votre annonce chaque semaine</div>
+        <div class="mob-accordion-body">
+          <p class="problem-text">Airbnb fonctionne comme un moteur de recherche avec ses propres règles. La plupart des annonces ne les respectent pas — et disparaissent, noyées sous des centaines de concurrents.</p>
+          <div class="problem-stat">— Moins de 3 voyageurs voient votre annonce chaque semaine</div>
+        </div>
       </div>
       <div class="problem-card fade-in">
         <div class="problem-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg></div>
         <h3 class="problem-title">Vous perdez de l'argent<br>à chaque nuitée</h3>
-        <p class="problem-text">Un tarif fixe ignore tout : la saison, les événements locaux, ce que vos concurrents pratiquent réellement. Résultat : vous bradez quand vous pourriez doubler, et vous restez vide quand les autres sont complets.</p>
-        <div class="problem-stat">— Jusqu'à 40% de revenus laissés sur la table chaque année</div>
+        <div class="mob-accordion-body">
+          <p class="problem-text">Un tarif fixe ignore tout : la saison, les événements locaux, ce que vos concurrents pratiquent réellement. Résultat : vous bradez quand vous pourriez doubler, et vous restez vide quand les autres sont complets.</p>
+          <div class="problem-stat">— Jusqu'à 40% de revenus laissés sur la table chaque année</div>
+        </div>
       </div>
     </div>
   </div>
@@ -2935,33 +2927,39 @@ body.banner-visible .hero {
       <div class="levier-card">
         <div class="levier-number">01</div>
         <h3 class="levier-title">Voir</h3>
-        <div class="levier-subtitle">L'attraction visuelle</div>
-        <p class="levier-text">
-          Un voyageur décide en moins de 8 secondes.
-          Tout se joue dans ce qu'il voit — et surtout
-          dans ce qu'il ne voit pas.
-        </p>
+        <div class="mob-accordion-body">
+          <div class="levier-subtitle">L'attraction visuelle</div>
+          <p class="levier-text">
+            Un voyageur décide en moins de 8 secondes.
+            Tout se joue dans ce qu'il voit — et surtout
+            dans ce qu'il ne voit pas.
+          </p>
+        </div>
       </div>
 
       <div class="levier-card">
         <div class="levier-number">02</div>
         <h3 class="levier-title">Être Vu</h3>
-        <div class="levier-subtitle">L'algorithme à votre service</div>
-        <p class="levier-text">
-          Airbnb pousse certaines annonces, en enterre
-          d'autres. Comprendre les règles du jeu fait
-          toute la différence.
-        </p>
+        <div class="mob-accordion-body">
+          <div class="levier-subtitle">L'algorithme à votre service</div>
+          <p class="levier-text">
+            Airbnb pousse certaines annonces, en enterre
+            d'autres. Comprendre les règles du jeu fait
+            toute la différence.
+          </p>
+        </div>
       </div>
 
       <div class="levier-card">
         <div class="levier-number">03</div>
         <h3 class="levier-title">Vendre</h3>
-        <div class="levier-subtitle">Le bon prix au bon moment</div>
-        <p class="levier-text">
-          Le tarif fixe, c'est la stratégie du débutant.
-          Le marché bouge — votre prix doit suivre.
-        </p>
+        <div class="mob-accordion-body">
+          <div class="levier-subtitle">Le bon prix au bon moment</div>
+          <p class="levier-text">
+            Le tarif fixe, c'est la stratégie du débutant.
+            Le marché bouge — votre prix doit suivre.
+          </p>
+        </div>
       </div>
 
     </div>
@@ -2979,26 +2977,34 @@ body.banner-visible .hero {
       <div class="process-step fade-in">
         <div class="process-num">01</div>
         <h3 class="process-title">Diagnostic</h3>
-        <p class="process-text">Un regard d'expert sur votre bien et votre marché. En un appel, on sait exactement ce qui freine vos réservations.</p>
-        <div class="process-time">Jour 1</div>
+        <div class="mob-accordion-body">
+          <p class="process-text">Un regard d'expert sur votre bien et votre marché. En un appel, on sait exactement ce qui freine vos réservations.</p>
+          <div class="process-time">Jour 1</div>
+        </div>
       </div>
       <div class="process-step fade-in">
         <div class="process-num">02</div>
         <h3 class="process-title">Stratégie</h3>
-        <p class="process-text">On sait ce qui change tout. Vous n'avez pas besoin de le savoir — c'est notre travail, pas le vôtre.</p>
-        <div class="process-time">Jour 2</div>
+        <div class="mob-accordion-body">
+          <p class="process-text">On sait ce qui change tout. Vous n'avez pas besoin de le savoir — c'est notre travail, pas le vôtre.</p>
+          <div class="process-time">Jour 2</div>
+        </div>
       </div>
       <div class="process-step fade-in">
         <div class="process-num">03</div>
         <h3 class="process-title">Exécution</h3>
-        <p class="process-text">On intervient. En cinq jours, votre annonce n'est plus la même. Votre bien non plus.</p>
-        <div class="process-time">Jour 3–5</div>
+        <div class="mob-accordion-body">
+          <p class="process-text">On intervient. En cinq jours, votre annonce n'est plus la même. Votre bien non plus.</p>
+          <div class="process-time">Jour 3–5</div>
+        </div>
       </div>
       <div class="process-step fade-in">
         <div class="process-num">04</div>
         <h3 class="process-title">Résultats</h3>
-        <p class="process-text">Vous regardez les réservations entrer. On reste disponible 60 jours pour garantir que les chiffres sont au rendez-vous.</p>
-        <div class="process-time">J+60</div>
+        <div class="mob-accordion-body">
+          <p class="process-text">Vous regardez les réservations entrer. On reste disponible 60 jours pour garantir que les chiffres sont au rendez-vous.</p>
+          <div class="process-time">J+60</div>
+        </div>
       </div>
     </div>
   </div>
