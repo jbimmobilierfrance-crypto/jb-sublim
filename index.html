@@ -362,6 +362,31 @@ nav.scrolled {
   z-index: 3;
 }
 
+.hero-logo-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--ivory);
+  border: 2px solid #B8924A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 36px;
+  overflow: hidden;
+  animation: heroPulse 3s ease-in-out infinite;
+}
+
+.hero-logo-img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+
+@keyframes heroPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 146, 74, 0.3); }
+  50% { box-shadow: 0 0 0 12px rgba(184, 146, 74, 0); }
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -2048,6 +2073,7 @@ body.banner-visible .hero {
   .launch-banner-inner { justify-content: center; gap: 10px; }
   .launch-banner-cta { margin-top: 4px; }
   .leviers-grid { grid-template-columns: 1fr; gap: 16px; }
+  .hero-logo-circle { width: 160px; height: 160px; margin-bottom: 24px; }
 }
 
 @media (max-width: 640px) {
@@ -2445,6 +2471,9 @@ body.banner-visible .hero {
   </div>
 
   <div class="hero-content">
+    <div class="hero-logo-circle">
+      <img src="logos/Logo rond.jpg" alt="JB Sublim" class="hero-logo-img">
+    </div>
     <div class="hero-badge">Spécialiste Location Courte Durée · France & Maroc</div>
     <h1 class="hero-title">
       <span class="hero-line">Votre Airbnb perd</span>
