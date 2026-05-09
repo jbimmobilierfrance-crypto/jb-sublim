@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="JB Sublim — Doublez vos revenus Airbnb en 30 jours. Service de gestion et d'optimisation de locations courte durée en France et au Maroc.">
-  <title>JB Sublim — Doublez vos revenus Airbnb</title>
+  <meta name="description" content="Spécialiste de l'optimisation Airbnb. On identifie ce qui freine vos réservations, on corrige, et les résultats arrivent en quelques semaines. Sans déplacement, sans commission. France &amp; Maroc.">
+  <title>JB Sublim — Optimisation d'annonces Airbnb · France &amp; Maroc</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
@@ -13,471 +13,458 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ====================================================
-     SECTION 1 — BANDEAU SCARCITY
-     ==================================================== -->
+<!-- BANDEAU -->
 <div id="bandeau">
-  <p>⚡ <strong>Places limitées</strong> — Plus que 2 créneaux disponibles ce mois-ci. <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" style="color:var(--or);text-decoration:underline;">Réservez votre appel gratuit →</a></p>
-  <button id="bandeau-close" aria-label="Fermer">✕</button>
+  <p>Tarif de lancement — <strong>490€</strong> au lieu de 990€ · 3 créneaux disponibles ce mois-ci</p>
+  <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" id="bandeau-cta">Réserver mon appel</a>
+  <button id="bandeau-close" aria-label="Fermer">&#x2715;</button>
 </div>
 
-<!-- ====================================================
-     SECTION 2 — NAVIGATION
-     ==================================================== -->
+<!-- NAVIGATION -->
 <header id="site-header">
   <nav class="nav-inner">
-    <a class="nav-logo" href="#hero">
-      <img src="logos/logo-officiel-horizontal-transparent.png" alt="JB Sublim" height="40">
-    </a>
+    <a class="nav-logo" href="#hero"><em>JB</em> Sublim</a>
     <ul class="nav-links">
-      <li><a href="#cas-client">Résultats</a></li>
+      <li><a href="#methode">Méthode</a></li>
+      <li><a href="#cas-client">Cas client</a></li>
       <li><a href="#tarifs">Tarifs</a></li>
-      <li><a href="#process">Comment ça marche</a></li>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="nav-cta">Appel gratuit</a></li>
     </ul>
+    <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="nav-btn">Réserver un appel</a>
     <button class="burger-btn" id="burger-btn" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 </header>
 
-<!-- Mobile menu overlay -->
-<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu navigation">
-  <button id="mobile-menu-close" aria-label="Fermer le menu">✕</button>
-  <a href="#cas-client">Résultats</a>
+<div id="mobile-menu" role="dialog" aria-modal="true">
+  <button id="mobile-menu-close" aria-label="Fermer">&#x2715;</button>
+  <a href="#methode">Méthode</a>
+  <a href="#cas-client">Cas client</a>
   <a href="#tarifs">Tarifs</a>
-  <a href="#process">Comment ça marche</a>
   <a href="#apropos">À propos</a>
   <a href="#faq">FAQ</a>
-  <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="mob-cta">Appel gratuit</a>
+  <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="mob-cta">Réserver un appel</a>
 </div>
 
-<!-- ====================================================
-     SECTION 3 — HERO
-     ==================================================== -->
+<!-- HERO -->
 <section id="hero">
   <div class="container">
-    <img src="logos/Logo%20rond.jpg" alt="JB Sublim" class="hero-logo">
-    <h1>Votre annonce Airbnb mérite<br><em>bien mieux que ça.</em></h1>
-    <p class="hero-sub">Transformez votre location en machine à revenus. Résultats garantis en 30 jours ou remboursé.</p>
-
-    <div class="hero-ctas">
-      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary">Réserver mon appel gratuit</a>
-      <a href="#cas-client" class="btn-secondary">Voir les résultats</a>
+    <span class="section-label fade-in">Spécialiste optimisation Airbnb · France &amp; Maroc</span>
+    <h1 class="fade-in">Votre Airbnb perd de l'argent.<em>On sait exactement pourquoi.</em></h1>
+    <p class="hero-desc fade-in">La plupart des annonces Airbnb tournent à 40–50% de leur potentiel réel. On identifie ce qui bloque, on corrige, et les résultats arrivent en quelques semaines. Sans déplacement. Sans commission à vie.</p>
+    <div class="hero-circle fade-in">
+      <img src="logos/Logo%20rond.jpg" alt="JB Sublim">
     </div>
-
-    <div class="hero-stats">
+    <div class="hero-ctas fade-in">
+      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary">Réserver mon appel stratégique</a>
+      <a href="#cas-client" class="btn-link">Voir un cas concret</a>
+    </div>
+    <div class="hero-stats fade-in">
       <div class="stat-item">
-        <span class="stat-number">+68%</span>
-        <span class="stat-label">Revenus moyens</span>
+        <span class="stat-val">83%</span>
+        <span class="stat-lbl">Taux d'occupation moyen</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">+41%</span>
-        <span class="stat-label">Taux d'occupation</span>
+        <span class="stat-val">5 jours</span>
+        <span class="stat-lbl">Délai d'intervention</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">4.9★</span>
-        <span class="stat-label">Note moyenne</span>
+        <span class="stat-val">Fr · Ma</span>
+        <span class="stat-lbl">Zones d'intervention</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">30j</span>
-        <span class="stat-label">Résultats garantis</span>
+        <span class="stat-val">16</span>
+        <span class="stat-lbl">Avis voyageurs</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================
-     SECTION 4 — CAS CLIENT SARAH
-     ==================================================== -->
+<!-- CAS CLIENT -->
 <section id="cas-client" class="section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head fade-in">
       <span class="section-label">Résultat réel</span>
-      <div class="gold-line"></div>
-      <h2>Sarah — Appartement T2, Lyon</h2>
-      <p>De 620€/mois à 1 890€/mois en 6 semaines.</p>
+      <div class="gold-sep"></div>
+      <h2>Même appartement.<br><em style="font-style:italic;color:var(--or)">Deux résultats incomparables.</em></h2>
+      <p>Ce T2 à Perpignan tournait largement en dessous de son potentiel. Voilà ce qu'il est devenu.</p>
     </div>
 
-    <div class="ba-images">
-      <div class="ba-img-wrap">
-        <img src="images/avant-salon.jpg" alt="Avant optimisation" loading="lazy">
-        <span class="ba-badge">Avant</span>
+    <div class="ba-grid fade-in">
+      <div class="ba-col">
+        <div style="position:relative;">
+          <img src="images/avant-salon.jpg" alt="Avant optimisation" loading="lazy">
+          <span class="ba-badge avant">Avant</span>
+        </div>
+        <span class="ba-stat">41%</span>
+        <span class="ba-stat-lbl">Taux d'occupation</span>
       </div>
-      <div class="ba-img-wrap">
-        <img src="images/apres-salon.jpg" alt="Après optimisation" loading="lazy">
-        <span class="ba-badge after">Après</span>
-      </div>
-    </div>
-
-    <div class="ba-results">
-      <div class="ba-result-item">
-        <span class="ba-result-number">+205%</span>
-        <span class="ba-result-label">Revenus mensuels</span>
-      </div>
-      <div class="ba-result-item">
-        <span class="ba-result-number">4.96★</span>
-        <span class="ba-result-label">Note globale</span>
-      </div>
-      <div class="ba-result-item">
-        <span class="ba-result-number">94%</span>
-        <span class="ba-result-label">Taux d'occupation</span>
-      </div>
-      <div class="ba-result-item">
-        <span class="ba-result-number">Top 5%</span>
-        <span class="ba-result-label">Annonces Lyon</span>
+      <div class="ba-col">
+        <div style="position:relative;">
+          <img src="images/apres-salon.jpg" alt="Après optimisation" loading="lazy">
+          <span class="ba-badge apres">Après</span>
+        </div>
+        <span class="ba-stat">83%</span>
+        <span class="ba-stat-lbl">Taux d'occupation</span>
       </div>
     </div>
 
-    <div class="client-quote">
-      <blockquote>"Je gagnais 620€/mois depuis 2 ans et je pensais que c'était le maximum possible. Jamil a tout transformé en quelques semaines. Aujourd'hui je suis à 1 890€ et je n'ai rien à faire moi-même."</blockquote>
-      <cite>— Sarah M., propriétaire à Lyon · Résultat obtenu en 6 semaines</cite>
+    <div class="ba-metrics fade-in">
+      <div class="ba-metric">
+        <span class="ba-metric-label">Taux d'occupation</span>
+        <span class="ba-metric-val">41% <span class="arrow">&#8594;</span> 83%</span>
+      </div>
+      <div class="ba-metric">
+        <span class="ba-metric-label">Avis voyageurs</span>
+        <span class="ba-metric-val">16</span>
+        <div class="ba-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B8924A"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B8924A"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B8924A"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B8924A"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B8924A"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+      </div>
+      <div class="ba-metric">
+        <span class="ba-metric-label">Distinction</span>
+        <span class="ba-metric-val" style="font-size:16px;">Coup de cœur voyageurs</span>
+      </div>
+      <div class="ba-metric">
+        <span class="ba-metric-label">Délai</span>
+        <span class="ba-metric-val">5 jours</span>
+      </div>
     </div>
 
-    <a href="https://www.airbnb.fr/rooms/1650228088695655697" class="airbnb-link" target="_blank" rel="noopener">
-      Voir l'annonce sur Airbnb →
-    </a>
+    <div class="client-quote fade-in">
+      <blockquote>"On n'imaginait pas que quelques ajustements pouvaient avoir un tel impact. Le résultat a dépassé toutes nos attentes."</blockquote>
+      <cite>— Adrien &amp; Sarah · Hôtes · T2 Perpignan</cite>
+    </div>
+
+    <p style="margin-top:16px;">
+      <a href="https://www.airbnb.fr/rooms/1650228088695655697" class="btn-link" target="_blank" rel="noopener">Voir l'annonce sur Airbnb &#8594;</a>
+    </p>
+
+    <div class="cas-cta fade-in">
+      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary">Réserver mon appel stratégique</a>
+    </div>
   </div>
 </section>
 
-<!-- ====================================================
-     SECTION 5 — TARIFS
-     ==================================================== -->
+<!-- TARIFS -->
 <section id="tarifs" class="section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head fade-in">
       <span class="section-label">Investissement</span>
-      <div class="gold-line"></div>
-      <h2>Des offres claires, un ROI immédiat</h2>
+      <div class="gold-sep"></div>
+      <h2>Un forfait. Des résultats.<br>Aucune commission.</h2>
       <p>Récupérez votre investissement dès la première semaine.</p>
     </div>
 
     <div class="tarifs-grid">
-      <!-- OFFRE PRINCIPALE -->
-      <div class="tarif-card featured">
-        <span class="tarif-badge">⭐ Le plus populaire</span>
-        <div class="tarif-name">Sublim Boost</div>
-        <div class="tarif-price">490€ <span>paiement unique</span></div>
-        <p class="tarif-desc">Transformation complète de votre annonce pour maximiser vos revenus une bonne fois pour toutes.</p>
-        <ul class="tarif-features">
-          <li>Audit complet de votre annonce</li>
-          <li>Transformation de votre présentation</li>
-          <li>Optimisation tarifaire sur mesure</li>
-          <li>Stratégie de positionnement concurrentiel</li>
-          <li>Suivi 30 jours post-livraison</li>
-          <li>Garantie résultats ou remboursé</li>
+      <!-- Carte 1 : featured -->
+      <div class="tarif-card featured fade-in">
+        <div class="tarif-badge-top">Offre de lancement</div>
+        <div class="tarif-name">Pack Optimisation Complète</div>
+        <div class="tarif-price-row">
+          <span class="tarif-price-main">490€</span>
+          <span class="tarif-price-old">990€</span>
+        </div>
+        <span class="tarif-launch">Tarif de lancement — passe à 990€ prochainement</span>
+        <p class="tarif-desc">Une intervention complète sur votre annonce. Du premier regard jusqu'aux premières réservations.</p>
+        <ul class="gold-list tarif-features">
+          <li>Audit complet de votre potentiel inexploité</li>
+          <li>Refonte de la présentation et du storytelling</li>
+          <li>Optimisation algorithmique (titre, équipements, positionnement)</li>
+          <li>Stratégie de pricing dynamique sur-mesure</li>
+          <li>Mise en ligne de l'annonce optimisée</li>
+          <li>Garantie résultats : on continue jusqu'à ce que ça marche</li>
         </ul>
-        <a href="https://pay.qonto.com/payment-links/019e082e-3e2f-7e88-9212-e4a73bd8fc0d?resource_id=019e082e-3e31-7206-b52f-1ddb5e9764ba" class="btn-primary">Démarrer maintenant</a>
-        <p class="tarif-note">Paiement sécurisé · Accès immédiat</p>
+        <div class="tarif-cta-wrap">
+          <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary full">Réserver mon appel stratégique</a>
+        </div>
+        <div class="tarif-direct">
+          <a href="https://pay.qonto.com/payment-links/019e082e-3e2f-7e88-9212-e4a73bd8fc0d?resource_id=019e082e-3e31-7206-b52f-1ddb5e9764ba" class="btn-link">Déjà convaincu ? Payer directement via Qonto &#8594;</a>
+        </div>
+        <span class="tarif-mention">Paiement sécurisé · 3 créneaux restants ce mois-ci</span>
       </div>
 
-      <!-- OFFRE SUIVI -->
-      <div class="tarif-card">
-        <div class="tarif-name">Sublim Suivi</div>
-        <div class="tarif-price">49€ <span>/mois</span></div>
-        <p class="tarif-desc">Gestion continue et optimisation permanente pour maintenir vos revenus au sommet.</p>
-        <ul class="tarif-features">
+      <!-- Carte 2 -->
+      <div class="tarif-card fade-in">
+        <div class="tarif-name">Suivi &amp; Performance</div>
+        <div class="tarif-price-row">
+          <span class="tarif-price-main" style="color:var(--anthracite)">49€</span>
+          <span class="tarif-price-period">/mois</span>
+        </div>
+        <p class="tarif-desc">Pour maintenir vos résultats sur le long terme. Veille continue, ajustements saisonniers, optimisation pricing.</p>
+        <ul class="gold-list tarif-features">
           <li>Veille concurrentielle mensuelle</li>
-          <li>Ajustements tarifaires en continu</li>
+          <li>Ajustements pricing en temps réel</li>
+          <li>Optimisation continue selon la saison</li>
           <li>Réponse aux avis voyageurs</li>
-          <li>Rapport de performance mensuel</li>
-          <li>Support WhatsApp prioritaire</li>
+          <li>Support prioritaire WhatsApp</li>
         </ul>
-        <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-secondary">En savoir plus</a>
-        <p class="tarif-note">Sans engagement · Résiliable à tout moment</p>
+        <div class="tarif-cta-wrap">
+          <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-outline full">En savoir plus</a>
+        </div>
+        <span class="tarif-mention">Sans engagement · Résiliable à tout moment</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================
-     SECTION 6 — POURQUOI ÇA STAGNE
-     ==================================================== -->
+<!-- POURQUOI ÇA STAGNE -->
 <section id="stagne" class="section">
   <div class="container">
-    <div class="section-head">
-      <span class="section-label">Le diagnostic</span>
-      <div class="gold-line"></div>
-      <h2>Pourquoi votre annonce<br>ne performe pas</h2>
-      <p>Ce n'est pas votre faute. Ces 3 freins invisibles plombent 90% des propriétaires.</p>
+    <div class="section-head fade-in">
+      <span class="section-label">Le constat</span>
+      <div class="gold-sep"></div>
+      <h2>Pourquoi votre annonce stagne</h2>
+      <p>Trois raisons silencieuses qui vous font perdre de l'argent chaque mois — sans que vous le sachiez.</p>
     </div>
 
     <div class="stagne-grid">
-      <div class="stagne-card">
-        <span class="stagne-icon">📸</span>
-        <h3>Une présentation qui ne convainc pas</h3>
-        <p>Votre logement est excellent mais votre annonce ne le montre pas. Les voyageurs partent chez le concurrent en 8 secondes.</p>
+      <div class="stagne-card fade-in">
+        <div class="icon-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8924A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+        </div>
+        <h3>La première impression ne se répète pas</h3>
+        <p>Sur Airbnb, un voyageur prend sa décision en quelques secondes. Si votre annonce ne capte pas immédiatement l'attention, il passe à la suivante — et ne revient jamais.</p>
+        <span class="stagne-mention">9 clics sur 10 ignorent les annonces mal présentées</span>
       </div>
-      <div class="stagne-card">
-        <span class="stagne-icon">💰</span>
-        <h3>Un pricing qui vous coûte de l'argent</h3>
-        <p>Trop cher, trop peu cher, jamais au bon prix au bon moment. Vous laissez des milliers d'euros sur la table chaque mois.</p>
+
+      <div class="stagne-card fade-in">
+        <div class="icon-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8924A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <h3>Votre bien est présent, mais introuvable</h3>
+        <p>Airbnb fonctionne comme un moteur de recherche avec ses propres règles. La plupart des annonces ne les respectent pas — et disparaissent, noyées sous des centaines de concurrents.</p>
+        <span class="stagne-mention">Moins de 3 voyageurs sur 100 voient les annonces mal positionnées</span>
       </div>
-      <div class="stagne-card">
-        <span class="stagne-icon">📍</span>
-        <h3>Un positionnement invisible</h3>
-        <p>L'algorithme Airbnb vous ignore. Vous n'apparaissez pas là où vos futurs voyageurs cherchent.</p>
+
+      <div class="stagne-card fade-in">
+        <div class="icon-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8924A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8.5A6 6 0 1 0 17 15.5"/>
+            <line x1="3" y1="10" x2="14" y2="10"/>
+            <line x1="3" y1="14" x2="14" y2="14"/>
+          </svg>
+        </div>
+        <h3>Vous perdez de l'argent à chaque nuitée</h3>
+        <p>Un tarif fixe ignore tout : la saison, les événements locaux, ce que vos concurrents pratiquent réellement. Résultat : vous bradez quand vous pourriez doubler, et vous restez vide quand les autres sont complets.</p>
+        <span class="stagne-mention">Le pricing dynamique génère en moyenne +30% de revenus</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================
-     SECTION 7 — TROIS LEVIERS
-     ==================================================== -->
-<section id="leviers" class="section">
+<!-- MÉTHODE -->
+<section id="methode" class="section">
   <div class="container">
-    <div class="section-head">
-      <span class="section-label">La méthode</span>
-      <div class="gold-line"></div>
-      <h2>Les 3 leviers qui changent tout</h2>
-      <p>Une approche systématique qui a fait ses preuves sur plus de 50 annonces.</p>
+    <div class="section-head fade-in">
+      <span class="section-label">Notre approche</span>
+      <div class="gold-sep"></div>
+      <h2>Trois leviers.<br><em style="font-style:italic;color:var(--or)">Une transformation complète.</em></h2>
+      <p>Pendant que la plupart des annonces stagnent, certaines explosent. La différence ne se voit pas à l'œil nu — mais elle change tout.</p>
     </div>
 
     <div class="leviers-grid">
-      <div class="levier-card">
-        <div class="levier-number">01</div>
-        <h3>Présentation irrémédiable</h3>
-        <p>Votre annonce devient la référence de votre marché. Chaque visiteur est convaincu que c'est chez vous qu'il doit séjourner.</p>
+      <div class="levier-card fade-in">
+        <div class="levier-num">01</div>
+        <span class="section-label">L'attraction visuelle</span>
+        <h3>Voir</h3>
+        <p>Un voyageur décide en moins de 8 secondes. Tout se joue dans ce qu'il voit — et surtout dans ce qu'il ne voit pas. On retravaille votre annonce pour qu'elle capte immédiatement.</p>
       </div>
-      <div class="levier-card">
-        <div class="levier-number">02</div>
-        <h3>Tarification intelligente</h3>
-        <p>Le bon prix, chaque nuit, automatiquement. Maximisez vos revenus tout en maintenant un taux d'occupation optimal.</p>
+      <div class="levier-card fade-in">
+        <div class="levier-num">02</div>
+        <span class="section-label">L'algorithme à votre service</span>
+        <h3>Être Vu</h3>
+        <p>Airbnb pousse certaines annonces, en enterre d'autres. On connaît les règles du jeu — et on les active pour vous. Votre annonce remonte là où vos voyageurs cherchent réellement.</p>
       </div>
-      <div class="levier-card">
-        <div class="levier-number">03</div>
-        <h3>Positionnement dominant</h3>
-        <p>Votre annonce remonte dans les résultats Airbnb et attire les voyageurs à fort pouvoir d'achat, prêts à payer le prix juste.</p>
+      <div class="levier-card fade-in">
+        <div class="levier-num">03</div>
+        <span class="section-label">Le bon prix au bon moment</span>
+        <h3>Vendre</h3>
+        <p>Le tarif fixe, c'est la stratégie du débutant. Le marché bouge — votre prix doit suivre. On installe un pricing dynamique calibré sur votre marché local.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================
-     SECTION 8 — COMMENT ÇA SE PASSE
-     ==================================================== -->
+<!-- PROCESS -->
 <section id="process" class="section">
   <div class="container">
-    <div class="section-head">
-      <span class="section-label">Le process</span>
-      <div class="gold-line"></div>
-      <h2>Simple, rapide, efficace</h2>
-      <p>De l'appel découverte aux premiers résultats, tout se passe en moins de 2 semaines.</p>
+    <div class="section-head fade-in">
+      <span class="section-label">Comment ça se passe</span>
+      <div class="gold-sep"></div>
+      <h2>Vous ouvrez la porte.<br><em style="font-style:italic;color:var(--or)">On fait le reste.</em></h2>
+      <p>Une intervention complète, sans déplacement, sans commission. Vous regardez les réservations entrer.</p>
     </div>
 
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h3>Appel découverte gratuit</h3>
-          <p>30 minutes pour analyser votre situation, identifier les blocages et définir le potentiel de votre annonce.</p>
+    <div class="timeline fade-in">
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="t-circle">1</div>
+          <div class="t-body">
+            <span class="t-tag">Jour 1</span>
+            <h3>Diagnostic</h3>
+            <p>Un appel stratégique de 25 minutes. On analyse votre bien, votre marché, votre potentiel. À la fin de l'appel, on sait exactement ce qui freine vos réservations.</p>
+          </div>
         </div>
-      </div>
-      <div class="process-step">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h3>Audit &amp; stratégie</h3>
-          <p>Analyse complète de votre annonce, de vos concurrents et de votre marché. Vous recevez un plan d'action détaillé.</p>
+        <div class="timeline-step">
+          <div class="t-circle">2</div>
+          <div class="t-body">
+            <span class="t-tag">Jour 2</span>
+            <h3>Stratégie</h3>
+            <p>On définit le plan d'action : positionnement, storytelling, optimisations algorithmiques, pricing. Vous n'avez pas besoin de savoir comment — c'est notre travail, pas le vôtre.</p>
+          </div>
         </div>
-      </div>
-      <div class="process-step">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <h3>Transformation &amp; déploiement</h3>
-          <p>On prend en main l'intégralité de la transformation. Vous n'avez rien à faire. Livraison sous 7 jours ouvrés.</p>
+        <div class="timeline-step">
+          <div class="t-circle">3</div>
+          <div class="t-body">
+            <span class="t-tag">Jour 3 à 5</span>
+            <h3>Exécution</h3>
+            <p>On intervient. Refonte complète de l'annonce, réécriture, optimisation des équipements, mise en place du pricing. En cinq jours, votre annonce n'est plus la même.</p>
+          </div>
         </div>
-      </div>
-      <div class="process-step">
-        <div class="step-number">4</div>
-        <div class="step-content">
-          <h3>Suivi &amp; résultats</h3>
-          <p>30 jours de suivi post-livraison. Si les résultats ne sont pas au rendez-vous, vous êtes remboursé intégralement.</p>
+        <div class="timeline-step">
+          <div class="t-circle">4</div>
+          <div class="t-body">
+            <span class="t-tag">Dès J+7</span>
+            <h3>Résultats</h3>
+            <p>Vous regardez les premières réservations entrer. La courbe d'occupation décolle. Si les chiffres ne sont pas au rendez-vous, on continue jusqu'à ce qu'ils le soient.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================
-     SECTION 9 — À PROPOS JAMIL
-     ==================================================== -->
+<!-- À PROPOS -->
 <section id="apropos" class="section">
   <div class="container">
-    <div class="apropos-inner">
-      <div class="apropos-image">
-        <img src="logos/Logo%20rond.jpg" alt="Jamil — JB Sublim">
+    <div class="apropos-grid">
+      <div class="apropos-quote fade-in">
+        <blockquote>"Un appartement bien présenté n'est pas une dépense. C'est l'investissement le plus rentable qu'un propriétaire puisse faire."</blockquote>
+        <cite>— Jamil, fondateur JB Sublim</cite>
       </div>
-      <div class="apropos-content">
+      <div class="apropos-content fade-in">
         <span class="section-label">À propos</span>
-        <h2>Jamil Ben Hassan</h2>
-        <p class="apropos-title">Expert en location courte durée · Fondateur de JB Sublim</p>
-        <p>Depuis plus de 7 ans, j'accompagne des propriétaires en France et au Maroc à transformer leur bien en actif rentable. J'ai optimisé plus de 50 annonces Airbnb avec un résultat moyen de +68% de revenus.</p>
-        <p>Ma propre annonce figure dans le top 5% de sa catégorie. Ce que j'applique pour vous, je l'ai d'abord testé et validé sur mon propre patrimoine.</p>
-        <div class="apropos-badges">
-          <span class="apropos-badge">Superhost Airbnb</span>
-          <span class="apropos-badge">+50 annonces optimisées</span>
-          <span class="apropos-badge">France · Maroc</span>
-          <span class="apropos-badge">7 ans d'expérience</span>
-        </div>
+        <h2>Jamil, fondateur de JB Sublim</h2>
+        <p>Originaire de Montpellier, j'ai passé plus de dix ans dans le commerce premium et la vente de luxe avant de me spécialiser dans l'optimisation Airbnb. Une discipline que j'ai d'abord testée dans le cercle familial — et où j'ai vu, concrètement, à quel point quelques décisions bien pensées peuvent transformer un bien moyen en bien qui performe.</p>
+        <p>Aujourd'hui, j'accompagne des propriétaires en France et au Maroc avec une approche complète : algorithme Airbnb, storytelling, pricing dynamique, photographie, positionnement. Chaque levier compte, et tous se travaillent ensemble.</p>
+        <p>Mon approche n'est pas technique. Elle est commerciale. Parce que ce qui fait la différence sur Airbnb, ce n'est pas la beauté du logement — c'est l'impression, la confiance, et le bon positionnement.</p>
+        <ul class="gold-list">
+          <li>10 ans d'expérience dans la vente premium et le luxe</li>
+          <li>Formé aux mécanismes profonds de l'algorithme Airbnb</li>
+          <li>Accompagnement en France et au Maroc</li>
+          <li>Aucune commission — un forfait, des résultats</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================
-     SECTION 10 — FAQ
-     ==================================================== -->
+<!-- FAQ -->
 <section id="faq" class="section">
   <div class="container">
-    <div class="section-head">
-      <span class="section-label">Questions fréquentes</span>
-      <div class="gold-line"></div>
-      <h2>Tout ce que vous voulez savoir</h2>
-    </div>
-
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question">
-          Comment fonctionne la garantie remboursement ?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Si vos revenus n'augmentent pas dans les 30 jours suivant la livraison, nous vous remboursons intégralement — sans condition, sans justification à fournir. Nous prenons le risque à votre place car nous croyons dans nos résultats.
-          </div>
-        </div>
+    <div class="faq-layout">
+      <div class="faq-intro fade-in">
+        <span class="section-label">Questions fréquentes</span>
+        <div class="gold-sep left"></div>
+        <h2>Tout ce que vous voulez savoir</h2>
+        <p>Les questions que les propriétaires nous posent avant de se lancer. Si la vôtre n'y est pas, contactez-nous.</p>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Est-ce que je dois m'occuper de quoi que ce soit ?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Non. Après l'appel découverte, vous nous donnez accès à votre annonce et nous nous occupons de tout. Vous êtes informé à chaque étape mais n'avez aucune action à réaliser. La transformation est livrée clé en main sous 7 jours ouvrés.
-          </div>
+      <div class="faq-accordions fade-in">
+        <div class="faq-item">
+          <button class="faq-question">Comment se déroule concrètement votre intervention ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Tout commence par un appel stratégique de 25 minutes où on analyse votre situation, votre marché, votre potentiel réel. Si on travaille ensemble, on prend en charge l'optimisation complète : annonce, photos, pricing, algorithme. Vous n'avez rien à exécuter de votre côté. La transformation est livrée en 5 jours.</div></div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          En combien de temps vais-je voir les résultats ?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Les premiers effets sont visibles dès la mise en ligne de l'annonce optimisée (généralement sous 48-72h). La majorité de nos clients constatent une hausse significative de leur taux de visites dès la première semaine. Les revenus augmentent en continu sur les 30 premiers jours.
-          </div>
+        <div class="faq-item">
+          <button class="faq-question">En combien de temps verrai-je des résultats ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Les premiers effets sont visibles dans les jours qui suivent la mise en ligne de l'annonce optimisée. La majorité de nos clients constatent une hausse significative du taux de visites dès la première semaine, et un doublement de l'occupation dans le mois.</div></div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Mon bien est-il adapté à ce type d'optimisation ?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Nous travaillons avec tous types de biens : studios, appartements, maisons, villas, en France et au Maroc. L'appel découverte gratuit nous permet d'évaluer le potentiel de votre bien et d'être honnête avec vous si nous pensons ne pas pouvoir vous apporter de valeur.
-          </div>
+        <div class="faq-item">
+          <button class="faq-question">Et si ça ne fonctionne pas pour mon bien ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Si vos résultats ne décollent pas, on continue à travailler avec vous gratuitement jusqu'à ce que ce soit le cas. Le risque est entièrement de notre côté. C'est ce qui fait notre différence avec une conciergerie classique qui prend une commission à vie sans engagement de résultat.</div></div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Quelle est la différence entre Sublim Boost et Sublim Suivi ?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Sublim Boost (490€) est une intervention ponctuelle et complète : on transforme votre annonce une fois pour toutes. Sublim Suivi (49€/mois) est un service d'accompagnement continu pour maintenir vos résultats dans le temps : ajustements tarifaires, veille concurrentielle, gestion des avis. Les deux peuvent se combiner.
-          </div>
+        <div class="faq-item">
+          <button class="faq-question">Pourquoi pas une conciergerie classique ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Une conciergerie prend 20 à 30% de vos revenus à vie et gère uniquement la logistique. Nous, on s'occupe de l'optimisation commerciale de votre annonce — ce qui détermine si votre calendrier se remplit ou pas. Forfait unique, aucune commission, vous gardez 100% de vos revenus supplémentaires.</div></div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Comment se passe le paiement ?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Le paiement se fait en ligne, de façon sécurisée, via notre lien de paiement Qonto. Carte bancaire, virement — tout est possible. Vous recevez une facture immédiatement. Aucun paiement n'est demandé avant l'appel découverte — celui-ci est entièrement gratuit.
-          </div>
+        <div class="faq-item">
+          <button class="faq-question">Mon annonce est déjà en ligne, ça change quelque chose ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Aucune importance. On intervient autant sur des annonces existantes qui peinent à décoller que sur des lancements. L'audit révèle exactement ce qui freine votre potentiel dans les deux cas.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Intervenez-vous dans toute la France ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Oui — partout en France et au Maroc. On travaille à distance via WhatsApp et visio, donc votre localisation n'est pas un frein. Aucun déplacement n'est nécessaire pour obtenir des résultats.</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================
-     SECTION 11 — CTA FINAL
-     ==================================================== -->
+<!-- CTA FINAL -->
 <section id="cta-final">
   <div class="container">
-    <h2>Prêt à transformer votre annonce ?</h2>
-    <p>Rejoignez les 50+ propriétaires qui ont déjà augmenté leurs revenus. L'appel découverte est gratuit et sans engagement.</p>
-    <div class="cta-final-btns">
-      <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary">Réserver mon appel gratuit</a>
-      <a href="https://wa.me/33658797037" class="btn-secondary" target="_blank" rel="noopener">WhatsApp</a>
-    </div>
-    <p class="cta-final-note">Appel 30 min · Gratuit · Sans engagement · Places limitées</p>
+    <span class="section-label">Passez à l'action</span>
+    <h2 class="fade-in">Votre annonce perd des réservations chaque jour.</h2>
+    <p class="cta-sub fade-in">On peut analyser votre situation gratuitement et vous dire exactement ce qui bloque. Sans engagement.</p>
+    <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary or fade-in">Réserver mon appel stratégique</a>
+    <span class="cta-micro">Appel de 25 minutes · Sans engagement · Réponse rapide sur WhatsApp</span>
+    <br>
+    <a href="https://wa.me/33658797037" class="btn-link" target="_blank" rel="noopener" style="margin-top:20px;display:inline-block;">Ou contactez-nous directement sur WhatsApp &#8594;</a>
   </div>
 </section>
 
-<!-- ====================================================
-     SECTION 12 — FOOTER
-     ==================================================== -->
+<!-- FOOTER -->
 <footer id="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="logos/logo-officiel-fond%20transparent.png" alt="JB Sublim">
-        <p>Expert en optimisation de locations courte durée en France et au Maroc. Transformez votre bien en actif rentable.</p>
+        <span class="brand-name"><em>JB</em> Sublim</span>
+        <p>Optimisation d'annonces Airbnb. France &amp; Maroc.<br>Aucune commission, un forfait, des résultats.</p>
+        <p class="footer-legal">JB Immo SASU<br>SIREN 988 121 919<br>73 Allée Kléber, 34000 Montpellier</p>
       </div>
-
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="#cas-client">Résultats clients</a></li>
+          <li><a href="#methode">Méthode</a></li>
+          <li><a href="#cas-client">Cas client</a></li>
           <li><a href="#tarifs">Tarifs</a></li>
-          <li><a href="#process">Comment ça marche</a></li>
           <li><a href="#apropos">À propos</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
+          <li><a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" target="_blank" rel="noopener">Réserver un appel</a></li>
           <li><a href="https://wa.me/33658797037" target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href="mailto:jbimmobilier.france@gmail.com">Email</a></li>
-          <li><a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" target="_blank" rel="noopener">Prendre RDV</a></li>
+          <li><a href="https://www.instagram.com/jb.sublim" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
-        <h4>Suivez-nous</h4>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/jb.sublim" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
-          <a href="https://wa.me/33658797037" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
-        </div>
+        <h4>Zones d'intervention</h4>
+        <p>Montpellier &amp; agglomération<br>Toute la France<br>Maroc &amp; Afrique du Nord<br>À distance via WhatsApp &amp; visio</p>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <p>© 2025 JB Sublim · JB Immo SASU · Tous droits réservés</p>
-      <p>Site conçu pour les propriétaires qui veulent plus.</p>
+      <p>© 2026 JB Immo SASU · SIREN 988 121 919 · <a href="#">Mentions légales</a></p>
     </div>
   </div>
 </footer>
