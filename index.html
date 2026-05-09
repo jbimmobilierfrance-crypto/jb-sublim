@@ -490,294 +490,6 @@ nav.scrolled {
   font-weight: 500;
 }
 
-/* ── CALCULATEUR ── */
-.calculator {
-  background: var(--ivory-warm);
-  border-top: 1px solid var(--line);
-  position: relative;
-  overflow: hidden;
-}
-
-.calculator-header {
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.calculator-header .section-desc { margin: 0 auto; }
-
-.calc-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  background: var(--ivory);
-  border: 1px solid var(--line);
-  position: relative;
-  box-shadow: 0 30px 80px -30px rgba(74, 70, 62, 0.12);
-}
-
-.calc-wrapper::before, .calc-wrapper::after {
-  content: '';
-  position: absolute;
-  width: 60px; height: 60px;
-  border: 1px solid var(--gold);
-  opacity: 0.6;
-}
-
-.calc-wrapper::before {
-  top: -1px; left: -1px;
-  border-right: none; border-bottom: none;
-}
-
-.calc-wrapper::after {
-  bottom: -1px; right: -1px;
-  border-left: none; border-top: none;
-}
-
-.calc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 540px;
-}
-
-.calc-form {
-  padding: 60px 52px;
-  border-right: 1px solid var(--line);
-  counter-reset: step;
-}
-
-.calc-step {
-  margin-bottom: 32px;
-}
-
-.calc-step:last-child { margin-bottom: 0; }
-
-.calc-step-label {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 14px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.calc-step-label::before {
-  content: counter(step);
-  counter-increment: step;
-  width: 22px; height: 22px;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  color: var(--gold);
-  font-style: italic;
-  background: var(--ivory);
-}
-
-.calc-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-.calc-option {
-  background: var(--ivory-warm);
-  border: 1px solid var(--line);
-  padding: 14px 12px;
-  font-size: 12px;
-  color: var(--charcoal);
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  font-family: inherit;
-  font-weight: 400;
-  letter-spacing: 0.3px;
-}
-
-.calc-option:hover {
-  border-color: var(--gold);
-  background: var(--ivory);
-  color: var(--anthracite);
-}
-
-.calc-option.active {
-  border-color: var(--gold);
-  background: var(--gold);
-  color: var(--ivory);
-  font-weight: 500;
-}
-
-.calc-result {
-  padding: 60px 52px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--ivory) 0%, var(--ivory-warm) 100%);
-  position: relative;
-}
-
-.result-empty {
-  text-align: center;
-  color: var(--slate);
-}
-
-.result-empty-icon {
-  font-size: 56px;
-  color: var(--gold);
-  opacity: 0.4;
-  margin-bottom: 24px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  line-height: 1;
-}
-
-.result-empty-text {
-  font-size: 14px;
-  line-height: 1.8;
-  max-width: 290px;
-  margin: 0 auto;
-  font-weight: 300;
-}
-
-.result-active { display: none; }
-.result-active.visible { display: block; animation: fadeUp 0.5s ease; }
-
-.result-label {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-.result-comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 36px;
-  padding-bottom: 36px;
-  border-bottom: 1px solid var(--line);
-}
-
-.result-block.highlight { text-align: right; }
-
-.result-amount {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 38px;
-  font-weight: 300;
-  line-height: 1;
-  margin-bottom: 6px;
-  letter-spacing: -0.5px;
-}
-
-.result-block.current .result-amount { color: var(--slate); }
-.result-block.highlight .result-amount { color: var(--gold); font-style: italic; }
-
-.result-desc {
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 1px;
-  font-weight: 500;
-}
-
-.result-gain {
-  background: linear-gradient(135deg, rgba(184, 146, 74, 0.08) 0%, rgba(184, 146, 74, 0.02) 100%);
-  border: 1px solid var(--gold-tint-strong);
-  padding: 28px 32px;
-  margin-bottom: 28px;
-  text-align: center;
-  position: relative;
-}
-
-.result-gain::before, .result-gain::after {
-  content: '';
-  position: absolute;
-  width: 18px; height: 18px;
-  border: 1px solid var(--gold);
-}
-
-.result-gain::before {
-  top: -1px; left: -1px;
-  border-right: none; border-bottom: none;
-}
-
-.result-gain::after {
-  bottom: -1px; right: -1px;
-  border-left: none; border-top: none;
-}
-
-.result-gain-label {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.result-gain-amount {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 56px;
-  font-weight: 300;
-  color: var(--anthracite);
-  line-height: 1;
-  font-style: italic;
-  letter-spacing: -1px;
-}
-
-.result-gain-period {
-  font-size: 12px;
-  color: var(--graphite);
-  margin-top: 8px;
-  font-weight: 400;
-}
-
-.result-gain-yearly {
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--gold-tint-strong);
-  font-size: 13px;
-  color: var(--charcoal);
-  font-weight: 400;
-}
-
-.result-gain-yearly span {
-  color: var(--gold-deep);
-  font-weight: 600;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 16px;
-}
-
-.result-cta {
-  display: block;
-  text-align: center;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 17px;
-  background: var(--anthracite);
-  color: var(--ivory);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.result-cta:hover { background: var(--gold); color: var(--anthracite); }
-
-.result-disclaimer {
-  font-size: 10px;
-  color: var(--muted);
-  text-align: center;
-  margin-top: 20px;
-  line-height: 1.6;
-  font-weight: 300;
-}
-
 /* ── SECTION COMMON ── */
 section { padding: 130px 0; position: relative; }
 
@@ -1876,9 +1588,6 @@ footer {
   .pack.featured { transform: scale(1); }
   .pack.featured:hover { transform: translateY(-8px); }
 
-  .calc-grid { grid-template-columns: 1fr; }
-  .calc-form { border-right: none; border-bottom: 1px solid var(--line); }
-
   .about-grid, .faq-grid {
     grid-template-columns: 1fr;
     gap: 44px;
@@ -1968,7 +1677,6 @@ footer {
   text-align: center;
 }
 
-.calculateur-simple .section-title,
 .tarifs-launch .section-title,
 .leviers .section-title,
 .before-after .section-title {
@@ -2117,177 +1825,6 @@ body.banner-visible .hero {
   color: var(--graphite);
   line-height: 1.85;
   font-weight: 300;
-}
-
-/* ─── CALCULATEUR SIMPLE ─── */
-.calculateur-simple {
-  padding: 100px 24px 48px;
-  background: var(--ivory);
-}
-
-.calc-simple-box {
-  max-width: 600px;
-  margin: 48px auto 0;
-  padding: 48px;
-  background: #FFFFFF;
-  border: 1px solid rgba(184, 146, 74, 0.15);
-  border-radius: 4px;
-  text-align: center;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-}
-
-.calc-input-group { margin-bottom: 24px; }
-
-.calc-input-group label {
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #B8924A;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.calc-input-wrapper {
-  display: flex;
-  align-items: center;
-  border: 1px solid rgba(184, 146, 74, 0.3);
-  border-radius: 4px;
-  overflow: hidden;
-  background: var(--ivory);
-}
-
-#revenu-actuel {
-  flex: 1;
-  border: none;
-  background: transparent;
-  padding: 16px 20px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px;
-  color: var(--anthracite);
-  text-align: right;
-}
-
-#revenu-actuel:focus { outline: none; }
-
-.calc-input-suffix {
-  padding: 0 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: var(--graphite);
-  background: rgba(184, 146, 74, 0.08);
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-}
-
-.calc-button {
-  width: 100%;
-  padding: 16px 32px;
-  background: var(--anthracite);
-  color: var(--ivory);
-  border: none;
-  border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.calc-button:hover {
-  background: var(--gold);
-  transform: translateY(-2px);
-}
-
-.calc-result {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(184, 146, 74, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.calc-result-current,
-.calc-result-target {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.calc-result-arrow { font-size: 24px; color: var(--gold); }
-
-.calc-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--graphite);
-}
-
-.calc-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  color: var(--anthracite);
-}
-
-.calc-value.highlight {
-  color: var(--gold);
-  font-weight: 600;
-}
-
-.calc-result-gain {
-  margin-top: 16px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-style: italic;
-  color: var(--anthracite);
-  text-align: center;
-}
-
-.calc-result-gain strong {
-  color: var(--gold);
-  font-weight: 700;
-  font-style: normal;
-}
-
-.calc-cta-whatsapp {
-  display: inline-block;
-  margin-top: 24px;
-  padding: 16px 40px;
-  background: #25D366;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.calc-cta-whatsapp:hover {
-  background: #1FAD4F;
-  transform: translateY(-2px);
-}
-
-.calc-disclaimer {
-  margin-top: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  color: var(--graphite);
-  line-height: 1.7;
-  opacity: 0.7;
-  font-style: italic;
-  max-width: 440px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* ─── TARIFS LAUNCH ─── */
@@ -2553,21 +2090,6 @@ body.banner-visible .hero {
 }
 
 @media (max-width: 640px) {
-  .calculateur-simple { scroll-margin-top: 80px; }
-  .calc-simple-box { padding: 32px 20px; }
-  .calc-input-wrapper { overflow: hidden; flex-wrap: nowrap; }
-  #revenu-actuel {
-    font-size: 22px;
-    padding: 18px 16px;
-    text-align: left;
-    -webkit-appearance: none;
-    appearance: none;
-    min-height: 60px;
-    min-width: 0;
-    box-sizing: border-box;
-  }
-  .calc-input-suffix { padding: 0 14px; font-size: 12px; flex-shrink: 0; }
-  .calc-value { font-size: 28px; }
   .pack-launch-card { padding: 48px 24px; }
   .pack-launch-price-new { font-size: 48px; }
 
@@ -2852,16 +2374,6 @@ body.banner-visible .hero {
   .ba-metric-after { font-size: 18px; }
 }
 
-.calc-credibility-note {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  color: #8B7B6B;
-  font-style: italic;
-  letter-spacing: 0.5px;
-  margin-top: 8px;
-  opacity: 0.8;
-}
-
 /* ── MODAL MENTIONS LÉGALES ── */
 .modal-overlay {
   position: fixed;
@@ -2944,7 +2456,6 @@ body.banner-visible .hero {
     <span class="nav-wordmark">JB <span>Sublim</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#calculateur">Calculateur</a></li>
     <li><a href="#methode">Méthode</a></li>
     <li><a href="#process">Comment ça marche</a></li>
     <li><a href="#tarifs">Tarifs</a></li>
@@ -2982,7 +2493,6 @@ body.banner-visible .hero {
     <p class="hero-sub">La plupart des annonces Airbnb tournent à 40–50% de leur potentiel réel. On identifie ce qui bloque, on corrige, et les résultats arrivent en moins de 5 jours. Sans déplacement. Sans commission à vie.</p>
     <div class="hero-actions">
       <a href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20un%20diagnostic%20gratuit%20de%20mon%20annonce%20Airbnb." class="btn-primary" target="_blank"><span>Diagnostic gratuit →</span></a>
-      <a href="#calculateur" class="btn-secondary">Calculer mon potentiel</a>
     </div>
     <div class="hero-trust">
       <div class="trust-item"><div class="trust-num">+90%</div><div class="trust-label">Revenus en hausse</div></div>
@@ -3222,72 +2732,6 @@ body.banner-visible .hero {
   </div>
 </section>
 
-<section class="calculateur-simple" id="calculateur">
-  <div class="container">
-    <div class="section-label">DIAGNOSTIC RAPIDE</div>
-    <h2 class="section-title">
-      Combien votre Airbnb<br>
-      <em>devrait-il vraiment générer ?</em>
-    </h2>
-    <p class="section-subtitle">
-      Indiquez vos revenus mensuels actuels,
-      découvrez votre potentiel réel.
-    </p>
-
-    <div class="calc-simple-box">
-      <div class="calc-input-group">
-        <label for="revenu-actuel">Vos revenus Airbnb actuels</label>
-        <div class="calc-input-wrapper">
-          <input
-            type="number"
-            id="revenu-actuel"
-            placeholder="1 200"
-            min="0"
-            step="50"
-          >
-          <span class="calc-input-suffix">€/mois</span>
-        </div>
-      </div>
-
-      <button class="calc-button" onclick="calculerPotentiel()">
-        Calculer mon potentiel
-      </button>
-
-      <div class="calc-result" id="calc-result" style="display:none;">
-        <div class="calc-result-current">
-          <span class="calc-label">Aujourd'hui</span>
-          <span class="calc-value" id="calc-current">—</span>
-        </div>
-        <div class="calc-result-arrow">→</div>
-        <div class="calc-result-target">
-          <span class="calc-label">Avec optimisation</span>
-          <span class="calc-value highlight" id="calc-target">—</span>
-        </div>
-        <div class="calc-result-gain">
-          <strong id="calc-gain">—</strong>
-          <span id="calc-gain-suffix"> que vous laissez sur la table chaque année</span>
-          <span id="calc-gain-alt" style="display:none; font-style:italic; color:var(--graphite); font-size:14px;">Votre bien nécessite une analyse sur-mesure — Jamil évalue votre potentiel réel.</span>
-        </div>
-        <p class="calc-credibility-note">
-          Estimation basée sur nos interventions sur des biens similaires. Chaque bien est unique — votre potentiel exact est établi lors du diagnostic.
-        </p>
-        <a
-          href="https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20viens%20de%20faire%20l%27estimation%20sur%20le%20site.%20J%27aimerais%20en%20savoir%20plus%20sur%20le%20potentiel%20de%20mon%20bien."
-          class="calc-cta-whatsapp"
-          target="_blank"
-        >
-          Diagnostic gratuit →
-        </a>
-        <p class="calc-disclaimer">
-          Cette projection est indicative. Chaque bien est unique —
-          votre potentiel exact sera établi sur la base d'une analyse
-          personnalisée de votre marché et de votre environnement concurrentiel.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
@@ -3488,7 +2932,6 @@ body.banner-visible .hero {
       <div class="footer-accordion">
         <div class="footer-col-title">Navigation <span class="ft-icon">+</span></div>
         <ul class="footer-links">
-          <li><a href="#calculateur">Calculateur</a></li>
           <li><a href="#methode">Méthode</a></li>
           <li><a href="#process">Comment ça marche</a></li>
           <li><a href="#tarifs">Tarifs</a></li>
@@ -3556,55 +2999,6 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// CALCULATOR — calibrated on real prévisionnels: T2 Écusson 2vy = 1422€ → 2689€
-const calcState = { quartier: null, type: null, capacite: null, typeBase: null, typeOpt: null };
-
-document.querySelectorAll('.calc-options').forEach(group => {
-  const groupName = group.dataset.group;
-  group.querySelectorAll('.calc-option').forEach(btn => {
-    btn.addEventListener('click', () => {
-      group.querySelectorAll('.calc-option').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      if (groupName === 'quartier') calcState.quartier = parseFloat(btn.dataset.mult);
-      else if (groupName === 'type') {
-        calcState.typeBase = parseFloat(btn.dataset.base);
-        calcState.typeOpt = parseFloat(btn.dataset.opt);
-      }
-      else if (groupName === 'capacite') calcState.capacite = parseFloat(btn.dataset.cap);
-      updateResult();
-    });
-  });
-});
-
-function formatEuro(n) { return new Intl.NumberFormat('fr-FR').format(Math.round(n)) + ' €'; }
-
-function updateResult() {
-  const empty = document.getElementById('resultEmpty');
-  const active = document.getElementById('resultActive');
-  if (!calcState.quartier || !calcState.typeBase || !calcState.capacite) {
-    empty.style.display = 'block';
-    active.classList.remove('visible');
-    return;
-  }
-  // Données calibrées sur prévisionnels réels :
-  // T2 standard 2vy : 79€/nuit × 60% occupation × 30j = 1422€
-  // T2 optimisé 2vy : 108€/nuit × 83% occupation × 30j = 2689€
-  const occupancyCurrent = 0.60;
-  const occupancyOptimized = 0.83;
-
-  const currentMonthly = calcState.typeBase * calcState.quartier * calcState.capacite * 30 * occupancyCurrent;
-  const optimizedMonthly = calcState.typeOpt * calcState.quartier * calcState.capacite * 30 * occupancyOptimized;
-  const gainMonth = optimizedMonthly - currentMonthly;
-  const gainYear = gainMonth * 12;
-
-  document.getElementById('currentAmount').textContent = formatEuro(currentMonthly);
-  document.getElementById('optimizedAmount').textContent = formatEuro(optimizedMonthly);
-  document.getElementById('gainMonth').textContent = '+ ' + formatEuro(gainMonth);
-  document.getElementById('gainYear').textContent = formatEuro(gainYear);
-  empty.style.display = 'none';
-  active.classList.add('visible');
-}
-
 // BANNER DISMISS
 (function() {
   const banner = document.getElementById('launchBanner');
@@ -3622,53 +3016,6 @@ function updateResult() {
     });
   }
 })();
-
-// CALCULATEUR SIMPLE
-function calculerPotentiel() {
-  const input = document.getElementById('revenu-actuel');
-  const value = parseFloat(input.value);
-  const gainSuffix = document.getElementById('calc-gain-suffix');
-  const gainAlt = document.getElementById('calc-gain-alt');
-  const result = document.getElementById('calc-result');
-  const cta = document.querySelector('.calc-cta-whatsapp');
-
-  if (!value || value <= 0) {
-    input.style.boxShadow = '0 0 0 2px #dc2626';
-    setTimeout(() => { input.style.boxShadow = ''; }, 1500);
-    return;
-  }
-
-  if (value < 300) {
-    document.getElementById('calc-current').textContent = '— €';
-    document.getElementById('calc-target').textContent = '— €';
-    document.getElementById('calc-gain').textContent = '';
-    gainSuffix.style.display = 'none';
-    gainAlt.style.display = 'inline';
-    cta.href = 'https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20j%27aimerais%20discuter%20du%20potentiel%20de%20mon%20bien.';
-    result.style.display = 'flex';
-    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
-  }
-
-  const target = Math.round(value * 1.7);
-  const gainAnnuel = (target - value) * 12;
-
-  document.getElementById('calc-current').textContent = value.toLocaleString('fr-FR') + ' €';
-  document.getElementById('calc-target').textContent = target.toLocaleString('fr-FR') + ' €';
-  document.getElementById('calc-gain').textContent = '+' + gainAnnuel.toLocaleString('fr-FR') + ' €';
-  gainSuffix.style.display = 'inline';
-  gainAlt.style.display = 'none';
-
-  cta.href = 'https://wa.me/33658797037?text=Bonjour%20Jamil%2C%20je%20viens%20de%20faire%20l%27estimation%20sur%20le%20site.%20Mes%20revenus%20actuels%20sont%20de%20'
-    + value + '%E2%82%AC%2Fmois.%20J%27aimerais%20en%20savoir%20plus%20sur%20le%20potentiel%20de%20mon%20bien.';
-
-  result.style.display = 'flex';
-  result.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-document.getElementById('revenu-actuel')?.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') calculerPotentiel();
-});
 
 // FOOTER ACCORDION (mobile)
 document.querySelectorAll('.footer-accordion .footer-col-title').forEach(title => {
