@@ -2993,7 +2993,7 @@ body.banner-visible .hero {
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="nav-logo">
-          <img src="logos/logo-officiel-fond%20transparent.png" alt="JB Sublim" class="logo-mark">
+          <img src="logos/logo-officiel-fond-transparent.png" alt="JB Sublim" class="logo-mark">
         </a>
         <p class="footer-tagline">Optimisation d'annonces Airbnb — France & international. Revenus maximisés, zéro effort pour le propriétaire.</p>
         <p class="footer-legal-info">
@@ -3055,7 +3055,9 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
+    const href = a.getAttribute('href');
+    if (href === '#') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    const target = document.querySelector(href);
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
