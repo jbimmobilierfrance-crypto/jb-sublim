@@ -990,20 +990,37 @@ section { padding: 130px 0; position: relative; }
 }
 
 .about-visual {
-  background: linear-gradient(135deg, var(--cream) 0%, var(--ivory-warm) 100%);
+  background: linear-gradient(
+    155deg,
+    #FDFAF3 0%,
+    #F7EDD8 38%,
+    #EFE0C0 68%,
+    #F5EBD3 100%
+  );
   padding: 72px 52px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(184, 146, 74, 0.28);
+  border-top: 3px solid var(--gold);
   position: relative;
   text-align: center;
   overflow: hidden;
+  box-shadow: 0 16px 64px rgba(184, 146, 74, 0.14), 0 2px 12px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 .about-visual::before {
   content: '';
   position: absolute;
-  top: -40%; left: -40%;
-  width: 80%; height: 80%;
-  background: radial-gradient(circle, rgba(184, 146, 74, 0.1) 0%, transparent 70%);
+  top: -30%; left: -20%;
+  width: 90%; height: 90%;
+  background: radial-gradient(circle at 40% 40%, rgba(184, 146, 74, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.about-visual::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; right: -20%;
+  width: 70%; height: 70%;
+  background: radial-gradient(circle, rgba(184, 146, 74, 0.10) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -1062,29 +1079,29 @@ section { padding: 130px 0; position: relative; }
   line-height: 1.5;
   margin-bottom: 36px;
   position: relative;
-  padding: 0 12px;
+  padding: 8px 52px;
 }
 
 .about-quote::before,
 .about-quote::after {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 72px;
+  font-size: 80px;
   line-height: 0;
   color: var(--gold);
-  opacity: 0.7;
+  opacity: 0.65;
   position: absolute;
 }
 
 .about-quote::before {
   content: '\201C';
-  top: 28px;
-  left: -8px;
+  top: 30px;
+  left: 4px;
 }
 
 .about-quote::after {
   content: '\201D';
-  bottom: -12px;
-  right: -8px;
+  bottom: -6px;
+  right: 4px;
 }
 
 .about-quote-author {
@@ -1638,8 +1655,14 @@ footer {
   .levier-card { padding: 36px 20px; }
   .levier-number { font-size: 56px; top: 20px; right: 20px; }
   .process-grid { grid-template-columns: 1fr; }
-  .about-visual { padding: 44px 24px; }
-  .about-quote { font-size: 20px; }
+  .about-visual { padding: 44px 20px; }
+  .about-quote { font-size: 20px; padding: 8px 44px; }
+  .about-quote::before,
+  .about-quote::after { font-size: 62px; }
+  .about-quote::before { top: 22px; left: 2px; }
+  .about-quote::after { bottom: -4px; right: 2px; }
+  .about-grid > div:last-child .eyebrow { display: flex; justify-content: center; }
+  .about-grid > div:last-child .about-text { text-align: center; }
   .faq-question { font-size: 16px; }
   .cta-final { padding: 90px 24px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
