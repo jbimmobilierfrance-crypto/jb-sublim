@@ -2091,11 +2091,166 @@ body.banner-visible .hero {
 
 
 @media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
   .launch-banner { padding: 10px 16px; font-size: 12px; text-align: center; }
   .launch-banner-inner { justify-content: center; gap: 10px; }
   .launch-banner-cta { margin-top: 4px; }
-  .leviers-grid { grid-template-columns: 1fr; gap: 16px; }
   .hero-logo-circle { width: 160px; height: 160px; margin-bottom: 24px; }
+
+  /* Section padding max 50px */
+  section { padding-top: 50px; padding-bottom: 50px; }
+
+  /* CTA buttons full width */
+  .btn-primary, .btn-secondary, .pack-launch-cta, .pack-launch-cta-secondary {
+    width: 100%;
+    display: block;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .btn-primary { justify-content: center; }
+
+  /* ── ACCORDION : Pourquoi votre annonce stagne ── */
+  .problem-grid { gap: 0; }
+  .problem-card {
+    border: 1px solid #B8924A;
+    border-top: none;
+    border-radius: 0;
+    padding: 0;
+  }
+  .problem-card:first-child { border-top: 1px solid #B8924A; }
+  .problem-card .problem-icon-wrap { display: none; }
+  .problem-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    margin-bottom: 0;
+    font-size: 18px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .problem-title::after {
+    content: '+';
+    color: #B8924A;
+    font-size: 22px;
+    font-weight: 300;
+    flex-shrink: 0;
+    margin-left: 12px;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .problem-card.mob-open .problem-title::after { content: '−'; }
+  .problem-text, .problem-stat {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 16px;
+  }
+  .problem-card.mob-open .problem-text { max-height: 200px; padding: 0 16px 8px; }
+  .problem-card.mob-open .problem-stat { max-height: 60px; padding: 0 16px 16px; }
+
+  /* ── ACCORDION : Trois leviers ── */
+  .leviers-grid { grid-template-columns: 1fr; gap: 0; }
+  .levier-card {
+    border: 1px solid #B8924A;
+    border-top: none;
+    border-radius: 0;
+    padding: 0;
+    transform: none !important;
+    transition: none;
+  }
+  .levier-card:first-child { border-top: 1px solid #B8924A; }
+  .levier-number { display: none; }
+  .levier-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    margin-bottom: 0;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .levier-title::after {
+    content: '+';
+    color: #B8924A;
+    font-size: 22px;
+    font-weight: 300;
+    flex-shrink: 0;
+    margin-left: 12px;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .levier-card.mob-open .levier-title::after { content: '−'; }
+  .levier-subtitle, .levier-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 16px;
+  }
+  .levier-card.mob-open .levier-subtitle { max-height: 60px; padding: 0 16px 4px; }
+  .levier-card.mob-open .levier-text { max-height: 150px; padding: 0 16px 16px; }
+
+  /* ── ACCORDION : Comment ça se passe ── */
+  .process-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .process-step {
+    border: 1px solid #B8924A;
+    border-top: none;
+    border-radius: 0;
+    padding: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .process-step:first-child { border-top: 1px solid #B8924A; }
+  .process-num {
+    width: 36px;
+    height: 36px;
+    font-size: 11px;
+    margin: 14px 0 14px 16px;
+    flex-shrink: 0;
+  }
+  .process-title {
+    flex: 1;
+    margin: 0;
+    font-size: 18px;
+    padding: 14px 16px 14px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .process-title::after {
+    content: '+';
+    color: #B8924A;
+    font-size: 22px;
+    font-weight: 300;
+    flex-shrink: 0;
+    margin-left: 12px;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .process-step.mob-open .process-title::after { content: '−'; }
+  .process-text, .process-time {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 16px;
+  }
+  .process-step.mob-open .process-text { max-height: 150px; padding: 0 16px 8px; }
+  .process-step.mob-open .process-time { max-height: 40px; padding: 0 16px 14px; }
 }
 
 @media (max-width: 640px) {
@@ -2377,8 +2532,19 @@ body.banner-visible .hero {
   .ba-stat-number { font-size: 36px; }
   .ba-testimonial { padding: 24px 20px; }
   .ba-testimonial blockquote { font-size: 18px; }
-  .ba-metrics { padding: 20px 16px; gap: 0; }
-  .ba-metric { padding: 0 10px; }
+  .ba-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 92vw;
+    max-width: 92vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px;
+    gap: 20px;
+    overflow: hidden;
+  }
+  .ba-metric-div { display: none; }
+  .ba-metric { padding: 0; text-align: center; }
   .ba-metric-before { font-size: 14px; }
   .ba-metric-after { font-size: 18px; }
 }
@@ -2672,7 +2838,7 @@ body.banner-visible .hero {
       </a>
 
       <a
-        href="https://app.qonto.com/pay/jbimmobilier"
+        href="https://pay.qonto.com/payment-links/019e082e-3e2f-7e88-9212-e4a73bd8fc0d?resource_id=019e082e-3e31-7206-b52f-1ddb5e9764ba"
         class="pack-launch-cta-secondary"
         target="_blank"
         rel="noopener"
@@ -2844,7 +3010,7 @@ body.banner-visible .hero {
       <div class="about-visual fade-in">
         <div class="about-mark">"</div>
         <div class="about-initials">
-          <img src="logos/logo-monogram.png" alt="JB Sublim" class="about-initials-img">
+          <img src="logos/Logo rond.jpg" alt="JB Sublim" class="about-initials-img">
         </div>
         <p class="about-quote">Un appartement bien présenté n'est pas une dépense. C'est l'investissement le plus rentable qu'un propriétaire puisse faire.</p>
         <div class="about-quote-author">Jamil</div>
@@ -2877,28 +3043,28 @@ body.banner-visible .hero {
       </div>
       <div class="faq-list fade-in">
         <div class="faq-item">
-          <div class="faq-question"><span>Combien de temps avant de voir des résultats ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">Les premiers effets sont visibles dès les premières semaines suivant la mise en ligne. Nos clients constatent en moyenne +90 % de revenus sur leurs deux premiers mois. Chaque bien est différent — c'est pourquoi nous commençons toujours par une analyse personnalisée.</div>
+          <div class="faq-question"><span>Comment se déroule concrètement votre intervention ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Tout commence par un appel stratégique de 25 minutes. J'analyse votre situation, votre marché, votre potentiel réel. Si on travaille ensemble, je prends en charge l'optimisation complète : annonce, photos, pricing, algorithme. Vous n'avez rien à exécuter. 60 jours de suivi inclus.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Faut-il que je fasse quelque chose de mon côté ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">Dans certains cas, oui — nous identifions les ajustements qui auront le plus d'impact sur votre bien. Nous vous préparons un plan précis avec des recommandations concrètes. Pas de gros travaux, pas de budget disproportionné — juste les bons gestes au bon endroit.</div>
+          <div class="faq-question"><span>En combien de temps verrai-je des résultats ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Les premiers effets sont visibles dès les premières semaines. Mes clients constatent en moyenne +90% de revenus sur les deux premiers mois. La majorité voit son taux d'occupation doubler avant J+30.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Intervenez-vous uniquement en France ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">Nous intervenons partout en France et à l'international, notamment au Maroc. Si vous avez un bien ailleurs, parlez-nous de votre situation — nous étudions chaque dossier individuellement.</div>
+          <div class="faq-question"><span>Et si ça ne fonctionne pas pour mon bien ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Garantie 60 jours sans condition. Si vos revenus n'augmentent pas suffisamment pour couvrir la prestation, je continue gratuitement jusqu'à ce que ce soit le cas. Le risque est entièrement de mon côté.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Mon annonce est déjà en ligne, vous pouvez l'améliorer ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">C'est même notre cas de figure le plus courant. Qu'elle génère déjà des revenus ou qu'elle peine à décoller — nous prenons votre annonce telle quelle et la transformons. L'analyse initiale nous permet d'identifier exactement où se situe le potentiel inexploité.</div>
+          <div class="faq-question"><span>Pourquoi pas une conciergerie classique ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Une conciergerie prend 20 à 30% de vos revenus à vie et gère uniquement la logistique. Moi j'optimise votre annonce commercialement — ce qui détermine si votre calendrier se remplit. Forfait unique, aucune commission, vous gardez 100% de vos revenus supplémentaires.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Et si les résultats ne sont pas au rendez-vous ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">C'est précisément pour ça qu'on a créé la garantie 60 jours. Si vos revenus n'ont pas augmenté suffisamment pour couvrir notre prestation, on continue à travailler avec vous gratuitement jusqu'à ce que ce soit le cas. Zéro risque de votre côté.</div>
+          <div class="faq-question"><span>Mon annonce est déjà en ligne, ça change quelque chose ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Aucune importance. J'interviens autant sur des annonces existantes que sur des lancements. L'audit révèle exactement ce qui freine votre potentiel dans les deux cas.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Vous prenez une commission sur mes revenus ?</span><div class="faq-toggle"></div></div>
-          <div class="faq-answer">Non. Notre modèle est simple : une prestation forfaitaire, un tarif unique, aucune commission récurrente. Vous gardez 100% de vos revenus supplémentaires. C'est la différence entre un partenaire aligné avec vos intérêts et une conciergerie qui s'enrichit quand vous vous enrichissez.</div>
+          <div class="faq-question"><span>Intervenez-vous dans toute la France ?</span><div class="faq-toggle"></div></div>
+          <div class="faq-answer">Oui — partout en France et au Maroc. J'interviens à distance via WhatsApp et visio, votre localisation n'est pas un frein.</div>
         </div>
       </div>
     </div>
@@ -3052,6 +3218,23 @@ function closeModal() {
 document.getElementById('closeModal').addEventListener('click', closeModal);
 modalMentions.addEventListener('click', e => { if (e.target === modalMentions) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// MOBILE ACCORDIONS
+(function() {
+  if (!window.matchMedia('(max-width: 768px)').matches) return;
+  document.querySelectorAll('.problem-card').forEach(function(card) {
+    var t = card.querySelector('.problem-title');
+    if (t) t.addEventListener('click', function() { card.classList.toggle('mob-open'); });
+  });
+  document.querySelectorAll('.levier-card').forEach(function(card) {
+    var t = card.querySelector('.levier-title');
+    if (t) t.addEventListener('click', function() { card.classList.toggle('mob-open'); });
+  });
+  document.querySelectorAll('.process-step').forEach(function(card) {
+    var t = card.querySelector('.process-title');
+    if (t) t.addEventListener('click', function() { card.classList.toggle('mob-open'); });
+  });
+})();
 
 // SCROLL TO TOP BUTTON
 const scrollTopBtn = document.getElementById('scrollTop');
