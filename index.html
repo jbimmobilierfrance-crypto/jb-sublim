@@ -325,9 +325,9 @@ nav.scrolled {
   inset: 0;
   background: linear-gradient(
     170deg,
-    rgba(26, 26, 26, 0.52) 0%,
-    rgba(26, 26, 26, 0.38) 45%,
-    rgba(26, 26, 26, 0.58) 100%
+    rgba(26, 26, 26, 0.68) 0%,
+    rgba(26, 26, 26, 0.55) 50%,
+    rgba(26, 26, 26, 0.72) 100%
   );
   z-index: 1;
 }
@@ -463,14 +463,15 @@ nav.scrolled {
 
 .hero-sub {
   font-size: 17px;
-  color: rgba(250, 247, 240, 0.88);
+  color: var(--ivory);
   line-height: 1.85;
-  max-width: 620px;
+  max-width: 600px;
   margin: 0 auto 56px;
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 1s;
-  font-weight: 300;
-  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  text-shadow: 0 1px 20px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.01em;
 }
 
 .hero-actions {
@@ -1784,8 +1785,8 @@ body.banner-visible .hero {
   line-height: 1;
   font-style: italic;
   position: absolute;
-  top: 28px;
-  right: 28px;
+  top: 12px;
+  right: 24px;
 }
 
 .levier-title {
@@ -2130,7 +2131,7 @@ body.banner-visible .hero {
   /* Leviers */
   .leviers-grid { grid-template-columns: 1fr; gap: 14px; }
   .levier-card { padding: 28px 22px; transform: none !important; }
-  .levier-number { display: block; }
+  .levier-number { display: block; position: relative; top: 0; right: 0; font-size: 52px; margin-bottom: 12px; color: rgba(184,146,74,0.25); }
   .levier-title { cursor: default; padding: 0; margin-bottom: 8px; }
   .levier-title::after { display: none; }
 
@@ -2431,13 +2432,13 @@ body.banner-visible .hero {
   .ba-metrics {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 90vw;
-    max-width: 90vw;
-    margin: 0 auto;
-    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 32px;
+    padding: 20px 16px;
     gap: 16px;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 8px;
     box-sizing: border-box;
   }
   .ba-metric-div { display: none; }
@@ -2541,33 +2542,14 @@ body.banner-visible .hero {
 </nav>
 
 <section class="hero">
-  <div class="hero-bg-glow"></div>
-
-  <div class="hero-deco">
-    <svg class="hero-deco-1" viewBox="0 0 280 280" fill="none">
-      <circle cx="140" cy="140" r="138" stroke="#B8924A" stroke-width="0.6"/>
-      <circle cx="140" cy="140" r="100" stroke="#B8924A" stroke-width="0.6"/>
-      <circle cx="140" cy="140" r="62" stroke="#B8924A" stroke-width="0.6"/>
-      <polygon points="140,30 250,140 140,250 30,140" stroke="#B8924A" stroke-width="0.8" fill="none"/>
-    </svg>
-    <svg class="hero-deco-2" viewBox="0 0 200 200" fill="none">
-      <polygon points="100,10 190,100 100,190 10,100" stroke="#B8924A" stroke-width="0.6" fill="none"/>
-      <polygon points="100,40 160,100 100,160 40,100" stroke="#B8924A" stroke-width="0.6" fill="none"/>
-      <circle cx="100" cy="100" r="20" stroke="#B8924A" stroke-width="0.6" fill="none"/>
-    </svg>
-  </div>
-
   <div class="hero-content">
-    <div class="hero-logo-circle">
-      <img src="logos/Logo rond.jpg" alt="JB Sublim" class="hero-logo-img">
-    </div>
     <div class="hero-badge">Spécialiste Location Courte Durée · France & Maroc</div>
     <h1 class="hero-title">
       <span class="hero-line">Votre Airbnb perd</span>
       <span class="hero-line">de l'argent.</span>
       <span class="hero-line"><span class="hero-amount">On sait exactement pourquoi.</span></span>
     </h1>
-    <p class="hero-sub">La plupart des annonces Airbnb tournent à 40–50% de leur potentiel réel. On identifie ce qui bloque, on corrige, et les résultats arrivent en moins de 5 jours. Sans déplacement. Sans commission à vie.</p>
+    <p class="hero-sub">Ce n'est pas votre bien qui ne convainc pas — c'est votre annonce. On identifie exactement ce qui freine vos réservations et on le corrige en 5 jours. Sans déplacement. Sans commission à vie.</p>
     <div class="hero-actions">
       <a href="https://calendly.com/jbimmobilier-france/appel-strategique-jb-sublim" class="btn-primary" target="_blank" rel="noopener"><span>Réserver mon appel stratégique →</span></a>
     </div>
@@ -2927,10 +2909,6 @@ body.banner-visible .hero {
   <div class="container">
     <div class="about-grid">
       <div class="about-visual fade-in">
-        <div class="about-mark">"</div>
-        <div class="about-initials">
-          <img src="logos/Logo rond.jpg" alt="JB Sublim" class="about-initials-img">
-        </div>
         <p class="about-quote">Un appartement bien présenté n'est pas une dépense. C'est l'investissement le plus rentable qu'un propriétaire puisse faire.</p>
         <div class="about-quote-author">Jamil</div>
         <div class="about-quote-role">Fondateur — JB Sublim</div>
