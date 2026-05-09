@@ -1062,6 +1062,29 @@ section { padding: 130px 0; position: relative; }
   line-height: 1.5;
   margin-bottom: 36px;
   position: relative;
+  padding: 0 12px;
+}
+
+.about-quote::before,
+.about-quote::after {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  line-height: 0;
+  color: var(--gold);
+  opacity: 0.7;
+  position: absolute;
+}
+
+.about-quote::before {
+  content: '\201C';
+  top: 28px;
+  left: -8px;
+}
+
+.about-quote::after {
+  content: '\201D';
+  bottom: -12px;
+  right: -8px;
 }
 
 .about-quote-author {
@@ -2993,7 +3016,7 @@ body.banner-visible .hero {
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="nav-logo">
-          <img src="logos/logo-officiel-fond-transparent.png" alt="JB Sublim" class="logo-mark">
+          <span class="nav-wordmark">JB <span>Sublim</span></span>
         </a>
         <p class="footer-tagline">Optimisation d'annonces Airbnb — France & international. Revenus maximisés, zéro effort pour le propriétaire.</p>
         <p class="footer-legal-info">
